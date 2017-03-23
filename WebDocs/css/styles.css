@@ -1,0 +1,92 @@
+body{
+	background: #8b041d;
+	height:100%;
+}
+.col-md-7{
+	background: #e2d5d7;
+	height: 80%
+	
+}
+container{
+	height: 100%;
+}
+h1{
+	font-size:24px;
+}
+/*h2,h3,h4,h5{
+   font-size: 16px;
+}*/
+.col-6{
+	background: #e2d5d7;
+	height:400;
+
+}
+#scroller{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 186px;
+}
+#groupheader{
+	background:#000000;
+}
+h2{
+	color:white;
+}
+h3{
+	font-size=16px;
+}
+h4{
+	color:black;
+	font-size=24px;
+}
+#button{
+	background:#000000;
+}
+#parent{
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*#form_login{*/
+	/*display: table-cell;
+	text-align: center;
+	vertical-align: middle;*/
+/*}*/
+/*.navbar-inverse {
+    background: #9E1B34;
+}*/
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h5 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+#login_header{
+	background-color:white;
+}
+
+.panel> .panel-heading{
+	background-color: white;
+}
