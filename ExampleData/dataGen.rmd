@@ -1,0 +1,295 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+set.seed(12345)
+features = list(
+  food = list(bigPortions = FALSE,
+                greasy = FALSE,
+                sugary = FALSE,
+                fancy = FALSE,
+                healthy = FALSE),
+  menu = list(bigMenu = FALSE,
+                smallMenu = FALSE,
+                pizza = FALSE,
+                icecream = FALSE,
+                burgers = FALSE,
+                seafood = FALSE,
+                steak = FALSE,
+                vegan = FALSE),
+  service = list(quick = FALSE,
+                   frequent = FALSE,
+                   friendly = FALSE,
+                   fancy = FALSE)
+)
+nFeatures <- 0
+for(feature in features){
+     for(pref in names(feature)){
+        nFeatures <- nFeatures + 1
+     }
+  }
+
+#PizzaJoe <- User(0, "Pizza Joe", list(bigPortions=.75, greasy = .75, pizza=1, quick=.5))
+#Bellas <- Restaurant(0, "Bellas", list(bigPortions = .8, greasy = .75, pizza = 1, quick = .9))
+
+User <- function(id, name, preferences){
+  me <- list(
+    ID = id,
+    NAME = name,
+    Reveiws = list(),
+    Preferences = rep(preferences)
+    
+  )
+  class(me) <- append(class(me),"User")
+  
+  return(me)
+}
+Restaurant <- function(id, name, qualities){
+  me <- list(
+    ID = id,
+    NAME = name,
+    Reviews = list(),
+    Qualities = rep(qualities)
+    
+  )
+  class(me) <- append(class(me),"Restaurant")
+  
+  return(me)
+}
+
+Review <- function(user, restaurant){
+  review <- list()
+  for(feature in names(features)){
+    review[feature] <- rateFeature(user, restaurant, feature)
+  }
+  review["userID"] = user$ID
+  review["restaurantID"] = restaurant$ID
+  #review <- list(
+  #  food = ratefood(user, restaurant),
+  #  menu = ratemenu(user, restaurant),
+  #  service = rateservice(user, restaurant)
+  #)
+  class(review) <- append(class(review), "Review")
+  return(review)
+}
+
+
+rateFeature <- function(user, restaurant, feature){
+  prefs <- user$Preferences
+  quals <- restaurant$Qualities
+  max <- 0
+  rating <- 0
+  for(qual in names(features[[feature]])){
+    if(!(is.null(prefs[[qual]]))){
+      rating <- rating + prefs[[qual]] * if(is.null(quals[[qual]])) {0} else {quals[[qual]]}
+      max <- max + abs(prefs[[qual]])
+    }
+  }
+  randomized <- rnorm(1, mean = rating/max, sd = 0.0) #alter sd to randomize behaviour according to normal dist
+  if (randomized >= 1){
+    randomized <- 1
+  }
+  if(randomized <= -1){
+    randomized <- -1
+  }
+  return(randomized)
+}
+
+#basic test pair
+PizzaJoe <- User(0, "Pizza Joe", list(bigPortions=.85, greasy = .75, pizza=1, quick=.5))
+Bellas <- Restaurant(0, "Pizza Bellas", list(bigPortions = .8, greasy = 1, pizza = 1, quick = .9))
+rateFeature(PizzaJoe, Bellas, feature = "food")
+
+makeNames <- function(n = 1){
+  first <- c("Alex", "Brandon", "Cary", "Deirdra", "Evan", "Fred", "Gina", "Helen", "Isaac", "Joyce",
+            "John", "Kelly","Larry", "Lili", "Monica", "Nancy", "Olaf", "Peter", "Quincy", "Ryan", "Shreya",
+            "Tom", "Urey", "Vera", "Will", "Yenn", "Zack")
+  last <- c("Anderson", "Baker", "Carlisle", "Davison", "Erlich", "Ford", "Gore", "Holly", "Ines", "Jacobs",
+            "Johnson", "Kerry", "Landow", "Malik", "Neumann", "Orange", "Peterson", "Quail", "Rich", "Sherman",
+            "Tusa", "Thorne", "Ulam", "Von", "Wilcox", "Xander", "Yom", "Zaff")
+  usernames <- paste(sample(first,n,replace = TRUE), sample(last,n, replace = TRUE), sep=" ")
+  return(usernames)
+}
+makePrefs <- function(positive = F){
+  #possible <- c(names(foodList), names(menuList), names(serviceList), ...)
+  prefs <- list()
+  for(feature in features){
+     for(pref in names(feature)){
+        if(positive){
+          prefs[[pref]] <- runif(1, min = 0, max = 1)
+        } else {
+          prefs[[pref]] <- runif(1, min = -1, max = 1)
+        }
+     }
+  }
+  return(prefs)
+}
+
+makeBiasedPrefs <- function(avg = 0){
+  for(feature in features){
+     for(pref in names(feature)){
+        randomized <- rnorm(1, mean = avg, sd = .1)
+        if(randomized > 1){
+          randomized <- 1
+        }
+        if(randomized < -1){
+          randomized <- -1
+        }
+        prefs[[pref]] <- randomized
+     }
+  }
+  return(prefs)
+}
+makeFeaturePrefs <- function(avg = 0, numFeature = 0, bias = 0){
+  specialties <- sample(c(1:nFeatures), numFeature)
+  i <- 1
+  for(feature in features){
+     for(pref in names(feature)){
+        if(i %in% specialties){
+          randomized <- rnorm(1, mean = avg + bias, sd = .1)
+          if(randomized > 1){
+            randomized <- 1
+          }
+          if(randomized < -1){
+            randomized <- -1
+          }
+          prefs[[pref]] <- randomized
+        } else {
+          randomized <- rnorm(1, mean = avg, sd = .1)
+          if(randomized > 1){
+            randomized <- 1
+          }
+          if(randomized < -1){
+            randomized <- -1
+          }
+          prefs[[pref]] <- randomized
+        }
+       i <- i + 1
+      }
+  }
+  return(prefs)
+}
+
+makePrefsFromVec <- function(nums){
+  i <- 1
+  for(feature in features){
+     for(pref in names(feature)){
+        prefs[[pref]] <- nums[i]
+        i <- i + 1
+     }
+  }
+  return(prefs)
+}
+```
+Make some random users
+``` {r}
+set.seed(1234)
+
+N.users <- 1000
+usernames <- makeNames(N.users)
+users <- list()
+for(id in c(1:N.users)){
+  prefs <- makePrefs(positive = T)
+  users[[id]] <- User(id, usernames[id], prefs)
+}
+
+```
+Make some restaurants
+```{r}
+id <- 1
+numRest <- 50
+specialtyNum <- 6
+biasVal <- .8
+restaurants <- list()
+for (i in 1:(numRest/5)){
+  restaurants[[id]] <- Restaurant(id, paste("Terrible Restaurant",id, sep = " "), makeFeaturePrefs(avg = (-.5), numFeature = specialtyNum, bias = biasVal))
+  id <- id +1
+}
+for (i in 1:(numRest/5)){
+  restaurants[[id]] <- Restaurant(id, paste("Bad Restaurant",id, sep = " "), makeFeaturePrefs(avg = (-.25), numFeature = specialtyNum, bias = biasVal))
+  id <- id +1
+}
+for (i in 1:(numRest/5)){
+  restaurants[[id]] <- Restaurant(id, paste("Mediocre Restaurant",id, sep = " "), makeFeaturePrefs(avg = (0), numFeature = specialtyNum, bias = biasVal))
+  id <- id +1
+}
+for (i in 1:(numRest/5)){
+  restaurants[[id]] <- Restaurant(id, paste("Good Restaurant",id, sep = " "), makeFeaturePrefs(avg = (.25), numFeature = specialtyNum, bias = biasVal))
+  id <- id +1
+}
+for (i in 1:(numRest/5)){
+  restaurants[[id]] <- Restaurant(id, paste("Great Restaurant",id, sep = " "), makeFeaturePrefs(avg = (.5), numFeature = specialtyNum, bias = biasVal))
+  id <- id +1
+}
+```
+Simulate reviews
+```{r}
+for(id in c(1:N.users)){
+  toReview <- sample(c(1:numRest),sample(c(3:25)), 1)
+  for (restId in toReview){
+    restaurants[[restId]]$Reviews[[id]] <- Review(users[[id]], restaurants[[restId]])
+  }
+}
+```
+
+```{r}
+for(id in c(1:N.users)){
+  Bellas$Reviews[[id]] <- Review(users[[id]], Bellas)
+}
+
+avg <- 0
+for(id in c(1:N.users)){
+  avg <- avg + Bellas$Reviews[[id]]$menu
+}
+avg <- avg / N.users
+
+Randiner <- Restaurant(0, "Randiner", makePrefs())
+
+for(id in c(1:N.users)){
+  Randiner$Reviews[[id]] <- Review(users[[id]], Randiner)
+}
+avg <- 0
+for(id in c(1:N.users)){
+  avg <- avg + Randiner$Reviews[[id]]$food
+}
+avg <- avg / N.users
+
+revs <- restaurants[[25]]$Reviews[!sapply(restaurants[[25]]$Reviews, is.null)]
+#allRevs <- restaurants[[49]]$Reviews[!sapply(restaurants[[49]]$Reviews, is.null)]
+hist(sapply(revs,"[[", 2))
+#hist(sapply(Randiner$Reviews,"[[", 1))
+
+```
+place data in tables (may take a while)
+```{r}
+reviewTable <- data.frame()
+for(restaurant in restaurants){
+  for(review in restaurant$Reviews){
+    reviewTable <- rbind(reviewTable, review)
+  }
+}
+restaurantTable <- data.frame()
+for(restaurant in restaurants){
+  restaurantTable <- rbind(restaurantTable, cbind(restaurant$NAME, restaurant$ID))
+}
+userTable <- data.frame()
+for(user in users){
+  userTable <- rbind(userTable, cbind(user$NAME, user$ID))
+}
+```
+publish data to files
+```{r}
+write.csv(reviewTable, "Reviews.csv")
+write.csv(restaurantTable, "Restaurants.csv")
+write.csv(userTable, "Users.csv")
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
