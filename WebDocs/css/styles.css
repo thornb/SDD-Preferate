@@ -7,6 +7,22 @@ body{
 	height: 80%
 	
 }
+
+.top-buffer{
+	margin-bottom: 10px;
+}
+
+.bottom-buffer{
+	background:#e2d5d7;
+	margin-bottom: 10px;
+}
+#breakrow{
+	height: 10px;
+}
+#review1{
+	background: #e2d5d7;
+	height:80%;
+}
 container{
 	height: 100%;
 }
@@ -86,7 +102,9 @@ h5 {
 #login_header{
 	background-color:white;
 }
-
+/*#review_row{
+	height: 500px;
+}*/
 .panel> .panel-heading{
 	background-color: white;
 }
