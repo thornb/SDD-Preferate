@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 3</title>
+        <meta name="viewport" content="width=device-width", initial-scale=1.0">
+        <link href ="css/bootstrap.min.css" rel ="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class = "navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <a href="#" class= "navbar-brand">Preferate</a>
+
+                <button class ="navbar-toggle" data-toggle ="collapse" data-target=".navHeaderCollapse">
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                </button>
+
+                <div class= "collapse navbar-collapse navHeaderCollapse">
+
+                    <ul class = "nav navbar-nav navbar-right">
+                        <!-- <li class="active"><a href= "#"></a></li> -->
+                        <li class="visited"><a href= "index.html">Home</a></li>
+                        <li class="visited"><a href= "friends.html">Friends</a></li>
+                        <li class="visited"><a href= "preferences_page.html">Preferences</a></li>
+                        <li class="visited"><a href= "review_page.html">Reviews</a></li> 
+                        <li class="active"><a href= "#">Suggestions</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </div> 
+
+        <div class="container top-buffer" align="center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" id="sug" data-target="#myModal" align="center" >
+                <h1>Make New Suggestion</h1>
+            </button>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel" align="center">New Suggestion</h1>
+              </div>
+              <div class="modal-body">
+                <h1>Friend(s) to send suggestions to:</h1>
+                <h1>Restaurant Name:</h1>
+                <h1>Comments:</h1>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send Suggestion</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+            <div class="row top-buffer" id="suggest_row">
+                <div class="col-md-2 align-left">
+                    <div><img src="user-default.png" class="img-responsive" alt="Cinque Terre" width="100" height="50"></div>
+                </div>
+                <div class="col-md-9">
+                    <h1>Suggestion Details</h1>
+                </div>
+            </div>
+             <div class="row top-buffer" id="suggest_row">
+                <div class="col-md-2 align-left">
+                    <div><img src="user-default.png" class="img-responsive" alt="Cinque Terre" width="100" height="50"></div>
+                </div>
+                <div class="col-md-9">
+                    <h1>Suggestion Details</h1>
+                </div>
+            </div>
+             <div class="row top-buffer" id="suggest_row">
+                <div class="col-md-2 align-left">
+                    <div><img src="user-default.png" class="img-responsive" alt="Cinque Terre" width="100" height="50"></div>
+                </div>
+                <div class="col-md-9">
+                    <h1>Suggestion Details</h1>
+                </div>
+            </div>
+             <div class="row top-buffer" id="suggest_row">
+                <div class="col-md-2 align-left">
+                    <div><img src="user-default.png" class="img-responsive" alt="Cinque Terre" width="100" height="50"></div>
+                </div>
+                <div class="col-md-9">
+                    <h1>Suggestion Details</h1>
+                </div>
+            </div>
+             <div class="row top-buffer" id="suggest_row">
+                <div class="col-md-2 align-left">
+                    <div><img src="user-default.png" class="img-responsive" alt="Cinque Terre" width="100" height="50"></div>
+                </div>
+                <div class="col-md-9">
+                    <h1>Suggestion Details</h1>
+                </div>
+            </div>
+        </div>
+
+
+ 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script> 
+    </body>
+
+</html>
