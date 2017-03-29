@@ -23,11 +23,21 @@ body{
 	background: #e2d5d7;
 	height:80%;
 }
+#sug{
+	background: #e2d5d7;
+}
+suggest{
+
+}
 container{
 	height: 100%;
 }
 h1{
 	font-size:24px;
+}
+
+#suggest_row{
+	background: #e2d5d7;
 }
 /*h2,h3,h4,h5{
    font-size: 16px;
@@ -35,7 +45,6 @@ h1{
 .col-6{
 	background: #e2d5d7;
 	height:400;
-
 }
 #scroller{
 	overflow-x: hidden;
