@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 3</title>
+        <meta name="viewport" content="width=device-width", initial-scale=1.0">
+        <link href ="css/bootstrap.min.css" rel ="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class = "navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <a href="#" class= "navbar-brand">Preferate</a>
+
+                <button class ="navbar-toggle" data-toggle ="collapse" data-target=".navHeaderCollapse">
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                </button>
+
+                <div class= "collapse navbar-collapse navHeaderCollapse">
+
+                    <ul class = "nav navbar-nav navbar-right">
+                        <!-- <li class="active"><a href= "#"></a></li> -->
+                        <li class="visited"><a href= "index.html">Home</a></li>
+                        <li class="visited"><a href= "friends.html">Friends</a></li>
+                        <li class="active"><a href= "#">Preferences</a></li>
+                        <li class="visited"><a href= "review_page.html">Reviews</a></li> 
+                        <li class="visited"><a href= "#">Suggestions</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </div> 
+
+        <form>
+          <div class="container">
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Do you have any of the dietary restrictions below?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Vegetarian
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Vegan
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                    Pescetarian
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option4">
+                    Gluten-Free
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="row" id="review1">
+                <div class="form-group">
+                    <label for="diet">Please List any other dietary preferences you may have not included on this list. </label>
+                    <input type="diet" class="form-control" id="diet_type" aria-describedby="food">
+                   <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+            </div>
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Are you allergic to any of the following?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                    Milk
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                    Peanuts
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                    Eggs
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                    Wheat
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script> 
+<!--        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/bootstrap.js"></script> -->
+    </body>
