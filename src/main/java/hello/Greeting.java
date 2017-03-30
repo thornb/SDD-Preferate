@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class Greeting {
 
@@ -11,7 +13,7 @@ public class Greeting {
     //private final String content;
 
     // public Greeting(long id, String content) {
-    public Greeting() {
+    public Greeting(String q1) {
         // this.id = id;
         // this.content = content;
 
@@ -21,10 +23,17 @@ public class Greeting {
 
         System.out.println("Connecting database...");
 
+        this.id = 3;
+
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
 
-            this.id = 1;
+            Statement stmt = connection.createStatement();
+
+
+            String query = "INSERT INTO `user` (`user_id`, `group_name`, `user_name`, `diet_type`, `user_allergy`, `gluten`, `kosher`, `lactose`, `meats`, `eating_environment`) VALUES ('" + this.id + "', '"+ q1 +"', 'test', 'test', 'test', 'tes', 'tes', 'tes', 'test', 'test');";
+
+            ResultSet rs = stmt.executeQuery(query);
 
 
         } catch (SQLException e) {

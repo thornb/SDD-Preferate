@@ -2,9 +2,11 @@
 <html>
     <head>
         <title>Bootstrap 3</title>
-        <meta name="viewport" content="width=device-width", initial-scale=1.0">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link href ="css/bootstrap.min.css" rel ="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-static-top">
@@ -38,26 +40,32 @@
                 <legend>Do you have any of the dietary restrictions below?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" value="option1" checked>
                     Vegetarian
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios2" value="option2">
                     Vegan
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios3" value="option3">
                     Pescetarian
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option4">
+                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios3" value="option4">
                     Gluten-Free
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios3" value="option5">
+                    None
                   </label>
                 </div>
               </fieldset>
@@ -74,35 +82,179 @@
                 <legend>Are you allergic to any of the following?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" name="optionsRadios2" value="option1" class="form-check-input">
                     Milk
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" name="optionsRadios2" value="option2" class="form-check-input">
                     Peanuts
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" name="optionsRadios2" value="option3" class="form-check-input">
                     Eggs
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" name="optionsRadios2" value="option4" class="form-check-input">
                     Wheat
                   </label>
                 </div>
               </fieldset>
             </div>
+
+            <!--  -->
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Do you follow a gluten free diet?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="radio" name="optionsRadios3" value="yes" class="form-check-input">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" name="optionsRadios3" value="no" class="form-check-input">
+                    No
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Do you only eat kosher?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="radio" name="optionsRadios4" value="yes" class="form-check-input">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" name="optionsRadios4" value="no" class="form-check-input">
+                    No
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Are you lactose intolerant?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="radio" name="optionsRadios5" value="yes" class="form-check-input">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" name="optionsRadios5" value="no" class="form-check-input">
+                    No
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>Do you <i>not</i> eat any of these meats? (check those that apply)</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="checkbox" name="optionsRadios6" value="option1" class="form-check-input">
+                    I do  not eat any meat
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" name="optionsRadios6" value="option2" class="form-check-input">
+                    Pork
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" name="optionsRadios6" value="option3" class="form-check-input">
+                    Beef
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>What kind of eating enviroment do you prefer?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="radio" name="optionsRadios7" value="option1" class="form-check-input">
+                    Relaxed
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" name="optionsRadios7" value="option2" class="form-check-input">
+                    Lively
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>How important do you value fast service?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="radio" class="form-check-input">
+                    Extremely
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input">
+                    Medium
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input">
+                    A Little
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input">
+                    Not at all
+                  </label>
+                </div>
+              </fieldset>
+            </div> -->
+
+            <div class="row">
+              <button id="enter">Save</button>
+            </div>
+
           </div>
         </form>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="js/bootstrap.js"></script> 
+         
 <!--        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.js"></script> -->
     </body>
+
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+
+    $("#enter").click(function(){
+      console.log($('input[name=optionsRadios1]:checked').val());  
+    });
+
+  });
+
+</script>
