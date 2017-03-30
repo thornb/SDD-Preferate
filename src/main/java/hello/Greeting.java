@@ -20,7 +20,7 @@ public class Greeting {
             ResultSet stmt.executeQuery("SELECT * FROM `user`");
 
             while(rs.next()){
-                System.out .println(rs.getInt("id"));
+                System.out.println(rs.getInt("id"));
             }
 
             stmt.close();
