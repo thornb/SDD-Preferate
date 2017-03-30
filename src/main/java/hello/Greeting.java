@@ -1,11 +1,19 @@
 package hello;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
 public class Greeting {
 
     private final long id;
     //private final String content;
 
+    // public Greeting(long id, String content) {
     public Greeting() {
+        // this.id = id;
+        // this.content = content;
 
         String url = "jdbc:mysql://localhost:3306/preferate";
         String username = "root";
@@ -16,15 +24,8 @@ public class Greeting {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
 
-            Statement stmt = connection.createStatement();
-            ResultSet stmt.executeQuery("SELECT * FROM `user`");
+            this.id = 1;
 
-            while(rs.next()){
-                System.out.println(rs.getInt("id"));
-            }
-
-            stmt.close();
-            conn.close();
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -32,8 +33,6 @@ public class Greeting {
         }
 
 
-        //this.id = id;
-        // this.content = content;
     }
 
     public long getId() {
