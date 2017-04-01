@@ -88,7 +88,7 @@
        //document.getElementById('status').innerHTML =
        //  'Thanks for logging in, ' + response.name + '!';
        document.getElementById('name').innerHTML = response.name;
- 
+       document.getElementById('profile_pic').setAttribute("src", "http://graph.facebook.com/" + response.id + "/picture?type=large");
        //Get friend list of user
        /* make the API call */
        FB.api(
@@ -157,7 +157,11 @@
   				 <div class="row" id="row1">
   				 	<div class="col-md-6">
   				 	    <!-- <htemp>  </htemp> -->
+<<<<<<< HEAD
   				 		<center><img src="images/user-default.png" class="img-responsive" alt="Cinque Terre" width="304" height="600"></center>
+=======
+  				 		<center><img id="profile_pic" src="user-default.png" class="img-responsive" alt="Cinque Terre" width="304" height="600"></center>
+>>>>>>> a9dff3dade9eeaf84fb9bd266ad740a96ff271e3
   				 	</div>
   				 	<div class="col-md-6">
   				 		<div class="row">
