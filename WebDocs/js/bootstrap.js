@@ -2375,7 +2375,3 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
-
-// $('#myModal').on('shown.bs.modal', function () {
-//   $('#myInput').focus()
-// })
