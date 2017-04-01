@@ -30,6 +30,34 @@
                 </div> 
             </div>
         </div> 
+
+        <div class="container top-buffer" align="center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" id="sug" data-target="#myModal" align="center" >
+                <h1>Make New Review</h1>
+            </button>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel" align="center">New Review</h1>
+              </div>
+              <div class="modal-body">
+                <h1>Food:</h1>
+                <h1>Menu:</h1>
+                <h1>Service:</h1>
+                <h1>userID:</h1>
+                <h1>restaurantID:</h1>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Review</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class= "container">
             <div class="row" id="review_row">
                 <div class="col-md-12 top-buffer" id="review1">
@@ -70,6 +98,7 @@
         <script src="js/bootstrap.js"></script> 
 <!--        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.js"></script> -->
+        <script src="js/modal.js"></script>
     </body>
 
 </html>
