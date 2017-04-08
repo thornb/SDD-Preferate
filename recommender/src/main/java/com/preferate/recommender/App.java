@@ -17,8 +17,8 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 /**
- * Hello world!
- *
+ * Core recommendation engine
+ * Currently built to work wiht a csv file of preferences
  */
 public class App 
 {
