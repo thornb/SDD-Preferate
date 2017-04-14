@@ -15,7 +15,9 @@ public class Greeting {
 
         String url = "jdbc:mysql://localhost:3306/preferate";
         String username = "root";
-        String password = "CrackerWindow654";
+
+        String password = "ColonieBrownie779";
+        //String password = "CrackerWindow654";
 
         System.out.println("Connecting database...");
 
