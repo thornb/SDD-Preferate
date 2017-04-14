@@ -1,5 +1,5 @@
-hello\Application.class
-hello\ReviewList.class
-hello\Review.class
-hello\Greeting.class
-hello\GreetingController.class
+restClasses\Application.class
+restClasses\Review.class
+restClasses\ReviewList.class
+restClasses\Greeting.class
+restClasses\RestServicesController.class

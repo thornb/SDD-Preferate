@@ -1,4 +1,4 @@
-package hello;
+package restClasses;
 
 import java.sql.*;
 import java.util.*;

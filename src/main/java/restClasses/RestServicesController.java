@@ -1,4 +1,4 @@
-package hello;
+package restClasses;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 //This is the controller that runs the REST services on the site. It maps URLs to our other classes, that will ultimatly be converted to JSON objects by jackson and sent to the front-end
 @RestController
-public class GreetingController {
+public class RestServicesController {
 
 	//Example REST call and database call
     @RequestMapping("/greeting")

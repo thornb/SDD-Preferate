@@ -1,4 +1,4 @@
-package hello;
+package restClasses;
 
 import java.sql.*;
 import java.util.*;
@@ -69,6 +69,7 @@ public class ReviewList {
         return review_list;
     }
 
+    //This code is commented out becuase it is not done yet. Had dependancy build error
 
     // public static JDBCDataModel getReviewsRecommender(String type){
 
