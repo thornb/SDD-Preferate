@@ -70,36 +70,36 @@ public class ReviewList {
 
     //This code is commented out becuase it is not done yet. Had dependancy build error
 
-    // public static JDBCDataModel getReviewsRecommender(String type){
+    public static JDBCDataModel getReviewsRecommender(String type){
 
-    //     MysqlDataSource dataSource = new MysqlDataSource();
+        MysqlDataSource dataSource = new MysqlDataSource();
 
-    //     dataSource.setServerName("jdbc:mysql://localhost:3306/");
-    //     dataSource.setUser("root");
-    //     dataSource.setPassword("CrackerWindow654");
-    //     dataSource.setDatabaseName("preferate");
+        dataSource.setServerName("jdbc:mysql://localhost:3306/");
+        dataSource.setUser("root");
+        dataSource.setPassword("CrackerWindow654");
+        dataSource.setDatabaseName("preferate");
 
-    //     JDBCDataModel dataModel;
+        JDBCDataModel dataModel;
 
-    //     if(type == "service"){
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "service_rating");
-    //     }
-    //     else if (type == "menu") {
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "menu_rating");   
-    //     }
-    //     //food case
-    //     else{
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "food_rating");
-    //     }
+        if(type == "service"){
+            dataModel = new MySQLJDBCDataModel(
+            dataSource, "restaurant_reviews", "user_id",
+            "restaurant_id", "service_rating");
+        }
+        else if (type == "menu") {
+            dataModel = new MySQLJDBCDataModel(
+            dataSource, "restaurant_reviews", "user_id",
+            "restaurant_id", "menu_rating");   
+        }
+        //food case
+        else{
+            dataModel = new MySQLJDBCDataModel(
+            dataSource, "restaurant_reviews", "user_id",
+            "restaurant_id", "food_rating");
+        }
 
-    //     return dataModel;
+        return dataModel;
         
-    // }
+    }
 
 }

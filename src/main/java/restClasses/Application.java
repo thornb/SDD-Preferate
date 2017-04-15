@@ -19,6 +19,10 @@ public class Application {
 	//Starts the spring Application
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
+        App.runRecommender();
+
+
     }
 
 }
