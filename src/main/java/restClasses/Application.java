@@ -19,6 +19,17 @@ public class Application {
 	//Starts the spring Application
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        Recommender rec = new Recommender();
+        String params[] = {"food","menu","service"};
+        //get the predicted ratings for some user's ID
+        int exampleUserID = 1;
+        try{
+        	rec.runRecommender(params, exampleUserID);
+        }
+        catch(Exception e){
+        	System.out.println("runRecommender encountered an error:");
+        	System.out.println(e);
+        }
     }
 
 }
