@@ -1,6 +1,7 @@
 package restClasses;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -14,6 +15,7 @@ import java.util.Properties;
 
 //This Class is what starts the whole application with the spring-boot automation tools
 @SpringBootApplication
+//@EnableAutoConfiguration
 public class Application {
 
 	//Starts the spring Application
