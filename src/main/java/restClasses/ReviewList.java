@@ -80,7 +80,7 @@ public class ReviewList {
         dataSource.setDatabaseName("preferate");
 
         JDBCDataModel dataModel;
-
+        /* hardcoded type names so I commented it out and replaced with dynamic version
         if(type == "service"){
             dataModel = new MySQLJDBCDataModel(
             dataSource, "restaurant_reviews", "user_id",
@@ -97,7 +97,13 @@ public class ReviewList {
             dataSource, "restaurant_reviews", "user_id",
             "restaurant_id", "food_rating");
         }
-
+        */
+        if(type != NULL){
+            dataModel = new MySQLJDBCDataModel(
+            dataSource, "restaurant_reviews", "user_id",
+            "restaurant_id", type + "_rating");
+        }
+        
         return dataModel;
         
     }
