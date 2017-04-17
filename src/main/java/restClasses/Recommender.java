@@ -16,20 +16,17 @@ import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
-/**
- * Core recommendation engine
- * Currently built to work wiht a csv file of preferences
- */
-public class App 
+
+public class Recommender 
 {
 	//currently outputs estimated preferences for all restaurants to System.out
-	public static void main( String[] args ) throws Exception
+	public void runRecommender(String params[], long userID) throws Exception
 	{
 		//UserID 
-		int user = 1;
+		//int user = 1;
 		int numRestaurants = 50;
 		//parameters over which we will create models
-		String[] params = new String[]{"food","menu","service"};
+		//String params[] = {"food","menu","service"};
 		parseReviews(params);
 		double[][] ratings = new double[params.length][numRestaurants];
 		//create our models and estimate all the preferences
@@ -40,7 +37,7 @@ public class App
 			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 			UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
 			for (int j = 0; j < numRestaurants; ++j){
-				ratings[i][j] = recommender.estimatePreference(user, j + 1);
+				ratings[i][j] = recommender.estimatePreference(userID, j + 1);
 			}
 		}
 		
