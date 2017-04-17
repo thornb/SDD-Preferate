@@ -35,5 +35,47 @@ public class RestServicesController {
     }
 
 
+    //When user queries the url "/addUser", it takes in the parameters from the url and 
+    @RequestMapping("/addUser")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addUser( @RequestParam( value="user_id" ) int user_id, 
+                         @RequestParam( value="user_name" ) String user_name,
+                         @RequestParam( value="diet_type" ) String diet_type,
+                         @RequestParam( value="user_allergy" ) String user_allergy,
+                         @RequestParam( value="gluten" ) String gluten,
+                         @RequestParam( value="kosher" ) String kosher,
+                         @RequestParam( value="lactose" ) String lactose,
+                         @RequestParam( value="meats" ) String meats,
+                         @RequestParam( value="eating_enviroment" ) String eating_enviroment ){
+
+        //create the user class object
+        User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_enviroment); 
+
+        //insert this user into the database
+        u.insertUser();        
+    }
+
+    //When user queries the url "/addUser", it takes in the parameters from the url and 
+    @RequestMapping("/editPref")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addUser( @RequestParam( value="user_id" ) int user_id, 
+                         @RequestParam( value="user_name" ) String user_name,
+                         @RequestParam( value="diet_type" ) String diet_type,
+                         @RequestParam( value="user_allergy" ) String user_allergy,
+                         @RequestParam( value="gluten" ) String gluten,
+                         @RequestParam( value="kosher" ) String kosher,
+                         @RequestParam( value="lactose" ) String lactose,
+                         @RequestParam( value="meats" ) String meats,
+                         @RequestParam( value="eating_enviroment" ) String eating_enviroment ){
+
+        //create the user class object
+        User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_enviroment); 
+
+        //edit this user's preferences into the database
+        u.editPreferences();        
+    }
+
+
+
 }
 
