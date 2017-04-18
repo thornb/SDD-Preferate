@@ -108,6 +108,11 @@ function myFunc(arg){
 $(document).ready(function(){
 	$.getJSON("http://rpipreferate.com:8080/reviews", function(result){
         $.each(result, function(i, field){
+        	++id;
+    var this_id=id.toString();
+    list.push(this_id);
+    ++id;
+    var this_id_parent=id.toString();
                var x=document.getElementById("name_restaurant").value;
 
     var div = document.createElement('div');
