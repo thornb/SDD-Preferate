@@ -24,7 +24,7 @@ $('#save').click(function(){
     div.style.height="80%";
 
     div2=document.createElement('button');
-    div2.className="btn btn-primary";
+    div2.className="btn btn-primary col-md-6";
     //div2.id="#edit_button2";
     div2.id=this_id;
     div2.setAttribute("data-toggle","modal");
@@ -32,6 +32,12 @@ $('#save').click(function(){
     div2.setAttribute("align","center");
     div2.setAttribute("onclick","myFunc(this.id)");
     div2.innerHTML='<h1>Edit Review</h1>';
+
+    div3=document.createElement('p1');
+    div3.className="row";
+    div3.innerHTML='check';
+    div3.id=this_id+"c";
+
     //div.appendChild(div2);
     div.innerHTML='<h1>Name of Restaurant:'+x+'testforvalidation</h1>\
      <h3>Stars:</h3>\
@@ -40,7 +46,14 @@ $('#save').click(function(){
      // document.getElementById(this_id).value=x;
 
      // document.getElementById('body').appendChild(div2);
-     (document.getElementById('review_table').appendChild(div)).appendChild(div2);
+     //div.appendChild(div3);
+     //div.appendChild(div2);
+     var x=(document.getElementById('review_table').appendChild(div));
+     x.appendChild(div3);
+     x.appendChild(div2);
+     //.appendChild(div2);
+
+
      //document.div.appendChild(div2);
 
 
@@ -53,19 +66,73 @@ function isNormalInteger(str) {
     return String(n) === str && n >= 0;
 }
 
+//window.onload = function() {
+function modalonclick(arg){
+	var element = document.getElementById(arg).parentNode;
+    var menu = element.getElementsByTagName('p1')[0];
+    str=arg+"c";
+    menu=document.getElementById(str);
+	var x=document.getElementById("rest_name_restaurant").value;
+	alert("HELOO"+arg);
+	menu.innerHTML=x;
+	return;
 
+}
+//}
 
 function myFunc(arg){
   var element = document.getElementById(arg).parentNode;
-  var menu = element.getElementsByTagName('h1')[0];
-  menu.innerHTML="See if first is changing";
+  var menu = element.getElementsByTagName('p1')[0];
+  //menu.innerHTML="See if first is changing";
   document.getElementById("rest_name_restaurant").value=menu.innerHTML;
   //var x=document.getElementById("rest_name_restaurant").value;
   $('#edit').click(function(){
-    var x=document.getElementById("rest_name_restaurant").value;
-    element.getElementsByTagName('h1')[0].innerHTML=x;
+  	var element = document.getElementById(arg).parentNode;
+    var menu = element.getElementsByTagName('p1')[0];
+    str=arg+"c";
+    menu=document.getElementById(str);
+	var x=document.getElementById("rest_name_restaurant").value;
+	alert("HELOO"+arg);
+	menu.innerHTML=x;
+	return;
+  	// element = document.getElementById(arg).parentNode;
+   //  var x=document.getElementById("rest_name_restaurant").value;
+   //  element.getElementsByTagName('h1')[0].innerHTML=x;
    });
-    
+  // var x=modalonclick();
+  //element.getElementsByTagName('h1')[0].innerHTML=x;
   
-  alert("PASSS"+element.id);
+  alert("PASSS"+arg);
 }
+
+$(document).ready(function(){
+	$.getJSON("http://rpipreferate.com/reviews", function(result){
+        $.each(result, function(i, field){
+               var x=document.getElementById("name_restaurant").value;
+
+    var div = document.createElement('div');
+
+    div.className = 'row top-buffer';
+
+    div.id=this_id_parent;
+    div.style.background='#e2d5d7';
+    div.style.height="80%";
+
+    div2=document.createElement('button');
+    div2.className="btn btn-primary col-md-6";
+    div2.id=this_id;
+    div2.setAttribute("data-toggle","modal");
+    div2.setAttribute("data-target","#editModal");
+    div2.setAttribute("align","center");
+    div2.setAttribute("onclick","myFunc(this.id)");
+    div2.innerHTML='<h1>Edit Review</h1>';
+    var x=field.comments;
+    div.innerHTML='<h1>Name of Restaurant:'+x+'testforvalidation</h1>\
+     <h3>Stars:</h3>\
+      <h3>Comments:</h3>';
+   
+     var x=(document.getElementById('review_table').appendChild(div));
+     x.appendChild(div2);
+        });
+    });
+});
