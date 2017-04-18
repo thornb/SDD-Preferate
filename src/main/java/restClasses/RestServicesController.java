@@ -37,8 +37,8 @@ public class RestServicesController {
 
     //When user queries the url "/addUser", it takes in the parameters from the url and 
     @RequestMapping("/addUser")
-    @ResponseStatus(value = HttpStatus.OK)
-    public void addUser( @RequestParam( value="user_id" ) int user_id, 
+    //@ResponseStatus(value = HttpStatus.OK)
+    public void addDBUser( @RequestParam( value="user_id" ) int user_id, 
                          @RequestParam( value="user_name" ) String user_name,
                          @RequestParam( value="diet_type" ) String diet_type,
                          @RequestParam( value="user_allergy" ) String user_allergy,
@@ -57,7 +57,7 @@ public class RestServicesController {
 
     //When user queries the url "/addUser", it takes in the parameters from the url and 
     @RequestMapping("/editPref")
-    @ResponseStatus(value = HttpStatus.OK)
+    //@ResponseStatus(value = HttpStatus.OK)
     public void addUser( @RequestParam( value="user_id" ) int user_id, 
                          @RequestParam( value="user_name" ) String user_name,
                          @RequestParam( value="diet_type" ) String diet_type,
