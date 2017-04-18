@@ -131,7 +131,7 @@ $(document).ready(function(){
     div2.setAttribute("align","center");
     div2.setAttribute("onclick","myFunc(this.id)");
     div2.innerHTML='<h1>Edit Review</h1>';
-    var x=(field.restaurant_id).toString;
+    var x=(field.restaurant_id).toString();
     div.innerHTML='<h1>Name of Restaurant:testforv+'x'+</h1>\
      <h3>Stars:</h3>\
       <h3>Comments:</h3>';
