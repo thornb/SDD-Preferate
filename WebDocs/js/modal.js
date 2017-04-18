@@ -107,7 +107,8 @@ function myFunc(arg){
 
 $(document).ready(function(){
 	$.getJSON("http://rpipreferate.com:8080/reviews", function(result){
-        $.each(result, function(i, field){
+        //$.each(result, function(i, field){
+    for (var i=0;i<result.length;i++){
         	++id;
     var this_id=id.toString();
     list.push(this_id);
@@ -131,13 +132,14 @@ $(document).ready(function(){
     div2.setAttribute("align","center");
     div2.setAttribute("onclick","myFunc(this.id)");
     div2.innerHTML='<h1>Edit Review</h1>';
-    var x=(field.restaurant_id).toString();
-    div.innerHTML='<h1>Name of Restaurant:testforv'+x+'</h1>\
+    //var x=(field.restaurant_id).toString();
+    div.innerHTML='<h1>Name of Restaurant:testfortesting2---->getting JSON data</h1>\
      <h3>Stars:</h3>\
       <h3>Comments:</h3>';
    
      var x=(document.getElementById('review_table').appendChild(div));
      x.appendChild(div2);
-        });
+ }
+        //});
     });
 });
