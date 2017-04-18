@@ -2,6 +2,7 @@ $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 });
 
+$(document).ready(function(){
 $('#save').click(function(){
     ++id;
     var this_id=id.toString();
@@ -44,6 +45,7 @@ $('#save').click(function(){
 
 
 });
+});
 
 
 function isNormalInteger(str) {
@@ -52,14 +54,18 @@ function isNormalInteger(str) {
 }
 
 
+
 function myFunc(arg){
   var element = document.getElementById(arg).parentNode;
   var menu = element.getElementsByTagName('h1')[0];
   menu.innerHTML="See if first is changing";
   document.getElementById("rest_name_restaurant").value=menu.innerHTML;
+  //var x=document.getElementById("rest_name_restaurant").value;
   $('#edit').click(function(){
     var x=document.getElementById("rest_name_restaurant").value;
-    menu.innerHTML=x;
-  });
-  alert("PASSS"+arg);
+    element.getElementsByTagName('h1')[0].innerHTML=x;
+   });
+    
+  
+  alert("PASSS"+element.id);
 }
