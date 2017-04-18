@@ -107,8 +107,8 @@ function myFunc(arg){
 
 $(document).ready(function(){
 	$.getJSON("http://rpipreferate.com:8080/reviews", function(result){
-        //$.each(result, function(i, field){
-    for (var i=0;i<result.length;i++){
+    $.each(result, function(i, field){
+    //for (var i=0;i<result.length;i++){
         	++id;
     var this_id=id.toString();
     list.push(this_id);
@@ -139,7 +139,7 @@ $(document).ready(function(){
    
      var x=(document.getElementById('review_table').appendChild(div));
      x.appendChild(div2);
- }
-        //});
+ 
+        });
     });
 });
