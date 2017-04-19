@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/ReviewList.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Application.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/RestServicesController.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Review.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Greeting.java
-=======
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Application.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Recommender.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/RestServicesController.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Review.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Greeting.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/ReviewList.java
->>>>>>> 27dfc64ee5cedab9f7b6d801023e3a7c3041967d
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/User.java

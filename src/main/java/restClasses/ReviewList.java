@@ -3,6 +3,11 @@ package restClasses;
 import java.sql.*;
 import java.util.*;
 
+import org.apache.mahout.cf.taste.model.JDBCDataModel;
+import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
 
 // import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 // import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -70,36 +75,30 @@ public class ReviewList {
 
     //This code is commented out becuase it is not done yet. Had dependancy build error
 
-    // public static JDBCDataModel getReviewsRecommender(String type){
+      public static JDBCDataModel getReviewsRecommender(String param){
 
-    //     MysqlDataSource dataSource = new MysqlDataSource();
+         MysqlDataSource dataSource = new MysqlDataSource();
 
-    //     dataSource.setServerName("jdbc:mysql://localhost:3306/");
-    //     dataSource.setUser("root");
-    //     dataSource.setPassword("CrackerWindow654");
-    //     dataSource.setDatabaseName("preferate");
+         dataSource.setServerName("jdbc:mysql://localhost:3306/");
+         dataSource.setUser("root");
+         dataSource.setPassword("CrackerWindow654");
+         dataSource.setDatabaseName("preferate");
 
-    //     JDBCDataModel dataModel;
+         JDBCDataModel dataModel;
 
-    //     if(type == "service"){
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "service_rating");
-    //     }
-    //     else if (type == "menu") {
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "menu_rating");   
-    //     }
-    //     //food case
-    //     else{
-    //         dataModel = new MySQLJDBCDataModel(
-    //         dataSource, "restaurant_reviews", "user_id",
-    //         "restaurant_id", "food_rating");
-    //     }
+         if(param != null){
+        	 dataModel = new MySQLJDBCDataModel(
+             dataSource, "restaurant_reviews", "user_id",
+             "restaurant_id", param+"_rating", null);
+         }
+         else{
+             dataModel = new MySQLJDBCDataModel(
+             dataSource, "restaurant_reviews", "user_id",
+             "restaurant_id", "menu_rating", null);   
+         }
 
-    //     return dataModel;
+         return dataModel;
         
-    // }
+     }
 
 }
