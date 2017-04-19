@@ -83,7 +83,7 @@ $('#save').click(function(){
      // 	alert("Data: "+data+"\nStatus "+status);
      // });
 
- 	searchText()
+ 	searchText();
 
      //document.div.appendChild(div2);
 
@@ -91,11 +91,16 @@ $('#save').click(function(){
 });
 });
 
+//restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments
 function searchText() {
     var search = {
-    restaurant_id : 2,
-    pName :"sdf",
-    lName :"prasad"
+    restaurant_review : 2,
+    user_id : 3,
+    food_rating : 1.3,
+    menu_rating : 4.5,
+    service_rating: 3.4,
+    restaurant_id: 6,
+    comments: "JUST FOR TESTING"
     }
     $.ajax({
     type: "POST",
