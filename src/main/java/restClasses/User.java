@@ -15,7 +15,7 @@ public class User {
     private String kosher;
     private String lactose;
     private String meats;
-    private String eating_enviroment;
+    private String eating_environment;
 
     //constructor that sets all member values
     public User (int user_id, String user_name, String diet_type, String user_allergy, String gluten, String kosher, String lactose, String meats, String eating_environment){
@@ -107,7 +107,7 @@ public class User {
             preparedStmt.setString(4, this.kosher);
             preparedStmt.setString(5, this.lactose);
             preparedStmt.setString(6, this.meats);
-            preparedStmt.setString(7, this.eating_enviroment);
+            preparedStmt.setString(7, this.eating_environment);
             preparedStmt.setInt(8, this.user_id);
 
             //execute query to update user
@@ -172,7 +172,7 @@ public class User {
         return meats;
     }
     public String getEating_enviroment(){
-        return eating_enviroment;
+        return eating_environment;
     }
 
 

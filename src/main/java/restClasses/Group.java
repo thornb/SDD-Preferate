@@ -1,16 +1,16 @@
 package restClasses;
 
 import java.sql.*;
-import java.util.Properties;
+import java.util.*;
 
 public class Group {
 
     int owner; 
     private final int id;
     String name; 
-    ArrayList<int> members;
+    ArrayList<Integer> members;
     ArrayList<String> preferences; 
-    ArrayList<int> history; // restaurant ids
+    ArrayList<Integer> history; // restaurant ids
 
 
     // public Group(long id, String content) {
@@ -19,9 +19,9 @@ public class Group {
         this.id = group_id;
         this.owner = owner;
         this.name = g_name; 
-        this.members = new ArrayList<int>(); 
+        this.members = new ArrayList<Integer>(); 
         this.preferences = new ArrayList<String>(); 
-        this.history = new ArrayList<int>();
+        this.history = new ArrayList<Integer>();
 
         members.add(owner); 
     }
@@ -75,7 +75,7 @@ public class Group {
         return name; 
     }
 
-    public ArrayList<int> getMembers() {
+    public ArrayList<Integer> getMembers() {
         return members; 
     }
 
@@ -83,7 +83,7 @@ public class Group {
         return preferences; 
     }
 
-    public ArrayList<int> getRestaurantHistory() {
+    public ArrayList<Integer> getRestaurantHistory() {
         return history; 
     }
 
