@@ -75,30 +75,30 @@ public class ReviewList {
 
     //This code is commented out becuase it is not done yet. Had dependancy build error
 
-      public static JDBCDataModel getReviewsRecommender(String param){
+     //  public static JDBCDataModel getReviewsRecommender(String param){
 
-         MysqlDataSource dataSource = new MysqlDataSource();
+     //     MysqlDataSource dataSource = new MysqlDataSource();
 
-         dataSource.setServerName("jdbc:mysql://localhost:3306/");
-         dataSource.setUser("root");
-         dataSource.setPassword("CrackerWindow654");
-         dataSource.setDatabaseName("preferate");
+     //     dataSource.setServerName("jdbc:mysql://localhost:3306/");
+     //     dataSource.setUser("root");
+     //     dataSource.setPassword("CrackerWindow654");
+     //     dataSource.setDatabaseName("preferate");
 
-         JDBCDataModel dataModel;
+     //     JDBCDataModel dataModel;
 
-         if(param != null){
-        	 dataModel = new MySQLJDBCDataModel(
-             dataSource, "restaurant_reviews", "user_id",
-             "restaurant_id", param+"_rating", null);
-         }
-         else{
-             dataModel = new MySQLJDBCDataModel(
-             dataSource, "restaurant_reviews", "user_id",
-             "restaurant_id", "menu_rating", null);   
-         }
+     //     if(param != null){
+     //    	 dataModel = new MySQLJDBCDataModel(
+     //         dataSource, "restaurant_reviews", "user_id",
+     //         "restaurant_id", param+"_rating", null);
+     //     }
+     //     else{
+     //         dataModel = new MySQLJDBCDataModel(
+     //         dataSource, "restaurant_reviews", "user_id",
+     //         "restaurant_id", "menu_rating", null);   
+     //     }
 
-         return dataModel;
+     //     return dataModel;
         
-     }
+     // }
 
 }
