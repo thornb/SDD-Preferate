@@ -66,10 +66,10 @@ public class RestServicesController {
                          @RequestParam( value="kosher" ) String kosher,
                          @RequestParam( value="lactose" ) String lactose,
                          @RequestParam( value="meats" ) String meats,
-                         @RequestParam( value="eating_enviroment" ) String eating_enviroment ){
+                         @RequestParam( value="eating_environment" ) String eating_environment ){
 
         //create the user class object
-        User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_enviroment); 
+        User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
 
         //edit this user's preferences into the database
         u.editPreferences();        
