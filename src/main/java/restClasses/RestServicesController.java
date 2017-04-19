@@ -56,7 +56,6 @@ public class RestServicesController {
     	//parse string into array
     	String input = memString.substring(1, memString.length()-1);
     	ArrayList<Long> members = new ArrayList<Long>();
-    	int iter = 0;
     	for(String mem : Arrays.asList(input.split(","))){
     		members.add(Long.parseLong(mem));
     	}
