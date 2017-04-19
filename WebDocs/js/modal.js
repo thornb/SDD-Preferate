@@ -211,7 +211,7 @@ $(document).ready(function(){
     div2.setAttribute("data-toggle","modal");
     div2.setAttribute("data-target","#editModal");
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","myFunc(this.id)");
+    div2.setAttribute("onclick","myFunc("+this_id_parent+")");
     div2.innerHTML='<h1>Edit Review</h1>';
     //var x=(field.restaurant_id).toString();
     div.innerHTML='<h1>Name of Restaurant:testfortesting2---->'+field[y].food_rating+'----getting JSON data</h1>\
