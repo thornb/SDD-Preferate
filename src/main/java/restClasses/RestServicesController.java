@@ -34,6 +34,16 @@ public class RestServicesController {
     	return new ReviewList();
     }
 
+    @RequestMapping(value = "/addreview", method = RequestMethod.GET)
+    public @ResponseBody void generateReport(){
+        System.out.println("GOT it");
+    // ...
+    // Here you can use the request and response objects like:
+    // response.setContentType("application/pdf");
+    // response.getOutputStream().write(...);
+
+    }
+
 
     //When user queries the url "/addUser", it takes in the parameters from the url and 
     @RequestMapping("/addUser")
