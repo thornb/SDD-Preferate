@@ -62,8 +62,8 @@ public class RestServicesController {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!"); 
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)"+
-                "VALUES("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+","+com+");");
+            //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+","+com+");");
 
             //close connection
             connection.close();
