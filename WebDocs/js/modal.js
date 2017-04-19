@@ -24,13 +24,15 @@ $('#save').click(function(){
     div.style.height="80%";
 
     div2=document.createElement('button');
-    div2.className="btn btn-primary col-md-6";
+    div2.className="btn btn-primary col-md-6 "+this_id+"name";
     //div2.id="#edit_button2";
     div2.id=this_id;
     div2.setAttribute("data-toggle","modal");
     div2.setAttribute("data-target","#editModal");
+
+    //document.body.appendChild(cln);
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","myFunc(this.id)");
+    div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
     div2.innerHTML='<h1>Edit Review</h1>';
 
     div3=document.createElement('p1');
@@ -53,6 +55,33 @@ $('#save').click(function(){
      x.appendChild(div2);
      //.appendChild(div2);
 
+     // var frm={
+     // 	restaurant_id: 2;
+     // 	user_id: 3;
+     // 	food_rating: .5;
+     // 	menu_rating: 1.3;
+     // 	service_rating: 3.4;
+     // 	comments: "hello";
+     // 	restaurant_review: 3;
+
+     // };
+
+     //var dat=JSON.stringify(frm);
+
+     $.post("http://rpipreferate.com:8080/addreview",
+     {
+     	restaurant_id: 2,
+     	user_id: 3,
+     	food_rating: .5,
+     	menu_rating: 1.3,
+     	service_rating: 3.4,
+     	comments: "hello",
+     	restaurant_review: 3,
+
+     },
+     function(data, status){
+     	alert("Data: "+data+"\nStatus "+status);
+     })
 
      //document.div.appendChild(div2);
 
@@ -81,18 +110,22 @@ function modalonclick(arg){
 //}
 
 function myFunc(arg){
-  var element = document.getElementById(arg).parentNode;
+  //var element = document.getElementById(arg).parentNode;
+  var element=document.getElementById(arg);
   var menu = element.getElementsByTagName('p1')[0];
   //menu.innerHTML="See if first is changing";
-  document.getElementById("rest_name_restaurant").value=menu.innerHTML;
+  var temp=document.getElementById("rest_name_restaurant").value;
   //var x=document.getElementById("rest_name_restaurant").value;
-  $('#edit').click(function(){
-  	var element = document.getElementById(arg).parentNode;
-    var menu = element.getElementsByTagName('p1')[0];
-    str=arg+"c";
-    menu=document.getElementById(str);
-	var x=document.getElementById("rest_name_restaurant").value;
-	alert("HELOO"+arg);
+  //menu.innerHTML("<input type='text' id='txtName' value='"+menu.innerHTML+"'/>");
+  $('#edit').unbind().click(function(){
+  	element = document.getElementById(arg);
+    menu = element.getElementsByTagName('p1')[0];
+    //str=arg+"c";
+    //menu=document.getElementById(str);
+	//var x=document.getElementById("rest_name_restaurant").value;
+	//temp=document.getElementById('#editModal'+arg)
+    var x=document.getElementById("rest_name_restaurant").value;
+	//alert("HELOO"+arg);
 	menu.innerHTML=x;
 	return;
   	// element = document.getElementById(arg).parentNode;
@@ -101,7 +134,7 @@ function myFunc(arg){
    });
   // var x=modalonclick();
   //element.getElementsByTagName('h1')[0].innerHTML=x;
-  
+  return;
   alert("PASSS"+arg);
 }
 
@@ -109,6 +142,7 @@ $(document).ready(function(){
 	$.getJSON("http://rpipreferate.com:8080/reviews", function(result){
     $.each(result, function(i, field){
     //for (var i=0;i<result.length;i++){
+    for (var y=0;y<field.length;y++){
         	++id;
     var this_id=id.toString();
     list.push(this_id);
@@ -133,13 +167,13 @@ $(document).ready(function(){
     div2.setAttribute("onclick","myFunc(this.id)");
     div2.innerHTML='<h1>Edit Review</h1>';
     //var x=(field.restaurant_id).toString();
-    div.innerHTML='<h1>Name of Restaurant:testfortesting2---->'+field+'----getting JSON data</h1>\
+    div.innerHTML='<h1>Name of Restaurant:testfortesting2---->'+field[y].food_rating+'----getting JSON data</h1>\
      <h3>Stars:</h3>\
       <h3>Comments:</h3>';
    
      var x=(document.getElementById('review_table').appendChild(div));
      x.appendChild(div2);
- 
+ 	}
         });
     });
 });
