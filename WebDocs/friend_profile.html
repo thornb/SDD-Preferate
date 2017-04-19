@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap 3</title>
+		<meta name="viewport" content="width=device-width", initial-scale=1.0">
+		<link href ="css/bootstrap.min.css" rel ="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+  <!-- Code for fb api -->
+  <script>
+  var friendID = 0;
+   // This is called with the results from from FB.getLoginStatus().
+   function statusChangeCallback(response) {
+     console.log('statusChangeCallback');
+     console.log(response);
+     // The response object is returned with a status field that lets the
+     // app know the current login status of the person.
+     // Full docs on the response object can be found in the documentation
+     // for FB.getLoginStatus().
+     if (response.status === 'connected') {
+       // Logged into your app and Facebook.
+       testAPI();
+     } else {
+       // The person is not logged into your app or we are unable to tell.
+       // document.getElementById('status').innerHTML = 'Please log ' +
+       //   'into this app.';
+       //redirect to login page
+       window.location.replace("fb_login_page.html");
+     }
+   }
+ 
+   // This function is called when someone finishes with the Login
+   // Button.  See the onlogin handler attached to it in the sample
+   // code below.
+   function checkLoginState() {
+     FB.getLoginStatus(function(response) {
+       statusChangeCallback(response);
+     });
+   }
+ 
+   window.fbAsyncInit = function() {
+   FB.init({
+     appId      : '218882488583601',
+     cookie     : true,  // enable cookies to allow the server to access 
+                         // the session
+     xfbml      : true,  // parse social plugins on this page
+     version    : 'v2.8' // use graph api version 2.8
+   });
+ 
+   // Now that we've initialized the JavaScript SDK, we call 
+   // FB.getLoginStatus().  This function gets the state of the
+   // person visiting this page and can return one of three states to
+   // the callback you provide.  They can be:
+   //
+   // 1. Logged into your app ('connected')
+   // 2. Logged into Facebook, but not your app ('not_authorized')
+   // 3. Not logged into Facebook and can't tell if they are logged into
+   //    your app or not.
+   //
+   // These three cases are handled in the callback function.
+ 
+   FB.getLoginStatus(function(response) {
+     statusChangeCallback(response);
+   });
+ 
+   };
+ 
+   // Load the SDK asynchronously
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+	
+	//get url parameter using regular expression
+	function getParameterByName(name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	
+	
+	
+   // Here we run a very simple test of the Graph API after login is
+   // successful.  See statusChangeCallback() for when this call is made.
+   function testAPI() {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       console.log('Successful login for: ' + response.name);
+       console.log("response:");
+       console.log(response);
+       friendID = getParameterByName('id');
+		
+     });
+   }
+ </script>
+ 
+ 	<div class = "navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<a href="#" class= "navbar-brand">Preferate</a>
+				<button class ="navbar-toggle" data-toggle ="collapse" data-target=".navHeaderCollapse">
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
+				<div class= "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-right">
+						<li class="visited"><a href= "#">Home</a></li>
+						<li class="visited"><a href= "friends.html">Friends</a></li>
+						<li class="visited"><a href= "preferences_page.html">Preferences</a></li>
+						<li class="visited"><a href= "review_page.html">Reviews</a></li> 
+						<li class="visited"><a href= "suggestions_page.html">Suggestions</a></li>
+					</ul>
+				</div> 
+			</div>
+		</div> 
+        <div class= "container">
+        	<div class="row">
+  				<div class="col-md-7">
+  				 <div class="row" id="row1">
+  				 	<div class="col-md-6">
+  				 		<center><img id="profile_pic" src="images/user-default.png" class="img-responsive" alt="Cinque Terre" width="304" height="600"></center>
+  				 	</div>
+  				 	<div class="col-md-6">
+  				 		<div class="row">
+					<h1 id="name"></h1>
+  				 		</div>
+  				 		<div class="row" id="diet">
+  				 			<!--<h3>Dietary Restrictions</h3>-->
+  				 		</div>
+  				 		<div class="row" id="numReviews">
+  				 			<!--<h3>Reviews Completed</h3>-->
+  				 		</div>
+  				 		<div class="row" id="numGroups">
+  				 			<!--<h3>Number of Groups</h3>-->
+  				 		</div>
+  				 		<div class="row" id="placesVisited">
+  				 			<!--<h3>Places Recently Visited</h3>-->
+  				 		</div>
+						<div class="row" id="Reviews">
+							<h3>Reviews<h3>
+						</div>
+  				 	</div>
+  				<div class="col-md-1">
+  				</div>
+  				<div class="col-6 col-md-4 col-md-offset-.5" id="facebook">
+  				    <div class="row" id="groupheader">
+  				    <center><h2>Groups</h2></center>
+  				    </div>
+  				    <div class="row" id="scroller" height:"300">
+  				    <!--<div class="row">
+  				    	<div class="col-md-3">
+  				 			<img src="images/user-default.png" class="img-responsive" alt="Cinque Terre" width="304" height="236">
+  				 		</div>
+  				 		<div class="col-md-9">
+  				 		<h3>Group1</h3>
+  				 		</div>
+  				    </div>-->
+  				    </div>  				   
+  				</div>
+			</div>
+        </div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script> 
+		<script src="js/friend.js"></script>
+	</body>
+</html>
