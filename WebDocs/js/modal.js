@@ -1,9 +1,6 @@
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-<<<<<<< HEAD
-})
-=======
-});
+ // $('#myModal').on('shown.bs.modal', function () {
+ //  $('#myInput').focus()
+ // });
 
 $(document).ready(function(){
 $('#save').click(function(){
@@ -151,7 +148,7 @@ $(document).ready(function(){
     list.push(this_id);
     ++id;
     var this_id_parent=id.toString();
-               var x=document.getElementById("name_restaurant").value;
+    var x=document.getElementById("name_restaurant").value;
 
     var div = document.createElement('div');
 
@@ -180,4 +177,4 @@ $(document).ready(function(){
         });
     });
 });
->>>>>>> d8fa1f36989a02dfba31d7928f5c2c5e4c3267f5
+
