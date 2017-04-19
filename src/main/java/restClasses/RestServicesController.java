@@ -17,6 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 
 //This is the controller that runs the REST services on the site. It maps URLs to our other classes, that will ultimatly be converted to JSON objects by jackson and sent to the front-end
 @RestController
@@ -34,15 +37,16 @@ public class RestServicesController {
     	return new ReviewList();
     }
 
-    @RequestMapping(value = "/addreview", method = RequestMethod.GET)
-    public @ResponseBody void generateReport(){
-        System.out.println("GOT it");
+    @RequestMapping(value = "/addreview")
+    public @ResponseBody void generateReport(@RequestParam int restaurant_id){
+        int s=restaurant_id;
+        System.out.println(s);
     // ...
     // Here you can use the request and response objects like:
     // response.setContentType("application/pdf");
     // response.getOutputStream().write(...);
 
-    }
+}
 
 
     //When user queries the url "/addUser", it takes in the parameters from the url and 

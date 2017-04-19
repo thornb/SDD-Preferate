@@ -3,8 +3,8 @@ package restClasses;
 import java.sql.*;
 import java.util.*;
 
-import org.apache.mahout.cf.taste.model.JDBCDataModel;
-import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
+//import org.apache.mahout.cf.taste.model.JDBCDataModel;
+//import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
