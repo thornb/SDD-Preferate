@@ -64,7 +64,7 @@ function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,servic
     }
     $.ajax({
     type: "POST",
-    contentType : 'application/json; charset=utf-8',/ //use Default contentType
+    contentType : 'application/json; charset=utf-8', //use Default contentType
     dataType : 'json',
     url: "http://rpipreferate.com:8080/addreview",
     data: search, // Note it is important without stringifying
