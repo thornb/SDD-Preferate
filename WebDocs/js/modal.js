@@ -81,7 +81,7 @@ $('#save').click(function(){
      },
      function(data, status){
      	alert("Data: "+data+"\nStatus "+status);
-     })
+     });
 
      //document.div.appendChild(div2);
 
