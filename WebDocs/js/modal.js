@@ -93,9 +93,9 @@ $('#save').click(function(){
 
 function searchText() {
     var search = {
-    "restaurant_id" : 2,
-    "pName" :"sdf",
-    "lName" :"prasad"
+    restaurant_id : 2,
+    pName :"sdf",
+    lName :"prasad"
     }
     $.ajax({
     type: "POST",
