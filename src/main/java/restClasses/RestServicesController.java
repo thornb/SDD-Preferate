@@ -86,6 +86,7 @@ public class RestServicesController {
     // Here you can use the request and response objects like:
     // response.setContentType("application/pdf");
     // response.getOutputStream().write(...);
+    return;
 
 }
 
@@ -125,6 +126,7 @@ public class RestServicesController {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
+        return;
         // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
         // ReviewList temp=new ReviewList();
         // ReviewList.addReview(r);
