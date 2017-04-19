@@ -4,6 +4,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.SortedMap;
+import java.util.stream.Collectors;
+
+import org.apache.commons.collections.MapIterator;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
@@ -42,16 +53,34 @@ public class Recommender
 			}
 		}
 		
-		double[] estimates = new double[numRestaurants];
+		Map<Long,Double> estimates = new HashMap<Long, Double>();
 		//synthesize and output overall preference scores
 		//for now, just average them all
-		for(int i = 0; i < numRestaurants; ++i){
-			estimates[i] = 0;
-			for(int j = 0; j < params.length;++j){
-				estimates[i] += ratings[j][i];
+		for(long i = 0; i < numRestaurants; ++i){
+			estimates.put(i, 0.0);
+			for(long j = 0; j < params.length;++j){
+				estimates.put(i, estimates.get(i) + ratings[(int)j][(int)i]);
 			}
-			System.out.println((i + 1) + ": " + estimates[i]/3);
 		}
+		//sort the map
+		Map<Long, Double> sortedEstimates = sortByValue(estimates);
+		//output
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Restaurant" + (i.getKey()+1) + ": " + i.getValue()/params.length);
+		}
+	}
+	
+	//java 8 hashmap sorter, descending order
+	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+	    return map.entrySet()
+	              .stream()
+	              .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
+	              .collect(Collectors.toMap(
+	                Map.Entry::getKey, 
+	                Map.Entry::getValue, 
+	                (e1, e2) -> e1, 
+	                LinkedHashMap::new
+	              ));
 	}
 
 	//may need to refactor to integrate with database

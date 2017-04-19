@@ -22,11 +22,14 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         Recommender rec = new Recommender();
+        GroupRecommender multiRec = new GroupRecommender();
         String params[] = {"food","menu","service"};
         //get the predicted ratings for some user's ID
-        int UserID = 1;
+        long UserID = 1;
+        long UserIDs[] = {1,2,3};
         try{
         	rec.runRecommender(params, UserID);
+        	multiRec.runRecommender(params, UserIDs);
         }
         catch(Exception e){
         	System.out.println("runRecommender encountered an error:");
