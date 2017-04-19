@@ -24,9 +24,9 @@ public class Application {
         Recommender rec = new Recommender();
         String params[] = {"food","menu","service"};
         //get the predicted ratings for some user's ID
-        int exampleUserID = 1;
+        int UserID = 1;
         try{
-        	rec.runRecommender(params, exampleUserID);
+        	rec.runRecommender(params, UserID);
         }
         catch(Exception e){
         	System.out.println("runRecommender encountered an error:");

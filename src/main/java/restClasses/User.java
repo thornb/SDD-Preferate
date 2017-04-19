@@ -15,10 +15,10 @@ public class User {
     private String kosher;
     private String lactose;
     private String meats;
-    private String eating_enviroment;
+    private String eating_environment;
 
     //constructor that sets all member values
-    public User (int user_id, String user_name, String diet_type, String user_allergy, String gluten, String kosher, String lactose, String meats, String eating_enviroment){
+    public User (int user_id, String user_name, String diet_type, String user_allergy, String gluten, String kosher, String lactose, String meats, String eating_environment){
         this.user_id = user_id;
         this.user_name = user_name;
         this.diet_type = diet_type;
@@ -27,7 +27,7 @@ public class User {
         this.kosher = kosher;
         this.lactose = lactose;
         this.meats = meats;
-        this.eating_enviroment = eating_enviroment;
+        this.eating_environment = eating_environment;
 
     }
 
@@ -48,7 +48,7 @@ public class User {
 
             //create SQL statment to query to insert the user
             Statement stmt = connection.createStatement();
-            String query = "INSERT INTO user (user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_enviroment)" + 
+            String query = "INSERT INTO user (user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment)" + 
                             " VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             
@@ -61,7 +61,7 @@ public class User {
             preparedStmt.setString(6, this.kosher);
             preparedStmt.setString(7, this.lactose);
             preparedStmt.setString(8, this.meats);
-            preparedStmt.setString(9, this.eating_enviroment);
+            preparedStmt.setString(9, this.eating_environment);
 
             //execute query to insert user
             preparedStmt.execute();
@@ -97,7 +97,7 @@ public class User {
 
             //create SQL statment to query to edit preference information
             Statement stmt = connection.createStatement();
-            String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_enviroment = ? WHERE user_id = ?";
+            String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             
             //set all values for prepared statment
@@ -107,7 +107,7 @@ public class User {
             preparedStmt.setString(4, this.kosher);
             preparedStmt.setString(5, this.lactose);
             preparedStmt.setString(6, this.meats);
-            preparedStmt.setString(7, this.eating_enviroment);
+            preparedStmt.setString(7, this.eating_environment);
             preparedStmt.setInt(8, this.user_id);
 
             //execute query to update user
@@ -172,7 +172,7 @@ public class User {
         return meats;
     }
     public String getEating_enviroment(){
-        return eating_enviroment;
+        return eating_environment;
     }
 
 
