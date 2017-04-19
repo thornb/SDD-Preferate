@@ -97,7 +97,7 @@ public class User {
 
             //create SQL statment to query to edit preference information
             Statement stmt = connection.createStatement();
-            String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_enviroment = ? WHERE user_id = ?";
+            String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             
             //set all values for prepared statment
