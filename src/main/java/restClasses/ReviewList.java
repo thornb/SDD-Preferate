@@ -47,7 +47,7 @@ public class ReviewList {
 
                 //create a Review object for each
                 Review r = new Review(rs.getInt("user_id"), rs.getInt("restaurant_id"), rs.getInt("restaurant_review"), 
-                    rs.getFloat("food_rating"), rs.getFloat("menu_rating"), rs.getFloat("service_rating") );
+                    rs.getFloat("food_rating"), rs.getFloat("menu_rating"), rs.getFloat("service_rating"), rs.getString("comments") );
 
                 //Add to the list
                 this.review_list.add(r);             
@@ -71,6 +71,10 @@ public class ReviewList {
     //getter function to return the list. Needed so that Jackson can convert this to json when sending to front-end
     public ArrayList<Review> getreview_list(){
         return review_list;
+    }
+
+    public void addReview(Review r){
+        this.review_list.add(r);
     }
 
     //This code is commented out becuase it is not done yet. Had dependancy build error

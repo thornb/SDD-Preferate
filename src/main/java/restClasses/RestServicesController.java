@@ -20,6 +20,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.sql.*;
+import java.util.*;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
 
 //This is the controller that runs the REST services on the site. It maps URLs to our other classes, that will ultimatly be converted to JSON objects by jackson and sent to the front-end
 @RestController
@@ -38,9 +43,45 @@ public class RestServicesController {
     }
 
     @RequestMapping(value = "/addreview")
-    public @ResponseBody void generateReport(@RequestParam int restaurant_id,@RequestParam String pName, @RequestParam String lName){
-        String pNameParameter = pName;
-        String lNameParameter = lName;
+    public @ResponseBody void generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments){
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = "root";
+        String password = "CrackerWindow654";
+
+        System.out.println("Connecting database...");
+
+        String rr=Integer.toString(restaurant_review);
+        String ui=Integer.toString(user_id);
+        String fr=Float.toString(food_rating);
+        String mr=Float.toString(menu_rating);
+        String sr=Float.toString(service_rating);
+        String ri=Integer.toString(restaurant_id);
+        String com=comments;
+        //Try to connect to the database
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!"); 
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)"+
+                "VALUES("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+","+com+")");
+
+            //close connection
+            connection.close();
+
+
+
+            //Error case. Check if database 
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
+
+        // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
+        // ReviewList temp=new ReviewList();
+        // ReviewList.addReview(r);
+
+        // String pNameParameter = pName;
+        // String lNameParameter = lName;
     // ...
     // Here you can use the request and response objects like:
     // response.setContentType("application/pdf");
