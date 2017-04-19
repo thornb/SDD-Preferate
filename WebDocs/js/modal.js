@@ -74,15 +74,15 @@ function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,servic
     });
    }
 
-function UpdateReview() {
+function UpdateReview(restaurant_review1,user_id1,food_rating1,menu_rating1,service_rating1,restaurant_id1,comments1) {
     var search = {
-    restaurant_review : 2,
+    restaurant_review : parseInt(restaurant_review1),
     user_id : 3,
-    food_rating : 1.3,
-    menu_rating : 4.5,
-    service_rating: 3.4,
-    restaurant_id: 6,
-    comments: "JUST FOR TESTING2"
+    food_rating : parseFloat(food_rating1),
+    menu_rating : parseFloat(menu_rating1),
+    service_rating: parseFloat(service_rating1),
+    restaurant_id: parseInt(restaurant_id1),
+    comments: comments1.toString()
     }
     $.ajax({
     type: "POST",
@@ -161,7 +161,7 @@ function myFunc(arg){
     att3.innerHTML=att3_temp[0]+": "+mr;
     att4.innerHTML=att4_temp[0]+": "+sr;
     att5.innerHTML=att5_temp[0]+": "+c;
-	UpdateReview();
+	UpdateReview(arg,3,fr,mr,sr,c,3);
 	return;
    });
   return;
@@ -196,7 +196,8 @@ $(document).ready(function(){
     div2.setAttribute("onclick","myFunc("+this_id_parent+")");
     div2.innerHTML='<h1>Edit Review</h1>';
     //var x=(field.restaurant_id).toString();
-    div.innerHTML='<h1>Name of Restaurant:testfortesting2---->'+field[y].food_rating+'----getting JSON data</h1>\
+
+    div.innerHTML='<h1>Name of Restaurant:testfortesting2---->'+field[y].comments+'----getting JSON data</h1>\
      <h3>Stars:</h3>\
       <h3>Comments:</h3>';
    
