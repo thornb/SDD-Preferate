@@ -90,6 +90,56 @@ public class RestServicesController {
 }
 
 
+
+   @RequestMapping(value = "/changereview")
+    public @ResponseBody void generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments){
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = "root";
+        String password = "CrackerWindow654";
+
+        System.out.println("Connecting database...");
+
+        String rr=Integer.toString(restaurant_review);
+        String ui=Integer.toString(user_id);
+        String fr=Float.toString(food_rating);
+        String mr=Float.toString(menu_rating);
+        String sr=Float.toString(service_rating);
+        String ri=Integer.toString(restaurant_id);
+        String com=comments;
+        //Try to connect to the database
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!"); 
+            Statement stmt = connection.createStatement();
+            //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
+            //stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"');");
+            stmt.executeUpdate("UPDATE restaurant_reviews SET food_rating="+fr+", menu_rating="+mr+", service_rating="+sr+", comments='"+comments+"' WHERE restaurant_review="+rr);
+            //close connection
+            connection.close();
+
+
+
+            //Error case. Check if database 
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
+
+        // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
+        // ReviewList temp=new ReviewList();
+        // ReviewList.addReview(r);
+
+        // String pNameParameter = pName;
+        // String lNameParameter = lName;
+    // ...
+    // Here you can use the request and response objects like:
+    // response.setContentType("application/pdf");
+    // response.getOutputStream().write(...);
+
+}
+
+
+
     //When user queries the url "/addUser", it takes in the parameters from the url and 
     @RequestMapping("/addUser")
     //@ResponseStatus(value = HttpStatus.OK)

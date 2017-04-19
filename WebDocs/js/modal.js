@@ -114,6 +114,28 @@ function searchText() {
     });
    }
 
+function UpdateReview() {
+    var search = {
+    restaurant_review : 2,
+    user_id : 3,
+    food_rating : 1.3,
+    menu_rating : 4.5,
+    service_rating: 3.4,
+    restaurant_id: 6,
+    comments: "JUST FOR TESTING2"
+    }
+    $.ajax({
+    type: "POST",
+    /*contentType : 'application/json; charset=utf-8',*/ //use Default contentType
+    dataType : 'json',
+    url: "http://rpipreferate.com:8080/changereview",
+    data: search, // Note it is important without stringifying
+    success :function(result) {
+    	console.log("SUCCESS");
+    }
+    });
+   }
+
 function isNormalInteger(str) {
     var n = Math.floor(Number(str));
     return String(n) === str && n >= 0;
@@ -151,6 +173,7 @@ function myFunc(arg){
     var x=document.getElementById("rest_name_restaurant").value;
 	//alert("HELOO"+arg);
 	menu.innerHTML=x;
+	UpdateReview();
 	return;
   	// element = document.getElementById(arg).parentNode;
    //  var x=document.getElementById("rest_name_restaurant").value;
