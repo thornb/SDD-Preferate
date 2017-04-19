@@ -38,9 +38,9 @@ public class RestServicesController {
     }
 
     @RequestMapping(value = "/addreview")
-    public @ResponseBody void generateReport(@RequestParam int restaurant_id){
-        int s=restaurant_id;
-        System.out.println(s);
+    public @ResponseBody void generateReport(@RequestParam int restaurant_id,@RequestParam String pName, @RequestParam String lName){
+        String pNameParameter = pName;
+        String lNameParameter = lName;
     // ...
     // Here you can use the request and response objects like:
     // response.setContentType("application/pdf");

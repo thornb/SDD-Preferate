@@ -68,20 +68,22 @@ $('#save').click(function(){
 
      //var dat=JSON.stringify(frm);
 
-     $.post("http://rpipreferate.com:8080/addreview",
-     {
-     	restaurant_id: 2,
-     	user_id: 3,
-     	food_rating: .5,
-     	menu_rating: 1.3,
-     	service_rating: 3.4,
-     	comments: "hello",
-     	restaurant_review: 3,
+     // $.post("http://rpipreferate.com:8080/addreview",
+     // {
+     // 	restaurant_id: 2,
+     // 	user_id: 3,
+     // 	food_rating: .5,
+     // 	menu_rating: 1.3,
+     // 	service_rating: 3.4,
+     // 	comments: "hello",
+     // 	restaurant_review: 3,
 
-     },
-     function(data, status){
-     	alert("Data: "+data+"\nStatus "+status);
-     });
+     // },
+     // function(data, status){
+     // 	alert("Data: "+data+"\nStatus "+status);
+     // });
+
+ 	searchText()
 
      //document.div.appendChild(div2);
 
@@ -89,6 +91,23 @@ $('#save').click(function(){
 });
 });
 
+function searchText() {
+    var search = {
+    "restaurant_id" : 2,
+    "pName" :"sdf",
+    "lName" :"prasad"
+    }
+    $.ajax({
+    type: "POST",
+    /*contentType : 'application/json; charset=utf-8',*/ //use Default contentType
+    dataType : 'json',
+    url: "http://rpipreferate.com:8080/addreview",
+    data: search, // Note it is important without stringifying
+    success :function(result) {
+    	console.log("SUCCESS");
+    }
+    });
+   }
 
 function isNormalInteger(str) {
     var n = Math.floor(Number(str));
