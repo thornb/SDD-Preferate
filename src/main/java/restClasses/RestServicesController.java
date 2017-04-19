@@ -1,5 +1,7 @@
 package restClasses;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +35,44 @@ public class RestServicesController {
     public ReviewList ReviewList(){
     	return new ReviewList();
     }
-
-
+    
+    
+    //when user queries the url "/recommend", it returns a list of strings
+    String params[] = {"food","menu","service"};
+    @RequestMapping("/recommend")
+    public ArrayList<String> recommender(@RequestParam( value="user_id" ) int user_id){
+    	try {
+			Recommender rec = new Recommender(params, user_id);
+			return rec.getRecs();
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+    }
+    //when user queries the url "/recommendGroup", it returns a list of strings
+    //url should look like http://localhost:8080/recommendGroup?members=[1,2,3,...]
+    @RequestMapping("/recommendGroup")
+    public ArrayList<String> recommenderGroup(@RequestParam( value="members" ) String memString){
+    	//parse string into array
+    	String input = memString.substring(1, memString.length()-1);
+    	ArrayList<Long> members = new ArrayList<Long>();
+    	int iter = 0;
+    	for(String mem : Arrays.asList(input.split(","))){
+    		members.add(Long.parseLong(mem));
+    	}
+    	long memArr[] = new long[members.size()];
+    	for(int i = 0; i < memArr.length; ++i){
+    		memArr[i] = members.get(i);
+    	}
+    	try {
+			Recommender rec = new GroupRecommender(params, memArr);
+			return rec.getRecs();
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+    }
+    
     //When user queries the url "/addUser", it takes in the parameters from the url and 
     @RequestMapping("/addUser")
     //@ResponseStatus(value = HttpStatus.OK)
@@ -72,7 +110,7 @@ public class RestServicesController {
         User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
 
         //edit this user's preferences into the database
-        u.editPreferences();        
+        u.editPreferences();
     }
 
 
