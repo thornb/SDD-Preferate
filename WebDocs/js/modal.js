@@ -9,28 +9,27 @@ $('#save').click(function(){
     list.push(this_id);
     ++id;
     var this_id_parent=id.toString();
-    var x=document.getElementById("name_restaurant").value;
+    var nr=document.getElementById("name_restaurant").value;
+    var fr=document.getElementById("food_rating").value;
+    var mr=document.getElementById("menu_rating").value;
+    var sr=document.getElementById("service_rating").value;
+    var c=document.getElementById("comment_restaurant").value;
 
     var div = document.createElement('div');
 
     div.className = 'row top-buffer';
-
-    //div.id='review1';
-    // div.style.background='#e2d5d7';
-    // div.style.height="80%";
 
     div.id=this_id_parent;
     div.style.background='#e2d5d7';
     div.style.height="80%";
 
     div2=document.createElement('button');
-    div2.className="btn btn-primary col-md-6 "+this_id+"name";
-    //div2.id="#edit_button2";
+    div2.className="btn btn-primary col-md-12";
+
     div2.id=this_id;
     div2.setAttribute("data-toggle","modal");
     div2.setAttribute("data-target","#editModal");
 
-    //document.body.appendChild(cln);
     div2.setAttribute("align","center");
     div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
     div2.innerHTML='<h1>Edit Review</h1>';
@@ -40,67 +39,28 @@ $('#save').click(function(){
     div3.innerHTML='check';
     div3.id=this_id+"c";
 
-    //div.appendChild(div2);
-    div.innerHTML='<h1>Name of Restaurant:'+x+'testforvalidation</h1>\
-     <h3>Stars:</h3>\
-      <h3>Comments:</h3>';
+    div.innerHTML='<h1>Name of Restaurant: '+nr+'</h1>\
+     <h3>Food Rating: '+fr+'</h3>\
+     <h3>Menu Rating: '+mr+'</h3>\
+      <h3>Service Rating: '+sr+'</h3>\
+      <h3>Comments: '+c+'</h3>' ;
    
-     // document.getElementById(this_id).value=x;
-
-     // document.getElementById('body').appendChild(div2);
-     //div.appendChild(div3);
-     //div.appendChild(div2);
      var x=(document.getElementById('review_table').appendChild(div));
-     x.appendChild(div3);
      x.appendChild(div2);
-     //.appendChild(div2);
-
-     // var frm={
-     // 	restaurant_id: 2;
-     // 	user_id: 3;
-     // 	food_rating: .5;
-     // 	menu_rating: 1.3;
-     // 	service_rating: 3.4;
-     // 	comments: "hello";
-     // 	restaurant_review: 3;
-
-     // };
-
-     //var dat=JSON.stringify(frm);
-
-     // $.post("http://rpipreferate.com:8080/addreview",
-     // {
-     // 	restaurant_id: 2,
-     // 	user_id: 3,
-     // 	food_rating: .5,
-     // 	menu_rating: 1.3,
-     // 	service_rating: 3.4,
-     // 	comments: "hello",
-     // 	restaurant_review: 3,
-
-     // },
-     // function(data, status){
-     // 	alert("Data: "+data+"\nStatus "+status);
-     // });
-
- 	searchText();
-
-     //document.div.appendChild(div2);
-
-
+ 	 searchText(this_id,3,fr,mr,sr,this_id_parent,c);
 });
 });
 
 //restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments
-function searchText() {
+function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,service_rating1,restaurant_id1,comments1) {
     var search = {
-    restaurant_review : 2,
+    restaurant_review : parseInt(restaurant_review1),
     user_id : 3,
-    food_rating : 1.3,
-    menu_rating : 4.5,
-    service_rating: 3.4,
-    restaurant_id: 6,
-    comments: "JUST FOR TESTING"
+    food_rating : parseFloat(food_rating1),
+    menu_rating : parseFloat(menu_rating1),
+    service_rating: parseFloat(service_rating1),
+    restaurant_id: parseInt(restaurant_id1),
+    comments: comments1.toString()
     }
     $.ajax({
     type: "POST",
@@ -141,7 +101,7 @@ function isNormalInteger(str) {
     return String(n) === str && n >= 0;
 }
 
-//window.onload = function() {
+
 function modalonclick(arg){
 	var element = document.getElementById(arg).parentNode;
     var menu = element.getElementsByTagName('p1')[0];
@@ -153,36 +113,58 @@ function modalonclick(arg){
 	return;
 
 }
-//}
 
 function myFunc(arg){
-  //var element = document.getElementById(arg).parentNode;
   var element=document.getElementById(arg);
-  var menu = element.getElementsByTagName('p1')[0];
-  //menu.innerHTML="See if first is changing";
-  var temp=document.getElementById("rest_name_restaurant").value;
-  //var x=document.getElementById("rest_name_restaurant").value;
-  //menu.innerHTML("<input type='text' id='txtName' value='"+menu.innerHTML+"'/>");
+
+  var att1 = element.getElementsByTagName('h1')[0];
+  var att2 = element.getElementsByTagName('h3')[0];
+  var att3 = element.getElementsByTagName('h3')[1];
+  var att4 = element.getElementsByTagName('h3')[2];
+  var att5 = element.getElementsByTagName('h3')[3];
+
+  var att1_temp=(att1.innerHTML).split(":");
+  var att2_temp=(att2.innerHTML).split(":");
+  var att3_temp=(att3.innerHTML).split(":");
+  var att4_temp=(att4.innerHTML).split(":");
+  var att5_temp=(att5.innerHTML).split(":");
+
+  document.getElementById("rest_name_restaurant").value=att1_temp[1];
+  document.getElementById("rest_food_rating").value=att2_temp[1];
+  document.getElementById("rest_menu_rating").value=att3_temp[1];
+  document.getElementById("rest_service_rating").value=att4_temp[1];
+  document.getElementById("rest_comment_restaurant").value=att5_temp[1];
+
+
   $('#edit').unbind().click(function(){
   	element = document.getElementById(arg);
-    menu = element.getElementsByTagName('p1')[0];
-    //str=arg+"c";
-    //menu=document.getElementById(str);
-	//var x=document.getElementById("rest_name_restaurant").value;
-	//temp=document.getElementById('#editModal'+arg)
-    var x=document.getElementById("rest_name_restaurant").value;
-	//alert("HELOO"+arg);
-	//menu.innerHTML=x;
+    var att1 = element.getElementsByTagName('h1')[0];
+  	var att2 = element.getElementsByTagName('h3')[0];
+  	var att3 = element.getElementsByTagName('h3')[1];
+  	var att4 = element.getElementsByTagName('h3')[2];
+  	var att5 = element.getElementsByTagName('h3')[3];
+
+    var nr=document.getElementById("rest_name_restaurant").value;
+    var fr=document.getElementById("rest_food_rating").value;
+    var mr=document.getElementById("rest_menu_rating").value;
+    var sr=document.getElementById("rest_service_rating").value;
+    var c=document.getElementById("rest_comment_restaurant").value;
+
+    var att1_temp=(att1.innerHTML).split(":");
+    var att2_temp=(att2.innerHTML).split(":");
+    var att3_temp=(att3.innerHTML).split(":");
+    var att4_temp=(att4.innerHTML).split(":");
+    var att5_temp=(att5.innerHTML).split(":");
+
+    att1.innerHTML=att1_temp[0]+": "+nr;
+    att2.innerHTML=att2_temp[0]+": "+fr;
+    att3.innerHTML=att3_temp[0]+": "+mr;
+    att4.innerHTML=att4_temp[0]+": "+sr;
+    att5.innerHTML=att5_temp[0]+": "+c;
 	UpdateReview();
 	return;
-  	// element = document.getElementById(arg).parentNode;
-   //  var x=document.getElementById("rest_name_restaurant").value;
-   //  element.getElementsByTagName('h1')[0].innerHTML=x;
    });
-  // var x=modalonclick();
-  //element.getElementsByTagName('h1')[0].innerHTML=x;
   return;
-  alert("PASSS"+arg);
 }
 
 $(document).ready(function(){
