@@ -1,5 +1,8 @@
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
+<<<<<<< HEAD
+})
+=======
 });
 
 $(document).ready(function(){
@@ -177,3 +180,4 @@ $(document).ready(function(){
         });
     });
 });
+>>>>>>> d8fa1f36989a02dfba31d7928f5c2c5e4c3267f5
