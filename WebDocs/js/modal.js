@@ -172,7 +172,7 @@ function myFunc(arg){
 	//temp=document.getElementById('#editModal'+arg)
     var x=document.getElementById("rest_name_restaurant").value;
 	//alert("HELOO"+arg);
-	menu.innerHTML=x;
+	//menu.innerHTML=x;
 	UpdateReview();
 	return;
   	// element = document.getElementById(arg).parentNode;
