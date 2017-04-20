@@ -79,6 +79,8 @@ $( document ).ready(function() {
     	
     	console.log(insertURL);
 
+    	$("#end").append("<div style='font-size: 28px; color: white;'>Successfully Added/Edited Preferences</div>");
+
     	//Push data to server with get request
     	// $.get( insertURL, function(data){
     	// 	console.log(data);

@@ -38,10 +38,7 @@ $(document).ready(function(){
  		$("#meats").append(data.meats);
  		$("#eating_environment").append(data.eating_environment);
 
- 		$("#profile_pic").attr('src', "http://graph.facebook.com/" + data.user_id + "/picture?type=large");
-
- 		
-
+ 		$("#profile_pic").attr('src', "http://graph.facebook.com/" + getUrlParameter("id") + "/picture?type=large");
 
  	});
 
