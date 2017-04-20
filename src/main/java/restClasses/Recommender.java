@@ -41,7 +41,7 @@ public class Recommender
 		recs = new ArrayList<Recommendation>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
 			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
-			recs.add(new Recommendation(i.getKey()+1, i.getValue()));
+			recs.add(new Recommendation(i.getKey()+1, (double)i.getValue()/params.length));
 			iter++;
 		}
 	}
