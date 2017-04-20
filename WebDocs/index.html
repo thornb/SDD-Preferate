@@ -85,6 +85,36 @@
        console.log('Successful login for: ' + response.name);
        console.log("response:");
        console.log(response);
+
+       $(document).ready(function(){
+          $.ajax({
+            url: "http://localhost:8080/getUser?user_id="+ response.id
+          }).then(function(data, status, jqxhr){
+
+            console.log(data);
+
+            console.log(data.user_name);
+
+
+            //populate values in html
+            //$("#name").append(data.user_name);
+            //$("#diet").append(data.diet);
+            $("#user_allergy").append(data.user_allergy);
+            $("#gluten").append(data.gluten);
+            $("#kosher").append(data.kosher);
+            $("#lactose").append(data.lactose);
+            $("#meats").append(data.meats);
+            $("#eating_environment").append(data.eating_environment);
+
+            //$("#profile_pic").attr('src', "http://graph.facebook.com/" + response.id + "/picture?type=large");
+
+          }); 
+       });
+
+       
+
+
+
        //document.getElementById('status').innerHTML =
        //  'Thanks for logging in, ' + response.name + '!';
        document.getElementById('name').innerHTML = response.name;
@@ -166,18 +196,27 @@
   				 			<!-- <h1>First Name Last Name</h1> -->
                 <h1 id="name"></h1>
   				 		</div>
-  				 		<div class="row">
-  				 			<h3>Dietary Restrictions</h3>
-  				 		</div>
-  				 		<div class="row">
-  				 			<h3>Reviews Completed</h3>
-  				 		</div>
-  				 		<div class="row">
-  				 			<h3>Number of Groups</h3>
-  				 		</div>
-  				 		<div class="row">
-  				 			<h3>Places Recently Visited</h3>
-  				 		</div>
+  				 		<!-- <div class="row" id="diet">
+                <h3>Dietary Restriction:</h3>
+              </div> -->
+              <div class="row" id="user_allergy">
+                <h3>Allergies:</h3>
+              </div>
+              <div class="row" id="gluten">
+                <h3>Gluten:</h3>
+              </div>
+              <div class="row" id="kosher">
+                <h3>Kosher:</h3>
+              </div>
+              <div class="row" id="lactose">
+                <h3>Lactose:</h3>
+              </div>
+              <div class="row" id="meats">
+                <h3>Meats:</h3>
+              </div>
+              <div class="row" id="eating_environment">
+                <h3>Eating Environment:</h3>
+              </div>
   				 	</div>
 
   				

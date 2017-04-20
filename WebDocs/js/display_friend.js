@@ -1,13 +1,7 @@
-$(document).ready(function(){
 
+function displayFriends(friends){
 
-	function displayUsers(){
+	console.log("in displayFriends");
+	console.log(friends);
 
-		console.log(fbFriendObj);
-
-	}
-
-	setTimeout(displayUsers, 500);
-
-	
-});
+}

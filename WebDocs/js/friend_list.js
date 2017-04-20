@@ -85,7 +85,37 @@ function testAPI() {
                /* handle the result */
                console.log("Successful");
                console.log(response);
-			   
+			     
+               //loop over friends and add them to the page
+               $(document).ready(function(){
+                  var friend_list = response.data;
+
+                  console.log("in jquery");
+
+                  for(var i = 0; i < friend_list.length ; i++){
+
+                    console.log(friend_list[i]);
+
+                    var imgUrl = `"http://graph.facebook.com/` + friend_list[i].id + `/picture?type=large"`;
+                    console.log(imgUrl);
+
+                    $("#friends").append(`<div class="row top-buffer" name="review_row" id="review_row">
+                       <div class="col-md-3 col-md-offset-4" id="review1">
+                         <h1 align="center">`+ friend_list[i].name + `</h1>
+                         <center><a href="friend_profile.html?id=`+ friend_list[i].id + `"><img src=` + imgUrl + `class="img-responsive" alt="Cinque Terre" width="304" height="600"></a></center>
+                      </div>`);
+
+                    
+
+
+
+                  }
+
+
+                  
+
+               });
+
            }
        });
      });
