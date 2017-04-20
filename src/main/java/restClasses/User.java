@@ -95,12 +95,12 @@ public class User {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
 
-            //create SQL statment to query to edit preference information
+            //create SQL statement to query to edit preference information
             Statement stmt = connection.createStatement();
             String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             
-            //set all values for prepared statment
+            //set all values for prepared statement
             preparedStmt.setString(1, this.diet_type);
             preparedStmt.setString(2, this.user_allergy);
             preparedStmt.setString(3, this.gluten);
