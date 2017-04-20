@@ -31,6 +31,53 @@ public class User {
 
     }
 
+
+    //constructor that creates user class from only userID
+    public User (Long user_id){
+        this.user_id = user_id;
+        
+        //Parameters to log into database
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = "root";
+        //String password = "CrackerWindow654";
+        String password = Globals.pass;
+
+        System.out.println("Connecting database...");
+
+        //Try to connect to the database
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!");
+
+            //check to see if user is already in database
+            Statement userCheck = connection.createStatement();
+            String userQuery = "SELECT * FROM user WHERE user_id =" + this.user_id;
+            PreparedStatement userPreparedStmt = connection.prepareStatement(userQuery);
+            ResultSet rs = userPreparedStmt.executeQuery();
+        
+            if(rs.next()){
+
+                this.user_name = rs.getString("user_name");
+                this.diet_type = rs.getString("diet_type");
+                this.user_allergy = rs.getString("user_allergy");
+                this.gluten = rs.getString("gluten");
+                this.kosher = rs.getString("kosher");
+                this.lactose = rs.getString("lactose");
+                this.meats = rs.getString("meats");
+                this.eating_environment = rs.getString("eating_environment");
+
+            }
+
+        }catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
+
+
+
+
+    }    
+
+
     //Connect to Database and insert Account
     public void insertOrEditUser(){
 
@@ -204,7 +251,7 @@ public class User {
     public String getMeats(){
         return meats;
     }
-    public String getEating_enviroment(){
+    public String getEating_environment(){
         return eating_environment;
     }
 

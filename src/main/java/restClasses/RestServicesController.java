@@ -40,12 +40,13 @@ public class RestServicesController {
 	}
 
 	//when user queries the url "/reviews", it returns a list of review objects in json 
+	@CrossOrigin
 	@RequestMapping("/reviews")
 	public ReviewList ReviewList(){
 		return new ReviewList();
 	}
 
-
+	@CrossOrigin
 	@RequestMapping(value = "/addreview")
 	public @ResponseBody void generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
 			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
@@ -98,7 +99,7 @@ public class RestServicesController {
 	}
 
 
-
+	@CrossOrigin
 	@RequestMapping(value = "/changereview")
 	public @ResponseBody void generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
 			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
@@ -169,6 +170,7 @@ public class RestServicesController {
 	}
 	//when user queries the url "/suggestions_pageGroup", it returns a list of strings
 	//url should look like http://localhost:8080/suggestions_pageGroup?members=[1,2,3,...]
+	@CrossOrigin
 	@RequestMapping("/suggestions_pageGroup")
 	public ArrayList<Recommendation> recommenderGroup(@RequestParam( value="members" ) String memString){
 		//parse string into array
@@ -213,26 +215,18 @@ public class RestServicesController {
         u.insertOrEditUser();        
     }
 
-    //When user queries the url "/addUser", it takes in the parameters from the url and 
-    // @RequestMapping("/editPref")
-    // //@ResponseStatus(value = HttpStatus.OK)
-    // public void addUser( @RequestParam( value="user_id" ) int user_id, 
-    //                      @RequestParam( value="user_name" ) String user_name,
-    //                      @RequestParam( value="diet_type" ) String diet_type,
-    //                      @RequestParam( value="user_allergy" ) String user_allergy,
-    //                      @RequestParam( value="gluten" ) String gluten,
-    //                      @RequestParam( value="kosher" ) String kosher,
-    //                      @RequestParam( value="lactose" ) String lactose,
-    //                      @RequestParam( value="meats" ) String meats,
-    //                      @RequestParam( value="eating_environment" ) String eating_environment ){
+    @CrossOrigin
+    @RequestMapping("/getUser")
+    public User getDBUser( @RequestParam( value="user_id" ) String s_user_id){
 
-    //     //create the user class object
-    //     User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
+        //create the user class object
+        Long user_id = Long.parseLong(s_user_id);
 
-    //     //edit this user's preferences into the database
-    //     u.editPreferences();
-    // }
+        User u = new User(user_id); 
 
+        //insert this user into the database
+        return u;     
+    }
 
 
 
