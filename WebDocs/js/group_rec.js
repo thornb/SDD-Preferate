@@ -9,8 +9,10 @@ $(document).ready(function(){
 
 		var user_id = fbUserObj.id % 1000 + 1;
 
+		var members = "[" + user_id + "-" + ((10203219280360494 % 1000) + 1) + "-" + ((100702180472712 % 1000) + 1) + "]"; 
+
 		$.ajax({
-			url: "http://localhost:8080/suggestions_page?user_id=" + user_id
+			url: "http://localhost:8080/suggestions_pageGroup?members=" + members
 		}).then(function(data, status, jqxhr){
 
 			console.log(data);

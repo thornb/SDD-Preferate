@@ -8,16 +8,16 @@ $('#save').click(function(){
     var temp=0;
     id++;
     while (temp!=1){
-    	var pass=0;
-    	for (var t=0;t<current_ids.length;t++){
-    		if ((id).toString()==(current_ids[t]).toString()){
-    			id++;
-    			pass=1;
-    		}
-    	}
-    	if (pass==0){
-    		temp=1;
-    	}
+      var pass=0;
+      for (var t=0;t<current_ids.length;t++){
+        if ((id).toString()==(current_ids[t]).toString()){
+          id++;
+          pass=1;
+        }
+      }
+      if (pass==0){
+        temp=1;
+      }
     }
     current_ids.push(id);
     var pass_id=id;
@@ -49,7 +49,7 @@ $('#save').click(function(){
     div2.setAttribute("data-target","#editModal");
 
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
+    div2.setAttribute("onclick","return myFunc("+this_id_parent+","+this_id+")");
     div2.innerHTML='<h1>Edit Review</h1>';
 
     div3=document.createElement('p1');
@@ -58,14 +58,14 @@ $('#save').click(function(){
     div3.id=this_id+"c";
 
     div.innerHTML='<h1>Name of Restaurant: '+nr+'</h1>\
-     <h3>Food Rating: '+fr+'</h3>\
-     <h3>Menu Rating: '+mr+'</h3>\
-      <h3>Service Rating: '+sr+'</h3>\
+     <h3>Food Rating: '+Number(fr)+'</h3>\
+     <h3>Menu Rating: '+Number(mr)+'</h3>\
+      <h3>Service Rating: '+Number(sr)+'</h3>\
       <h3>Comments: '+c+'</h3>' ;
    
      var x=(document.getElementById('review_table').appendChild(div));
      x.appendChild(div2);
- 	 searchText(this_id,3,fr,mr,sr,this_id_parent,c,nr);
+   searchText(this_id,3,fr,mr,sr,this_id_parent,c,nr);
 });
 });
 
@@ -85,12 +85,12 @@ function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,servic
     }
     $.ajax({
     type: "POST",
-    //contentType : 'application/json; charset=utf-8', //use Default contentType
+    //contentType : 'text/json; charset=utf-8', //use Default contentType
     dataType : 'json',
     url: "http://localhost:8080/addreview",
     data: search, // Note it is important without stringifying
     success :function(result) {
-    	console.log("SUCCESS");
+      console.log("SUCCESS");
     }
     });
    }
@@ -113,10 +113,10 @@ function UpdateReview(restaurant_review1,user_id1,food_rating1,menu_rating1,serv
     // url: "http://localhost:8080/changereview",
     // data: JSON.stringify(search), // Note it is important without stringifying
     // success :function(result) {
-    // 	console.log("SUCCESS");
+    //  console.log("SUCCESS");
     // }
     // });
- 	var search = {
+  var search = {
     restaurant_review: Number(restaurant_review1),
     user_id: 3,
     food_rating: Number(food_rating1),
@@ -128,12 +128,12 @@ function UpdateReview(restaurant_review1,user_id1,food_rating1,menu_rating1,serv
     }
     $.ajax({
     type: "POST",
-    contentType : 'application/json; charset=utf-8', //use Default contentType
+    //contentType : 'text/json; charset=utf-8', //use Default contentType
     dataType : 'json',
-    url: "http://localhost:8080/addreview",
+    url: "http://localhost:8080/changereview",
     data: search, // Note it is important without stringifying
     success :function(result) {
-    	console.log("SUCCESS");
+      console.log("SUCCESS");
     }
     });
    }
@@ -145,22 +145,24 @@ function isNormalInteger(str) {
 
 
 function modalonclick(arg){
-	var element = document.getElementById(arg).parentNode;
+  var element = document.getElementById(arg).parentNode;
     var menu = element.getElementsByTagName('p1')[0];
     str=arg+"c";
     menu=document.getElementById(str);
-	var x=document.getElementById("rest_name_restaurant").value;
-	alert("HELOO"+arg);
-	menu.innerHTML=x;
-	return;
+  var x=document.getElementById("rest_name_restaurant").value;
+  alert("HELOO"+arg);
+  menu.innerHTML=x;
+  return;
 
 }
 
-function myFunc(arg){
+function myFunc(arg,child){
   var element=document.getElementById(arg);
 
+  //var child=(element.getElementsByTagName('button')[0]).id;
   var att1 = element.getElementsByTagName('h1')[0];
   var att2 = element.getElementsByTagName('h3')[0];
+  console.log("ATT2:",att2);
   var att3 = element.getElementsByTagName('h3')[1];
   var att4 = element.getElementsByTagName('h3')[2];
   var att5 = element.getElementsByTagName('h3')[3];
@@ -179,12 +181,12 @@ function myFunc(arg){
 
 
   $('#edit').unbind().click(function(){
-  	element = document.getElementById(arg);
+    element = document.getElementById(arg);
     var att1 = element.getElementsByTagName('h1')[0];
-  	var att2 = element.getElementsByTagName('h3')[0];
-  	var att3 = element.getElementsByTagName('h3')[1];
-  	var att4 = element.getElementsByTagName('h3')[2];
-  	var att5 = element.getElementsByTagName('h3')[3];
+    var att2 = element.getElementsByTagName('h3')[0];
+    var att3 = element.getElementsByTagName('h3')[1];
+    var att4 = element.getElementsByTagName('h3')[2];
+    var att5 = element.getElementsByTagName('h3')[3];
 
     var nr=document.getElementById("rest_name_restaurant").value;
     var fr=document.getElementById("rest_food_rating").value;
@@ -203,28 +205,31 @@ function myFunc(arg){
     att3.innerHTML=att3_temp[0]+": "+mr;
     att4.innerHTML=att4_temp[0]+": "+sr;
     att5.innerHTML=att5_temp[0]+": "+c;
-	UpdateReview(arg,3,fr,mr,sr,c,3,nr);
-	return;
+  UpdateReview(child,3,fr,mr,sr,3,c,nr);
+  return;
    });
   return;
 }
 
 $(document).ready(function(){
-	$.getJSON("http://localhost:8080/reviews", function(result){
-	$.each(result,function(i,field){
-		for (var y=0;y<field.length;++y){
-			//current_ids.push(field[y].restaurant_review);
-	var temp_id=field[y].restaurant_review;
-	current_ids.push(temp_id);
+  $.getJSON("http://localhost:8080/reviews", function(result){
+    //var whattodo=JSON.parse(result);
+  $.each(result,function(i,field){
+    for (var y=0;y<field.length;++y){
+    // var whattodo=JSON.parse(field);
+      //current_ids.push(field[y].restaurant_review);
+  var temp_id=field[y].restaurant_review;
+  current_ids.push(temp_id);
     var this_id=temp_id.toString();
     list.push(this_id);
     ++temp_id;
     var this_id_parent=temp_id.toString();
-    var nr=field[y].restaurant_name;
+    var nr=field[y].name;
     var fr=field[y].food_rating;
     var mr=field[y].menu_rating;
     var sr=field[y].service_rating;
     var c=field[y].comments;
+
 
     var div = document.createElement('div');
 
@@ -243,7 +248,7 @@ $(document).ready(function(){
     div2.setAttribute("data-target","#editModal");
 
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
+    div2.setAttribute("onclick","return myFunc("+this_id_parent+","+this_id+")");
     div2.innerHTML='<h1>Edit Review</h1>';
 
     div3=document.createElement('p1');
@@ -259,14 +264,14 @@ $(document).ready(function(){
    
      var x=(document.getElementById('review_table').appendChild(div));
      x.appendChild(div2);
-		}
-		
-	});
+    }
+    
+  });
 });
 });
 
 // function parseData(){
-// 	$.getJSON("http://localhost:8080/reviews", function(result){
+//  $.getJSON("http://localhost:8080/reviews", function(result){
 //     $.each(result, function(i, field){
 //     for (var y=0;y<field.length;++y){
 //     var nr=field[y].restaurant_name;
@@ -279,16 +284,16 @@ $(document).ready(function(){
 //     var temp=0;
 //     id++;
 //     while (temp!=1){
-//     	for (var t=0;t<current_ids.length;++t){
-//     		if (parseInt(id)==parseInt(current_ids[t])){
-//     			id++;
-//     			break;
-//     		}
-//     	}
-//     	temp=1;
+//      for (var t=0;t<current_ids.length;++t){
+//        if (parseInt(id)==parseInt(current_ids[t])){
+//          id++;
+//          break;
+//        }
+//      }
+//      temp=1;
 //     }
-//    	//++id;
-//    	current_ids.push(id);
+//      //++id;
+//      current_ids.push(id);
 //     var this_id=id.toString();
 //     list.push(this_id);
 //     ++id;
@@ -333,7 +338,7 @@ $(document).ready(function(){
 //      x.appendChild(div2);
 //     // //for (var i=0;i<result.length;i++){
 //     // for (var y=0;y<field.length;y++){
-//     //     	++id;
+//     //       ++id;
 //     // var this_id=id.toString();
 //     // list.push(this_id);
 //     // ++id;
@@ -364,7 +369,7 @@ $(document).ready(function(){
    
 //     //  var x=(document.getElementById('review_table').appendChild(div));
 //     //  x.appendChild(div2);
-//  		}
+//      }
 //         });
 //     });
 // }

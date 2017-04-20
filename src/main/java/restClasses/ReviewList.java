@@ -26,7 +26,7 @@ public class ReviewList {
 
         //Parameters to log into database
         String url = "jdbc:mysql://localhost:3306/preferate";
-        String username = "new_user";
+        String username = "root";
         //String password = "CrackerWindow654";
         String password = Globals.pass;
 
