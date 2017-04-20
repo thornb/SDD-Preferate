@@ -3,7 +3,7 @@ package restClasses;
 import java.sql.*;
 import java.util.*;
 
-//Class to hold information about a review
+//Class to hold information about a user
 public class User {
 
     //member variables to store attributes from DB
