@@ -73,7 +73,7 @@ public class ReviewList {
         return review_list;
     }
 
-    //This code is commented out becuase it is not done yet. Had dependancy build error
+    //returns a datamodel of one column of the reviews data for use in the recommender
 
       public static JDBCDataModel getReviewsRecommender(String param){
 

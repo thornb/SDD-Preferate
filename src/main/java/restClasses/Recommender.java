@@ -4,6 +4,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
@@ -20,8 +28,17 @@ import com.opencsv.CSVWriter;
 
 public class Recommender 
 {
+	//stores recommendations once a Recommender has been properly instantiated
+	protected ArrayList<String> recs;
+	public ArrayList<String> getRecs(){
+		return recs;
+	}
+	Recommender(){
+		recs = null;
+	}
+
 	//currently outputs estimated preferences for all restaurants to System.out
-	public void runRecommender(String params[], long userID) throws Exception
+	public Recommender(String params[], long userID) throws Exception
 	{
 		//UserID 
 		//int user = 1;
@@ -41,17 +58,82 @@ public class Recommender
 				ratings[i][j] = recommender.estimatePreference(userID, j + 1);
 			}
 		}
-		
-		double[] estimates = new double[numRestaurants];
+
+		Map<Long,Double> estimates = new HashMap<Long, Double>();
 		//synthesize and output overall preference scores
 		//for now, just average them all
-		for(int i = 0; i < numRestaurants; ++i){
-			estimates[i] = 0;
-			for(int j = 0; j < params.length;++j){
-				estimates[i] += ratings[j][i];
+		for(long i = 0; i < numRestaurants; ++i){
+			estimates.put(i, 0.0);
+			for(long j = 0; j < params.length;++j){
+				estimates.put(i, estimates.get(i) + ratings[(int)j][(int)i]);
 			}
-			System.out.println((i + 1) + ": " + estimates[i]/3);
 		}
+		//sort the map
+		Map<Long, Double> sortedEstimates = sortByValue(estimates);
+		//store in recs
+		int iter = 0;
+		recs = new ArrayList<String>();
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
+			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
+			iter++;
+		}
+	}
+
+	//integrated recommender
+	public Recommender(String params[], long userID, boolean online) throws Exception
+	{
+		//UserID 
+		//int user = 1;
+		int numRestaurants = 50;
+		//parameters over which we will create models
+		//String params[] = {"food","menu","service"};
+		//parseReviews(params);
+		double[][] ratings = new double[params.length][numRestaurants];
+		//create our models and estimate all the preferences
+		for(int i = 0; i < params.length;++i){
+			//String file = new String("data/Reviews"+params[i]+".csv");
+			DataModel model = ReviewList.getReviewsRecommender(params[i]);
+			UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
+			UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
+			for (int j = 0; j < numRestaurants; ++j){
+				ratings[i][j] = recommender.estimatePreference(userID, j + 1);
+			}
+		}
+
+		Map<Long,Double> estimates = new HashMap<Long, Double>();
+		//synthesize and output overall preference scores
+		//for now, just average them all
+		for(long i = 0; i < numRestaurants; ++i){
+			estimates.put(i, 0.0);
+			for(long j = 0; j < params.length;++j){
+				estimates.put(i, estimates.get(i) + ratings[(int)j][(int)i]);
+			}
+		}
+		//sort the map
+		Map<Long, Double> sortedEstimates = sortByValue(estimates);
+		//store in recs
+		int iter = 0;
+		recs = new ArrayList<String>();
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
+			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
+			iter++;
+		}
+	}
+
+	//java 8 hashmap sorter, descending order
+	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+		return map.entrySet()
+				.stream()
+				.sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
+				.collect(Collectors.toMap(
+						Map.Entry::getKey, 
+						Map.Entry::getValue, 
+						(e1, e2) -> e1, 
+						LinkedHashMap::new
+						));
 	}
 
 	//may need to refactor to integrate with database
