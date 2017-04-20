@@ -49,7 +49,7 @@ $('#save').click(function(){
     div2.setAttribute("data-target","#editModal");
 
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
+    div2.setAttribute("onclick","return myFunc("+this_id_parent+","+this_id+")");
     div2.innerHTML='<h1>Edit Review</h1>';
 
     div3=document.createElement('p1');
@@ -128,9 +128,9 @@ function UpdateReview(restaurant_review1,user_id1,food_rating1,menu_rating1,serv
     }
     $.ajax({
     type: "POST",
-    contentType : 'application/json; charset=utf-8', //use Default contentType
+    //contentType : 'text/json; charset=utf-8', //use Default contentType
     dataType : 'json',
-    url: "http://localhost:8080/addreview",
+    url: "http://localhost:8080/changereview",
     data: search, // Note it is important without stringifying
     success :function(result) {
     	console.log("SUCCESS");
@@ -156,9 +156,10 @@ function modalonclick(arg){
 
 }
 
-function myFunc(arg){
+function myFunc(arg,child){
   var element=document.getElementById(arg);
 
+  //var child=(element.getElementsByTagName('button')[0]).id;
   var att1 = element.getElementsByTagName('h1')[0];
   var att2 = element.getElementsByTagName('h3')[0];
   var att3 = element.getElementsByTagName('h3')[1];
@@ -166,7 +167,7 @@ function myFunc(arg){
   var att5 = element.getElementsByTagName('h3')[3];
 
   var att1_temp=(att1.innerHTML).split(":");
-  var att2_temp=(att2.innerHTML).split(":");
+  var att2_temp=((att2.innerHTML).toString()).split(":");
   var att3_temp=(att3.innerHTML).split(":");
   var att4_temp=(att4.innerHTML).split(":");
   var att5_temp=(att5.innerHTML).split(":");
@@ -203,7 +204,7 @@ function myFunc(arg){
     att3.innerHTML=att3_temp[0]+": "+mr;
     att4.innerHTML=att4_temp[0]+": "+sr;
     att5.innerHTML=att5_temp[0]+": "+c;
-	UpdateReview(arg,3,fr,mr,sr,c,3,nr);
+	UpdateReview(child,3,fr,mr,sr,3,c,nr);
 	return;
    });
   return;
@@ -226,6 +227,7 @@ $(document).ready(function(){
     var sr=field[y].service_rating;
     var c=field[y].comments;
 
+
     var div = document.createElement('div');
 
     div.className = 'row top-buffer';
@@ -243,7 +245,7 @@ $(document).ready(function(){
     div2.setAttribute("data-target","#editModal");
 
     div2.setAttribute("align","center");
-    div2.setAttribute("onclick","return myFunc("+this_id_parent+")");
+    div2.setAttribute("onclick","return myFunc("+this_id_parent+","+this_id+")");
     div2.innerHTML='<h1>Edit Review</h1>';
 
     div3=document.createElement('p1');
