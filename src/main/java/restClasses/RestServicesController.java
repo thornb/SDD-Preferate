@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -151,8 +152,10 @@ public class RestServicesController {
 
 	//when user queries the url "/suggestions_page?user_id=<int>", it returns a list of strings
 	String params[] = {"food","menu","service"};
+	@CrossOrigin
 	@RequestMapping("/suggestions_page")
-	public ArrayList<String> recommender(@RequestParam( value="user_id" ) int user_id){
+	public ArrayList<String> recommender(@RequestParam( value="user_id" ) String s_user_id){
+		long user_id = Long.parseLong(s_user_id);
 		try {
 			Recommender rec = new Recommender(params, user_id);
 			return rec.getRecs();

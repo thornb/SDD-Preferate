@@ -29,7 +29,7 @@ import com.opencsv.CSVWriter;
 public class Recommender 
 {
 	//stores recommendations once a Recommender has been properly instantiated
-	protected ArrayList<String> recs;
+	protected ArrayList<Recommendation> recs;
 	public ArrayList<String> getRecs(){
 		return recs;
 	}
@@ -70,12 +70,22 @@ public class Recommender
 		}
 		//sort the map
 		Map<Long, Double> sortedEstimates = sortByValue(estimates);
+		/* string version
 		//store in recs
 		int iter = 0;
 		recs = new ArrayList<String>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
 			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
 			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
+			iter++;
+		}
+		*/
+		//store in recs
+		int iter = 0;
+		recs = new ArrayList<Recommendation>();
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
+			recs.add(new Recommendation(i.getKey()+1). i.getValue());
 			iter++;
 		}
 	}
