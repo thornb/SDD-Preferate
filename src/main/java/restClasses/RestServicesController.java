@@ -37,9 +37,9 @@ public class RestServicesController {
     }
     
     
-    //when user queries the url "/recommend", it returns a list of strings
+    //when user queries the url "/suggestions_page?user_id=<int>", it returns a list of strings
     String params[] = {"food","menu","service"};
-    @RequestMapping("/recommend")
+    @RequestMapping("/suggestions_page")
     public ArrayList<String> recommender(@RequestParam( value="user_id" ) int user_id){
     	try {
 			Recommender rec = new Recommender(params, user_id);
@@ -49,9 +49,9 @@ public class RestServicesController {
 			return null;
 		}
     }
-    //when user queries the url "/recommendGroup", it returns a list of strings
-    //url should look like http://localhost:8080/recommendGroup?members=[1,2,3,...]
-    @RequestMapping("/recommendGroup")
+    //when user queries the url "/suggestions_pageGroup", it returns a list of strings
+    //url should look like http://localhost:8080/suggestions_pageGroup?members=[1,2,3,...]
+    @RequestMapping("/suggestions_pageGroup")
     public ArrayList<String> recommenderGroup(@RequestParam( value="members" ) String memString){
     	//parse string into array
     	String input = memString.substring(1, memString.length()-1);
