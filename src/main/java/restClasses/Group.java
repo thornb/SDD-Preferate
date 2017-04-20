@@ -31,7 +31,8 @@ public class Group {
 
         String url = "jdbc:mysql://localhost:3306/preferate";
         String username = "root";
-        String password = "CrackerWindow654";
+        //String password = "CrackerWindow654";
+        String password = Globals.pass;
 
         System.out.println("Connecting database...");
 

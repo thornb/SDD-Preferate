@@ -27,7 +27,8 @@ public class ReviewList {
         //Parameters to log into database
         String url = "jdbc:mysql://localhost:3306/preferate";
         String username = "new_user";
-        String password = "CrackerWindow654";
+        //String password = "CrackerWindow654";
+        String password = Globals.pass;
 
         System.out.println("Connecting database...");
 
@@ -88,7 +89,7 @@ public class ReviewList {
 
          dataSource.setServerName("jdbc:mysql://localhost:3306/");
          dataSource.setUser("root");
-         dataSource.setPassword("CrackerWindow654");
+         dataSource.setPassword(Globals.pass);
          dataSource.setDatabaseName("preferate");
 
          JDBCDataModel dataModel;

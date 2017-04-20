@@ -51,8 +51,9 @@ public class RestServicesController {
 			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
 			@RequestParam String restaurant_name){
 		String url = "jdbc:mysql://localhost:3306/preferate";
-		String username = "new_user";
-		String password = "CrackerWindow654";
+		String username = "root";
+		//String password = "CrackerWindow654";
+        String password = Globals.pass;
 
 		System.out.println("Connecting database...");
 
@@ -103,8 +104,9 @@ public class RestServicesController {
 			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
 			@RequestParam String restaurant_name){
 		String url = "jdbc:mysql://localhost:3306/preferate";
-		String username = "new_user";
-		String password = "CrackerWindow654";
+		String username = "root";
+		//String password = "CrackerWindow654";
+        String password = Globals.pass;
 
 		System.out.println("Connecting database...");
 
