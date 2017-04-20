@@ -36,12 +36,12 @@ public class Recommender
 	Recommender(){
 		recs = null;
 	}
-	protected void addRecs(Map<Long, Double> sortedEstimates, String params[]){
+	protected void addRecs(Map<Long, Double> sortedEstimates, String params[], int numUsers){
 		int iter = 0;
 		recs = new ArrayList<Recommendation>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
-			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
-			recs.add(new Recommendation(i.getKey()+1, (double)i.getValue()/params.length));
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + (i.getValue()/(params.length*numUsers)));
+			recs.add(new Recommendation(i.getKey()+1, (double)(i.getValue()/(params.length*numUsers))));
 			iter++;
 		}
 	}
@@ -90,7 +90,7 @@ public class Recommender
 		}
 		*/
 		//store in recs
-		addRecs(sortedEstimates, params);
+		addRecs(sortedEstimates, params, 1);
 	}
 
 	//integrated recommender
@@ -134,7 +134,7 @@ public class Recommender
 			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
 			iter++;
 		}*/
-		addRecs(sortedEstimates, params);
+		addRecs(sortedEstimates, params, 1);
 	}
 
 	//java 8 hashmap sorter, descending order
