@@ -155,7 +155,7 @@ public class RestServicesController {
 	String params[] = {"food","menu","service"};
 	@CrossOrigin
 	@RequestMapping("/suggestions_page")
-	public ArrayList<String> recommender(@RequestParam( value="user_id" ) String s_user_id){
+	public ArrayList<Recommendation> recommender(@RequestParam( value="user_id" ) String s_user_id){
 		long user_id = Long.parseLong(s_user_id);
 		try {
 			Recommender rec = new Recommender(params, user_id);
@@ -168,7 +168,7 @@ public class RestServicesController {
 	//when user queries the url "/suggestions_pageGroup", it returns a list of strings
 	//url should look like http://localhost:8080/suggestions_pageGroup?members=[1,2,3,...]
 	@RequestMapping("/suggestions_pageGroup")
-	public ArrayList<String> recommenderGroup(@RequestParam( value="members" ) String memString){
+	public ArrayList<Recommendation> recommenderGroup(@RequestParam( value="members" ) String memString){
 		//parse string into array
 		String input = memString.substring(1, memString.length()-1);
 		ArrayList<Long> members = new ArrayList<Long>();

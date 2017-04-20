@@ -30,11 +30,20 @@ public class Recommender
 {
 	//stores recommendations once a Recommender has been properly instantiated
 	protected ArrayList<Recommendation> recs;
-	public ArrayList<String> getRecs(){
+	public ArrayList<Recommendation> getRecs(){
 		return recs;
 	}
 	Recommender(){
 		recs = null;
+	}
+	protected void addRecs(Map<Long, Double> sortedEstimates, String params[]){
+		int iter = 0;
+		recs = new ArrayList<Recommendation>();
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
+			recs.add(new Recommendation(i.getKey()+1, i.getValue()));
+			iter++;
+		}
 	}
 
 	//currently outputs estimated preferences for all restaurants to System.out
@@ -81,13 +90,7 @@ public class Recommender
 		}
 		*/
 		//store in recs
-		int iter = 0;
-		recs = new ArrayList<Recommendation>();
-		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
-			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
-			recs.add(new Recommendation(i.getKey()+1). i.getValue());
-			iter++;
-		}
+		addRecs(sortedEstimates, params);
 	}
 
 	//integrated recommender
@@ -131,13 +134,7 @@ public class Recommender
 			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
 			iter++;
 		}*/
-		int iter = 0;
-		recs = new ArrayList<Recommendation>();
-		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
-			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
-			recs.add(new Recommendation(i.getKey()+1). i.getValue());
-			iter++;
-		}
+		addRecs(sortedEstimates, params);
 	}
 
 	//java 8 hashmap sorter, descending order
