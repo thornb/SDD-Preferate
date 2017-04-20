@@ -62,6 +62,7 @@ public class GroupRecommender extends Recommender{
 		}
 		Map<Long, Double> sortedEstimates = sortByValue(estimates);
 		//output and store
+		/*
 		int iter = 0;
 		recs = new ArrayList<String>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
@@ -69,7 +70,8 @@ public class GroupRecommender extends Recommender{
 			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/(params.length*numUsers)));
 			iter++;
 		}
-		return;
+		return;*/
+		addRecs(sortedEstimates, params);
 	}
 	//online recommender
 	public GroupRecommender(String params[], long[] userIDs, boolean online) throws Exception
@@ -112,6 +114,7 @@ public class GroupRecommender extends Recommender{
 		}
 		Map<Long, Double> sortedEstimates = sortByValue(estimates);
 		//output and store
+		/*
 		int iter = 0;
 		recs = new ArrayList<String>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
@@ -120,5 +123,7 @@ public class GroupRecommender extends Recommender{
 			iter++;
 		}
 		return;
+		*/
+		addRecs(sortedEstimates, params);
 	}
 }

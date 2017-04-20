@@ -13,7 +13,8 @@ public class Recommendation {
 	public Recommendation(long restaurant_id, double rating){
 		this.restaurant_id = restaurant_id;
 		this.rating = rating;
-
+		this.restaurant_name = "Restaurant " + restaurant_id;
+		/*
 		//connect to DB to get restaurant name
 		//Parameters to log into database
         String url = "jdbc:mysql://localhost:3306/preferate";
@@ -43,7 +44,7 @@ public class Recommendation {
             System.out.println(e);
             throw new IllegalStateException("Cannot connect the database!", e);
         }
-
+        */
 
 	}
 
