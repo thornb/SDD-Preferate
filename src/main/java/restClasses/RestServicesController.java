@@ -19,6 +19,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 //This is the controller that runs the REST services on the site. It maps URLs to our other classes, that will ultimatly be converted to JSON objects by jackson and sent to the front-end
 @RestController
@@ -73,9 +75,9 @@ public class RestServicesController {
     }
     
     //When user queries the url "/addUser", it takes in the parameters from the url and 
-    @RequestMapping("/addUser")
-    //@ResponseStatus(value = HttpStatus.OK)
-    public void addDBUser( @RequestParam( value="user_id" ) int user_id, 
+    @CrossOrigin
+    @RequestMapping("/addOrEditUser")
+    public void addDBUser( @RequestParam( value="user_id" ) String s_user_id, 
                          @RequestParam( value="user_name" ) String user_name,
                          @RequestParam( value="diet_type" ) String diet_type,
                          @RequestParam( value="user_allergy" ) String user_allergy,
@@ -86,31 +88,33 @@ public class RestServicesController {
                          @RequestParam( value="eating_environment" ) String eating_environment ){
 
         //create the user class object
+        Long user_id = Long.parseLong(s_user_id);
+
         User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
 
         //insert this user into the database
-        u.insertUser();        
+        u.insertOrEditUser();        
     }
 
     //When user queries the url "/addUser", it takes in the parameters from the url and 
-    @RequestMapping("/editPref")
-    //@ResponseStatus(value = HttpStatus.OK)
-    public void addUser( @RequestParam( value="user_id" ) int user_id, 
-                         @RequestParam( value="user_name" ) String user_name,
-                         @RequestParam( value="diet_type" ) String diet_type,
-                         @RequestParam( value="user_allergy" ) String user_allergy,
-                         @RequestParam( value="gluten" ) String gluten,
-                         @RequestParam( value="kosher" ) String kosher,
-                         @RequestParam( value="lactose" ) String lactose,
-                         @RequestParam( value="meats" ) String meats,
-                         @RequestParam( value="eating_environment" ) String eating_environment ){
+    // @RequestMapping("/editPref")
+    // //@ResponseStatus(value = HttpStatus.OK)
+    // public void addUser( @RequestParam( value="user_id" ) int user_id, 
+    //                      @RequestParam( value="user_name" ) String user_name,
+    //                      @RequestParam( value="diet_type" ) String diet_type,
+    //                      @RequestParam( value="user_allergy" ) String user_allergy,
+    //                      @RequestParam( value="gluten" ) String gluten,
+    //                      @RequestParam( value="kosher" ) String kosher,
+    //                      @RequestParam( value="lactose" ) String lactose,
+    //                      @RequestParam( value="meats" ) String meats,
+    //                      @RequestParam( value="eating_environment" ) String eating_environment ){
 
-        //create the user class object
-        User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
+    //     //create the user class object
+    //     User u = new User(user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment); 
 
-        //edit this user's preferences into the database
-        u.editPreferences();
-    }
+    //     //edit this user's preferences into the database
+    //     u.editPreferences();
+    // }
 
 
 

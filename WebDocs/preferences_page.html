@@ -7,6 +7,94 @@
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
+
+      <!-- Code for fb api -->
+  <script>
+   // This is called with the results from from FB.getLoginStatus().
+   function statusChangeCallback(response) {
+     console.log('statusChangeCallback');
+     console.log(response);
+     // The response object is returned with a status field that lets the
+     // app know the current login status of the person.
+     // Full docs on the response object can be found in the documentation
+     // for FB.getLoginStatus().
+     if (response.status === 'connected') {
+       // Logged into your app and Facebook.
+       testAPI();
+     } else {
+       // The person is not logged into your app or we are unable to tell.
+       // document.getElementById('status').innerHTML = 'Please log ' +
+       //   'into this app.';
+
+       //redirect to login page
+       window.location.replace("fb_login_page.html");
+
+     }
+   }
+ 
+   // This function is called when someone finishes with the Login
+   // Button.  See the onlogin handler attached to it in the sample
+   // code below.
+   function checkLoginState() {
+     FB.getLoginStatus(function(response) {
+       statusChangeCallback(response);
+     });
+   }
+ 
+   window.fbAsyncInit = function() {
+   FB.init({
+     appId      : '218882488583601',
+     cookie     : true,  // enable cookies to allow the server to access 
+                         // the session
+     xfbml      : true,  // parse social plugins on this page
+     version    : 'v2.8' // use graph api version 2.8
+   });
+ 
+   // Now that we've initialized the JavaScript SDK, we call 
+   // FB.getLoginStatus().  This function gets the state of the
+   // person visiting this page and can return one of three states to
+   // the callback you provide.  They can be:
+   //
+   // 1. Logged into your app ('connected')
+   // 2. Logged into Facebook, but not your app ('not_authorized')
+   // 3. Not logged into Facebook and can't tell if they are logged into
+   //    your app or not.
+   //
+   // These three cases are handled in the callback function.
+ 
+   FB.getLoginStatus(function(response) {
+     statusChangeCallback(response);
+   });
+ 
+   };
+ 
+   // Load the SDK asynchronously
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+ 
+   // Here we run a very simple test of the Graph API after login is
+   // successful.  See statusChangeCallback() for when this call is made.
+
+   var fbUserObj = {};
+
+   function testAPI() {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+      
+       fbUserObj = response;
+ 
+     });
+
+   }
+ </script>
+
+
+
     <div class = "navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <a href="#" class= "navbar-brand">Preferate</a>
@@ -38,61 +126,60 @@
                 <legend>What type of diet do you follow?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Vegetarian" checked>
                     Vegetarian
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="Vegan">
                     Vegan
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Pescetarian">
                     Pescetarian
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option4">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Non-Vegetarian">
                     Non-Vegetarian
                   </label>
                 </div>
               </fieldset>
             </div>
-            <div class="row" id="review1">
+            <!-- <div class="row" id="review1">
                 <div class="form-group">
                     <label for="diet">Please List any other dietary preferences you may have not included on this list. </label>
                     <input type="diet" class="form-control" id="diet_type" aria-describedby="food">
-                   <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
-            </div>
+            </div> -->
             <div class="row" id="review1">
               <fieldset class="form-group">
                 <legend>Are you allergic to any of the following?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Milk" value="Milk">
                     Milk
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Peanuts" value="Peanuts">
                     Peanuts
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Eggs" value="Eggs">
                     Eggs
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Wheat" value="Wheat">
                     Wheat
                   </label>
                 </div>
@@ -103,13 +190,13 @@
                 <legend>Do you follow a gluten-free diet?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadiosgluten" id="optionsRadiosgluten1" value="option1gluten" checked>
+                    <input type="radio" class="form-check-input" name="optionsRadiosgluten" id="optionsRadiosgluten1" value="Yes" checked>
                     Yes
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadiosgluten" id="optionsRadiosgluten2" value="option2gluten">
+                    <input type="radio" class="form-check-input" name="optionsRadiosgluten" id="optionsRadiosgluten2" value="No">
                     No
                   </label>
                 </div>
@@ -121,19 +208,19 @@
                 <legend>Do you only eat kosher, if eating meat?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher1" value="option1kosher" checked>
+                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher1" value="Yes" checked>
                     Yes
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher2" value="option2kosher">
+                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher2" value="No">
                     No
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher2" value="option2kosher">
+                    <input type="radio" class="form-check-input" name="optionsRadioskosher" id="optionsRadioskosher2" value="NA">
                     N/A
                   </label>
                 </div>
@@ -145,13 +232,13 @@
                 <legend>Are you lactose intolerant?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionslactose" id="options1" value="option1" checked>
+                    <input type="radio" class="form-check-input" name="optionslactose" id="options1" value="Yes" checked>
                     Yes
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionslactose" id="options2" value="option2">
+                    <input type="radio" class="form-check-input" name="optionslactose" id="options2" value="Yes">
                     No
                   </label>
                 </div>
@@ -163,25 +250,49 @@
                 <legend>Do you NOT eat any of the following meats? (check all that apply)?</legend>
                 <div class="form-check">
                   <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="NoMeat" value="NoMeat">
                     I do not eat any meat
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Pork" value="Pork">
                     Pork
                   </label>
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
+                  <input type="checkbox" class="form-check-input" id="Beef" value="Beef">
                     Beef
                   </label>
                 </div>
               </fieldset>
             </div>
 
+            <div class="row" id="review1">
+              <fieldset class="form-group">
+                <legend>What eating environment do you prefer?</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsEating" id="options1" value="Silent" checked>
+                    Silent
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsEating" id="options2" value="Lively">
+                    Lively
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+
+            <div class="row">
+              <fieldset class="form-group">
+                  <button type="button" id="submitButton">Submit</button>
+              </fieldset>
+            </div>
 
 
           </div>
@@ -189,6 +300,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/bootstrap.js"></script> 
+        <script type="text/javascript" src="js/preferences.js"></script>
 <!--        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.js"></script> -->
     </body>
