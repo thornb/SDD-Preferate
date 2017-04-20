@@ -76,6 +76,9 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
  
+
+   var fbFriendObj = {};
+
    // Here we run a very simple test of the Graph API after login is
    // successful.  See statusChangeCallback() for when this call is made.
    function testAPI() {
@@ -86,7 +89,7 @@
        console.log(response);
        //Get friend list of user
        /* make the API call */
-       FB.api(
+        FB.api(
            "/me/friends",
            function (response) {
              console.log("friendlists call:");
@@ -94,45 +97,11 @@
                /* handle the result */
                console.log("Successful");
                console.log(response);
-			   var numFriends = response.length;
-			   var rowNUM = 1;
-			   var rowID = "row" + rowNUM;
-			   var rowData = document.createElement("div");
-			   rowData.id = rowID;
-			   rowData.class = "row top-buffer";
-			   //"<div class=\"row top-buffer\" id=\"" + rowID + "\"></div>";
-			   document.getElementById('friends').appendChild(rowData);
-			   var spacer = document.createElement("div");
-			   spacer.class = "col-md-1";
-			   var i;
-			   for(i = 0; i < numFriends; i++){
-			      if(i != 0 && i % 3 == 0){// add new row
-					rowNUM++;
-					rowID = "row" + rowNUM;
-					rowData = document.createElement("div");
-					rowData.id = rowID;
-					rowData.class = "row top-buffer";
-					document.getElementById('friends').appendChild(rowData);
-				  }
-				  else if(i % 3 != 0){// add spacer
-					document.getElementById(rowID).appendChild(spacer);
-				  }
-				  var friendData = document.createElement("div");
-			      friendData.id = "friend" + i;
-			      friendData.className = "col-md-3";
-			      friendData.innerHTML = "<h1 align=\"center\">" + repsonse[i].name +
-				  "</h1><center><img src=\"" + "http://graph.facebook.com/" + response[i].id + "/picture?type=large" + 
-				  "\" class=\"img-responsive\" alt=\"Cinque Terre\" width=\"304\" height=\"600\"></center>" +
-				  "<button onclick=\"visitPage(" + response[i].id + ");\">View " + repsonse[i].name + "'s profile</button>";
-				  document.getElementById(rowID).appendChild(friendData);
-			   }
-             }
-             if(response.error){
-               console.log("Error");
-               console.log(response.error);
-             }
+
+               fbFriendObj = response;
+			         
            }
-       );
+        });
      });
    }
  </script>
@@ -180,7 +149,7 @@
  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/bootstrap.js"></script> 
-        <script type="text/javascript" src="friend_list.js"></script>
+        <script type="text/javascript" src="js/friend_list.js"></script>
 <!--        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.js"></script> -->
     </body>
