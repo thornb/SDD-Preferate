@@ -47,108 +47,107 @@ public class RestServicesController {
 
 
 	@RequestMapping(value = "/addreview")
-	public @ResponseBody void generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
-			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
-			@RequestParam String restaurant_name){
-		String url = "jdbc:mysql://localhost:3306/preferate";
-		String username = "root";
-		//String password = "CrackerWindow654";
-        String password = Globals.pass;
+    public @ResponseBody Review generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
+        @RequestParam String restaurant_name){
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = "new_user";
+        String password = "CrackerWindow654";
 
-		System.out.println("Connecting database...");
+        System.out.println("Connecting database...");
 
-		String rr=Integer.toString(restaurant_review);
-		String ui=Integer.toString(user_id);
-		String fr=Float.toString(food_rating);
-		String mr=Float.toString(menu_rating);
-		String sr=Float.toString(service_rating);
-		String ri=Integer.toString(restaurant_id);
-		String com=comments;
-		String name=restaurant_name;
-		//Try to connect to the database
-		try (Connection connection = DriverManager.getConnection(url, username, password)) {
-			System.out.println("Database connected!"); 
-			Statement stmt = connection.createStatement();
-			//(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
-			stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"');");
+        String rr=Integer.toString(restaurant_review);
+        String ui=Integer.toString(user_id);
+        String fr=Float.toString(food_rating);
+        String mr=Float.toString(menu_rating);
+        String sr=Float.toString(service_rating);
+        String ri=Integer.toString(restaurant_id);
+        String com=comments;
+        String name=restaurant_name;
+        //Try to connect to the database
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!"); 
+            Statement stmt = connection.createStatement();
+            //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"')");
 
-			//close connection
-			connection.close();
-
+            //close connection
+            connection.close();
 
 
-			//Error case. Check if database 
-		} catch (SQLException e) {
-			System.out.println(e);
-			throw new IllegalStateException("Cannot connect the database!", e);
-		}
 
-		// Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
-		// ReviewList temp=new ReviewList();
-		// ReviewList.addReview(r);
+            //Error case. Check if database 
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
 
-		// String pNameParameter = pName;
-		// String lNameParameter = lName;
-		// ...
-		// Here you can use the request and response objects like:
-		// response.setContentType("application/pdf");
-		// response.getOutputStream().write(...);
-		return;
+        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        //ReviewList temp=new ReviewList();
+        //ReviewList.addReview(r);
 
-	}
+        // String pNameParameter = pName;
+        // String lNameParameter = lName;
+    // ...
+    // Here you can use the request and response objects like:
+    // response.setContentType("application/pdf");
+    // response.getOutputStream().write(...);
+    return r;
+
+    }
 
 
 
 	@RequestMapping(value = "/changereview")
-	public @ResponseBody void generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
-			@RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
-			@RequestParam String restaurant_name){
-		String url = "jdbc:mysql://localhost:3306/preferate";
-		String username = "root";
-		//String password = "CrackerWindow654";
-        String password = Globals.pass;
+    public @ResponseBody Review generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
+        @RequestParam String restaurant_name){
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = "new_user";
+        String password = "CrackerWindow654";
 
-		System.out.println("Connecting database...");
+        System.out.println("Connecting database...");
 
-		String rr=Integer.toString(restaurant_review);
-		String ui=Integer.toString(user_id);
-		String fr=Float.toString(food_rating);
-		String mr=Float.toString(menu_rating);
-		String sr=Float.toString(service_rating);
-		String ri=Integer.toString(restaurant_id);
-		String com=comments;
-		String name=restaurant_name;
-		//Try to connect to the database
-		try (Connection connection = DriverManager.getConnection(url, username, password)) {
-			System.out.println("Database connected!"); 
-			Statement stmt = connection.createStatement();
-			//(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
-			//stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"');");
-			stmt.executeUpdate("UPDATE restaurant_reviews SET food_rating="+fr+", menu_rating="+mr+", service_rating="+sr+", comments='"+comments+"', restaurant_name='"+name+"' WHERE restaurant_review="+rr);
-			//close connection
-			connection.close();
-
+        String rr=Integer.toString(restaurant_review);
+        String ui=Integer.toString(user_id);
+        String fr=Float.toString(food_rating);
+        String mr=Float.toString(menu_rating);
+        String sr=Float.toString(service_rating);
+        String ri=Integer.toString(restaurant_id);
+        String com=comments;
+        String name=restaurant_name;
+        //Try to connect to the database
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!"); 
+            Statement stmt = connection.createStatement();
+            //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
+            //stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"');");
+            stmt.executeUpdate("UPDATE restaurant_reviews SET food_rating="+fr+", menu_rating="+mr+", service_rating="+sr+", comments='"+comments+"', restaurant_name='"+name+"' WHERE restaurant_review="+rr);
+            //close connection
+            connection.close();
 
 
-			//Error case. Check if database 
-		} catch (SQLException e) {
-			System.out.println(e);
-			throw new IllegalStateException("Cannot connect the database!", e);
-		}
 
-		return;
-		// Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
-		// ReviewList temp=new ReviewList();
-		// ReviewList.addReview(r);
+            //Error case. Check if database 
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
 
-		// String pNameParameter = pName;
-		// String lNameParameter = lName;
-		// ...
-		// Here you can use the request and response objects like:
-		// response.setContentType("application/pdf");
-		// response.getOutputStream().write(...);
+        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        return r;
+        // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
+        // ReviewList temp=new ReviewList();
+        // ReviewList.addReview(r);
 
-	}
+        // String pNameParameter = pName;
+        // String lNameParameter = lName;
+    // ...
+    // Here you can use the request and response objects like:
+    // response.setContentType("application/pdf");
+    // response.getOutputStream().write(...);
+
+    }
 
 
 
