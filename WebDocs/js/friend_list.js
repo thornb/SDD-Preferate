@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function visitPage(id){
         window.location.assign("friend_profile.html?id=" + id);
     }
@@ -89,3 +90,18 @@ function testAPI() {
        });
      });
    }
+=======
+$(document).ready(function(){
+
+
+	function displayUsers(){
+
+		console.log(fbFriendObj);
+
+	}
+
+	setTimeout(displayUsers, 500);
+
+	
+});
+>>>>>>> 386802cb07895e491e639ab85e328b06eb2cbd36

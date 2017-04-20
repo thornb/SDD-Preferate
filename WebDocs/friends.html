@@ -76,6 +76,9 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
  
+
+   var fbFriendObj = {};
+
    // Here we run a very simple test of the Graph API after login is
    // successful.  See statusChangeCallback() for when this call is made.
    function testAPI() {
@@ -86,7 +89,7 @@
        console.log(response);
        //Get friend list of user
        /* make the API call */
-       FB.api(
+        FB.api(
            "/me/friends",
            function (response) {
              console.log("friendlists call:");
@@ -94,9 +97,17 @@
                /* handle the result */
                console.log("Successful");
                console.log(response);
+<<<<<<< HEAD
 			   
            }
        });
+=======
+
+               fbFriendObj = response;
+			         
+           }
+        });
+>>>>>>> 386802cb07895e491e639ab85e328b06eb2cbd36
      });
    }
  </script>
@@ -144,6 +155,7 @@
  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/bootstrap.js"></script> 
+        <script type="text/javascript" src="js/friend_list.js"></script>
 <!--        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/bootstrap.js"></script> -->
     </body>
