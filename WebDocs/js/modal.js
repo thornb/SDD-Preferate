@@ -58,9 +58,9 @@ $('#save').click(function(){
     div3.id=this_id+"c";
 
     div.innerHTML='<h1>Name of Restaurant: '+nr+'</h1>\
-     <h3>Food Rating: '+fr+'</h3>\
-     <h3>Menu Rating: '+mr+'</h3>\
-      <h3>Service Rating: '+sr+'</h3>\
+     <h3>Food Rating: '+Number(fr)+'</h3>\
+     <h3>Menu Rating: '+Number(mr)+'</h3>\
+      <h3>Service Rating: '+Number(sr)+'</h3>\
       <h3>Comments: '+c+'</h3>' ;
    
      var x=(document.getElementById('review_table').appendChild(div));
@@ -85,7 +85,7 @@ function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,servic
     }
     $.ajax({
     type: "POST",
-    //contentType : 'application/json; charset=utf-8', //use Default contentType
+    //contentType : 'text/json; charset=utf-8', //use Default contentType
     dataType : 'json',
     url: "http://localhost:8080/addreview",
     data: search, // Note it is important without stringifying
@@ -162,12 +162,13 @@ function myFunc(arg,child){
   //var child=(element.getElementsByTagName('button')[0]).id;
   var att1 = element.getElementsByTagName('h1')[0];
   var att2 = element.getElementsByTagName('h3')[0];
+  console.log("ATT2:",att2);
   var att3 = element.getElementsByTagName('h3')[1];
   var att4 = element.getElementsByTagName('h3')[2];
   var att5 = element.getElementsByTagName('h3')[3];
 
   var att1_temp=(att1.innerHTML).split(":");
-  var att2_temp=((att2.innerHTML).toString()).split(":");
+  var att2_temp=(att2.innerHTML).split(":");
   var att3_temp=(att3.innerHTML).split(":");
   var att4_temp=(att4.innerHTML).split(":");
   var att5_temp=(att5.innerHTML).split(":");
@@ -212,8 +213,10 @@ function myFunc(arg,child){
 
 $(document).ready(function(){
 	$.getJSON("http://localhost:8080/reviews", function(result){
+		//var whattodo=JSON.parse(result);
 	$.each(result,function(i,field){
 		for (var y=0;y<field.length;++y){
+		// var whattodo=JSON.parse(field);
 			//current_ids.push(field[y].restaurant_review);
 	var temp_id=field[y].restaurant_review;
 	current_ids.push(temp_id);
@@ -221,7 +224,7 @@ $(document).ready(function(){
     list.push(this_id);
     ++temp_id;
     var this_id_parent=temp_id.toString();
-    var nr=field[y].restaurant_name;
+    var nr=field[y].name;
     var fr=field[y].food_rating;
     var mr=field[y].menu_rating;
     var sr=field[y].service_rating;

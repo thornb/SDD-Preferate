@@ -36,6 +36,7 @@ public class RestServicesController {
     @RequestMapping("/greeting")
     public Greeting greeting( @RequestParam( value="q1", defaultValue="option5") String q1 ) {
         return new Greeting(q1);
+
     }
 
     //when user queries the url "/reviews", it returns a list of review objects in json 
@@ -46,7 +47,7 @@ public class RestServicesController {
 
 
     @RequestMapping(value = "/addreview")
-    public @ResponseBody void generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+    public @ResponseBody Review generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
         @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
         @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
@@ -68,7 +69,7 @@ public class RestServicesController {
             System.out.println("Database connected!"); 
             Statement stmt = connection.createStatement();
             //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
-            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"');");
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"')");
 
             //close connection
             connection.close();
@@ -81,9 +82,9 @@ public class RestServicesController {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
-        // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
-        // ReviewList temp=new ReviewList();
-        // ReviewList.addReview(r);
+        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        //ReviewList temp=new ReviewList();
+        //ReviewList.addReview(r);
 
         // String pNameParameter = pName;
         // String lNameParameter = lName;
@@ -91,14 +92,14 @@ public class RestServicesController {
     // Here you can use the request and response objects like:
     // response.setContentType("application/pdf");
     // response.getOutputStream().write(...);
-    return;
+    return r;
 
 }
 
 
 
    @RequestMapping(value = "/changereview")
-    public @ResponseBody void generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+    public @ResponseBody Review generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
         @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
         @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
@@ -133,7 +134,8 @@ public class RestServicesController {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
-        return;
+        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        return r;
         // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
         // ReviewList temp=new ReviewList();
         // ReviewList.addReview(r);
