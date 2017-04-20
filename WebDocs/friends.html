@@ -94,45 +94,9 @@
                /* handle the result */
                console.log("Successful");
                console.log(response);
-			   var numFriends = response.length;
-			   var rowNUM = 1;
-			   var rowID = "row" + rowNUM;
-			   var rowData = document.createElement("div");
-			   rowData.id = rowID;
-			   rowData.class = "row top-buffer";
-			   //"<div class=\"row top-buffer\" id=\"" + rowID + "\"></div>";
-			   document.getElementById('friends').appendChild(rowData);
-			   var spacer = document.createElement("div");
-			   spacer.class = "col-md-1";
-			   var i;
-			   for(i = 0; i < numFriends; i++){
-			      if(i != 0 && i % 3 == 0){// add new row
-					rowNUM++;
-					rowID = "row" + rowNUM;
-					rowData = document.createElement("div");
-					rowData.id = rowID;
-					rowData.class = "row top-buffer";
-					document.getElementById('friends').appendChild(rowData);
-				  }
-				  else if(i % 3 != 0){// add spacer
-					document.getElementById(rowID).appendChild(spacer);
-				  }
-				  var friendData = document.createElement("div");
-			      friendData.id = "friend" + i;
-			      friendData.className = "col-md-3";
-			      friendData.innerHTML = "<h1 align=\"center\">" + repsonse[i].name +
-				  "</h1><center><img src=\"" + "http://graph.facebook.com/" + response[i].id + "/picture?type=large" + 
-				  "\" class=\"img-responsive\" alt=\"Cinque Terre\" width=\"304\" height=\"600\"></center>" +
-				  "<button onclick=\"visitPage(" + response[i].id + ");\">View " + repsonse[i].name + "'s profile</button>";
-				  document.getElementById(rowID).appendChild(friendData);
-			   }
-             }
-             if(response.error){
-               console.log("Error");
-               console.log(response.error);
-             }
+			   
            }
-       );
+       });
      });
    }
  </script>
