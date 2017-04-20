@@ -30,7 +30,6 @@ public class Greeting {
             System.out.println("q1:" + q1);
 
             String query = "INSERT INTO `user` (`user_id`, `group_name`, `user_name`, `diet_type`, `user_allergy`, `gluten`, `kosher`, `lactose`, `meats`, `eating_environment`) VALUES (?, ?, 'test', 'test', 'test', 'tes', 'tes', 'tes', 'test', 'test');";
-            
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.setInt(1, this.id);
             preparedStmt.setString(2, q1);

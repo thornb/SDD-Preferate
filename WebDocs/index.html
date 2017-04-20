@@ -182,7 +182,7 @@
 
   				
   				 </div>
-  				 <a href="#" class="btn btn-block btn-primary btn-default" id="button">Suggest Restaurants for Me!</a>
+  				 <a href="suggestions_page.html" class="btn btn-block btn-primary btn-default" id="button">Suggest Restaurants for Me!</a>
   				</div>
   				<div class="col-md-1">
   				</div>
@@ -190,15 +190,64 @@
   				    <div class="row" id="groupheader">
   				    <center><h2>Groups</h2></center>
   				    </div>
-  				    <div class="row">
-  				    	<div class="col-md-3">
-  				 			<!-- <a href="#" class="btn btn-block btn-sm btn-default" id="button"><span class="glyphicon glyphicon-plus"></span></a> -->
-  				 			<center><h3>+</h3></center>
-  				 		</div>
-  				 		<div class="col-md-9">
-  				 		 <h3>Make a new group</h3>
-  				 		</div>
-  				    </div>
+
+              <!-- The code that's commented out is the original for "+ Make a new group" -->
+              <!--
+              <div class="row">
+                <div class="col-md-3">
+                <a href="#" class="btn btn-block btn-sm btn-default" id="button"><span class="glyphicon glyphicon-plus"></span></a> 
+                <center><h3>+</h3></center>
+                 </div>
+              <div class="col-md-9">
+               <h3>Make a new group</h3>
+              </div>
+              </div>
+              -->
+              <div class="row">
+                <button type="button" class="btn btn-block" data-toggle="modal" id="mg" data-target="#myModal" >
+                  <div class="col-md-2">
+                    <center><h3>+</h3></center>
+                  </div>
+                  <div class="col-md-10">
+                    <h3>Make a new group</h3>
+                  </div>
+                </button>
+              </div>
+
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title" id="exampleModalLabel" align="center">New Group</h1>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row"> 
+                        <div class="form-group">
+                          <label for="gname">Name of Group: </label>
+                          <input type="text" class="form-control" id="gname">
+                        </div>
+                      </div>
+                      <div class="row"> 
+                        <div class="form-group">
+                          <label for="fr">Add Friends: </label>
+                          <input type="text" class="form-control" id="fr">
+                        </div>
+                      </div>
+                      <div class="row"> 
+                        <div class="form-group">
+                          <label for="comm">Description: </label>
+                          <input type="text" class="form-control" id="comm">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Create Group</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  				    
   				    <div class="row" id="scroller" height:"300">
   				    <div class="row">
   				    	<div class="col-md-3">
