@@ -71,7 +71,7 @@ public class GroupRecommender extends Recommender{
 			iter++;
 		}
 		return;*/
-		addRecs(sortedEstimates, params);
+		addRecs(sortedEstimates, params, numUsers);
 	}
 	//online recommender
 	public GroupRecommender(String params[], long[] userIDs, boolean online) throws Exception
@@ -124,6 +124,6 @@ public class GroupRecommender extends Recommender{
 		}
 		return;
 		*/
-		addRecs(sortedEstimates, params);
+		addRecs(sortedEstimates, params, numUsers);
 	}
 }
