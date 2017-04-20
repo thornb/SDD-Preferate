@@ -3,11 +3,11 @@ package restClasses;
 import java.sql.*;
 import java.util.*;
 
-//Class to hold information about a review
+//Class to hold information about a user
 public class User {
 
     //member variables to store attributes from DB
-    private int user_id;
+    private long user_id;
     private String user_name;
     private String diet_type;
     private String user_allergy;
@@ -18,7 +18,7 @@ public class User {
     private String eating_environment;
 
     //constructor that sets all member values
-    public User (int user_id, String user_name, String diet_type, String user_allergy, String gluten, String kosher, String lactose, String meats, String eating_environment){
+    public User (Long user_id, String user_name, String diet_type, String user_allergy, String gluten, String kosher, String lactose, String meats, String eating_environment){
         this.user_id = user_id;
         this.user_name = user_name;
         this.diet_type = diet_type;
@@ -32,7 +32,7 @@ public class User {
     }
 
     //Connect to Database and insert Account
-    public void insertUser(){
+    public void insertOrEditUser(){
 
 
         //Parameters to log into database
@@ -46,28 +46,64 @@ public class User {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
 
-            //create SQL statment to query to insert the user
-            Statement stmt = connection.createStatement();
-            String query = "INSERT INTO user (user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment)" + 
-                            " VALUES(?,?,?,?,?,?,?,?,?)";
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-            
-            //set all values for prepared statment
-            preparedStmt.setInt(1, this.user_id); 
-            preparedStmt.setString(2, this.user_name);
-            preparedStmt.setString(3, this.diet_type);
-            preparedStmt.setString(4, this.user_allergy);
-            preparedStmt.setString(5, this.gluten);
-            preparedStmt.setString(6, this.kosher);
-            preparedStmt.setString(7, this.lactose);
-            preparedStmt.setString(8, this.meats);
-            preparedStmt.setString(9, this.eating_environment);
+            //check to see if user is already in database
+            Statement userCheck = connection.createStatement();
+            String userQuery = "SELECT * FROM user WHERE user_id =" + this.user_id;
+            PreparedStatement userPreparedStmt = connection.prepareStatement(userQuery);
+            ResultSet rs = userPreparedStmt.executeQuery();
 
-            //execute query to insert user
-            preparedStmt.execute();
+            if(rs.next()){
+                Statement editStmt = connection.createStatement();
+                String editQuery = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
+                PreparedStatement editPreparedStmt = connection.prepareStatement(editQuery);
+                
+                //set all values for prepared statement
+                editPreparedStmt.setString(1, this.diet_type);
+                editPreparedStmt.setString(2, this.user_allergy);
+                editPreparedStmt.setString(3, this.gluten);
+                editPreparedStmt.setString(4, this.kosher);
+                editPreparedStmt.setString(5, this.lactose);
+                editPreparedStmt.setString(6, this.meats);
+                editPreparedStmt.setString(7, this.eating_environment);
+                editPreparedStmt.setLong(8, this.user_id);
 
-            //close connection
-            connection.close();
+                //execute query to update user
+                editPreparedStmt.execute();
+
+                //close connection
+                connection.close();
+
+                return;
+            }
+
+            else{
+
+                //create SQL statment to query to insert the user
+                Statement insertStmt = connection.createStatement();
+                String insertQuery = "INSERT INTO user (user_id, user_name, diet_type, user_allergy, gluten, kosher, lactose, meats, eating_environment)" + 
+                                " VALUES(?,?,?,?,?,?,?,?,?)";
+                PreparedStatement insertPreparedStmt = connection.prepareStatement(insertQuery);
+                
+                //set all values for prepared statment
+                insertPreparedStmt.setLong(1, this.user_id); 
+                insertPreparedStmt.setString(2, this.user_name);
+                insertPreparedStmt.setString(3, this.diet_type);
+                insertPreparedStmt.setString(4, this.user_allergy);
+                insertPreparedStmt.setString(5, this.gluten);
+                insertPreparedStmt.setString(6, this.kosher);
+                insertPreparedStmt.setString(7, this.lactose);
+                insertPreparedStmt.setString(8, this.meats);
+                insertPreparedStmt.setString(9, this.eating_environment);
+
+                //execute query to insert user
+                insertPreparedStmt.execute();
+
+                //close connection
+                connection.close();
+
+                return;
+
+            }
 
 
 
@@ -81,58 +117,54 @@ public class User {
     }
 
     //Function to edit the given user's preferences. Edit the values of the object with the setters functions before calling this
-    public void editPreferences(){
+    // public void editPreferences(){
 
 
-        //Parameters to log into database
-        String url = "jdbc:mysql://localhost:3306/preferate";
-        String username = "root";
-        String password = "CrackerWindow654";
+    //     //Parameters to log into database
+    //     String url = "jdbc:mysql://localhost:3306/preferate";
+    //     String username = "root";
+    //     String password = "CrackerWindow654";
 
-        System.out.println("Connecting database...");
+    //     System.out.println("Connecting database...");
 
-        //Try to connect to the database
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            System.out.println("Database connected!");
+    //     //Try to connect to the database
+    //     try (Connection connection = DriverManager.getConnection(url, username, password)) {
+    //         System.out.println("Database connected!");
 
-            //create SQL statement to query to edit preference information
-            Statement stmt = connection.createStatement();
-            String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
+    //         //create SQL statement to query to edit preference information
+    //         Statement stmt = connection.createStatement();
+    //         String query = "UPDATE user SET diet_type = ?, user_allergy = ?, gluten = ?, kosher = ?, lactose = ?, meats = ?, eating_environment = ? WHERE user_id = ?";
+    //         PreparedStatement preparedStmt = connection.prepareStatement(query);
             
-            //set all values for prepared statement
-            preparedStmt.setString(1, this.diet_type);
-            preparedStmt.setString(2, this.user_allergy);
-            preparedStmt.setString(3, this.gluten);
-            preparedStmt.setString(4, this.kosher);
-            preparedStmt.setString(5, this.lactose);
-            preparedStmt.setString(6, this.meats);
-            preparedStmt.setString(7, this.eating_environment);
-            preparedStmt.setInt(8, this.user_id);
+    //         //set all values for prepared statement
+    //         preparedStmt.setString(1, this.diet_type);
+    //         preparedStmt.setString(2, this.user_allergy);
+    //         preparedStmt.setString(3, this.gluten);
+    //         preparedStmt.setString(4, this.kosher);
+    //         preparedStmt.setString(5, this.lactose);
+    //         preparedStmt.setString(6, this.meats);
+    //         preparedStmt.setString(7, this.eating_environment);
+    //         preparedStmt.setInt(8, this.user_id);
 
-            //execute query to update user
-            preparedStmt.execute();
+    //         //execute query to update user
+    //         preparedStmt.execute();
 
-            //close connection
-            connection.close();
-
-
-
-            //Error case. Check if database 
-        } catch (SQLException e) {
-            System.out.println(e);
-            throw new IllegalStateException("Cannot connect the database!", e);
-        }
+    //         //close connection
+    //         connection.close();
 
 
 
-
-    }
+    //         //Error case. Check if database 
+    //     } catch (SQLException e) {
+    //         System.out.println(e);
+    //         throw new IllegalStateException("Cannot connect the database!", e);
+    //     }
+    // }
 
 
 
     //getter functions for each attribute needed for Jackson to convert to json for front-end
-    public int getUser_id(){
+    public Long getUser_id(){
         return user_id;
     }
     public void setUser_id(int user_id){

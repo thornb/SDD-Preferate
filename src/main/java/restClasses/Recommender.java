@@ -124,11 +124,18 @@ public class Recommender
 		//sort the map
 		Map<Long, Double> sortedEstimates = sortByValue(estimates);
 		//store in recs
-		int iter = 0;
+		/*int iter = 0;
 		recs = new ArrayList<String>();
 		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
 			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
 			recs.add(iter, ("Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length));
+			iter++;
+		}*/
+		int iter = 0;
+		recs = new ArrayList<Recommendation>();
+		for(Entry<Long, Double> i : sortedEstimates.entrySet()){
+			System.out.println("Adding Rec: Restaurant " + (i.getKey()+1) + ": " + i.getValue()/params.length);
+			recs.add(new Recommendation(i.getKey()+1). i.getValue());
 			iter++;
 		}
 	}
