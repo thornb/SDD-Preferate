@@ -44,9 +44,10 @@ public class RestServicesController {
 
     @RequestMapping(value = "/addreview")
     public @ResponseBody void generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
-        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments){
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
+        @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
-        String username = "root";
+        String username = "new_user";
         String password = "CrackerWindow654";
 
         System.out.println("Connecting database...");
@@ -58,12 +59,13 @@ public class RestServicesController {
         String sr=Float.toString(service_rating);
         String ri=Integer.toString(restaurant_id);
         String com=comments;
+        String name=restaurant_name;
         //Try to connect to the database
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!"); 
             Statement stmt = connection.createStatement();
             //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
-            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"');");
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"');");
 
             //close connection
             connection.close();
@@ -94,9 +96,10 @@ public class RestServicesController {
 
    @RequestMapping(value = "/changereview")
     public @ResponseBody void generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
-        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments){
+        @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
+        @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
-        String username = "root";
+        String username = "new_user";
         String password = "CrackerWindow654";
 
         System.out.println("Connecting database...");
@@ -108,13 +111,14 @@ public class RestServicesController {
         String sr=Float.toString(service_rating);
         String ri=Integer.toString(restaurant_id);
         String com=comments;
+        String name=restaurant_name;
         //Try to connect to the database
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!"); 
             Statement stmt = connection.createStatement();
             //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
             //stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"');");
-            stmt.executeUpdate("UPDATE restaurant_reviews SET food_rating="+fr+", menu_rating="+mr+", service_rating="+sr+", comments='"+comments+"' WHERE restaurant_review="+rr);
+            stmt.executeUpdate("UPDATE restaurant_reviews SET food_rating="+fr+", menu_rating="+mr+", service_rating="+sr+", comments='"+comments+"', restaurant_name='"+name+"' WHERE restaurant_review="+rr);
             //close connection
             connection.close();
 

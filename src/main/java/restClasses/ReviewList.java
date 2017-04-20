@@ -24,13 +24,13 @@ public class ReviewList {
 
         //Parameters to log into database
         String url = "jdbc:mysql://localhost:3306/preferate";
-        String username = "root";
+        String username = "new_user";
         String password = "CrackerWindow654";
 
         System.out.println("Connecting database...");
 
         //Try to connect to the database
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+        try (Connection connection = DriverManager.getConnection(url, username,password)) {
             System.out.println("Database connected!");
 
             //create SQL statment to query for reviews
@@ -47,7 +47,7 @@ public class ReviewList {
 
                 //create a Review object for each
                 Review r = new Review(rs.getInt("user_id"), rs.getInt("restaurant_id"), rs.getInt("restaurant_review"), 
-                    rs.getFloat("food_rating"), rs.getFloat("menu_rating"), rs.getFloat("service_rating"), rs.getString("comments") );
+                    rs.getFloat("food_rating"), rs.getFloat("menu_rating"), rs.getFloat("service_rating"), rs.getString("comments"),rs.getString("restaurant_name") );
 
                 //Add to the list
                 this.review_list.add(r);             
