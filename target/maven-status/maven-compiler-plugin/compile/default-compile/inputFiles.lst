@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/ReviewList.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Application.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Recommender.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/RestServicesController.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Group.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Review.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/User.java
-/home/sdd/GitHub/SDD-Preferate/src/main/java/restClasses/Greeting.java
-=======
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Application.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Recommender.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/RestServicesController.java
@@ -17,4 +7,3 @@
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/ReviewList.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Group.java
 /home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/User.java
->>>>>>> develop
