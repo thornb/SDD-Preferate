@@ -15,14 +15,19 @@ public class Review {
     private final float menu_rating;
     private final float service_rating;
 
+    private final String comments;
+    private final String restaurant_name;
+
     //constructor that sets all member values
-    public Review(int u_id, int r_id, int r_review, float f_rating, float m_rating, float s_rating){
+    public Review(int u_id, int r_id, int r_review, float f_rating, float m_rating, float s_rating,String c,String restaurant_name){
         this.user_id = u_id;
         this.restaurant_id = r_id;
         this.restaurant_review = r_review;
         this.food_rating = f_rating;
         this.menu_rating = m_rating;
         this.service_rating = s_rating;
+        this.comments=c;
+        this.restaurant_name=restaurant_name;
     }
 
     //getter functions for each attribute needed for Jackson to convert to json for front-end
@@ -44,6 +49,13 @@ public class Review {
     public float getService_rating(){
         return service_rating;
     }
+    public String getComments(){
+        return comments;
+    }
+    public String getName(){
+        return restaurant_name;
+    }
+
 
 
 }
