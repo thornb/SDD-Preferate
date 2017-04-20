@@ -38,7 +38,8 @@ public class User {
         //Parameters to log into database
         String url = "jdbc:mysql://localhost:3306/preferate";
         String username = "root";
-        String password = "CrackerWindow654";
+        //String password = "CrackerWindow654";
+        String password = Globals.pass;
 
         System.out.println("Connecting database...");
 
