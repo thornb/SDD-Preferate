@@ -168,7 +168,7 @@ public class RestServicesController {
 		}
 	}
 	//when user queries the url "/suggestions_pageGroup", it returns a list of strings
-	//url should look like http://localhost:8080/suggestions_pageGroup?members=[1,2,3,...]
+	//url should look like http://localhost:8080/suggestions_pageGroup?members=[1-2-3-...]
 	@RequestMapping("/suggestions_pageGroup")
 	public ArrayList<Recommendation> recommenderGroup(@RequestParam( value="members" ) String memString){
 		//parse string into array
