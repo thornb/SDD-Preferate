@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\ReviewList.java
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\RestServicesController.java
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\Recommender.java
@@ -6,3 +7,14 @@ C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\Appli
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\User.java
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\Review.java
 C:\Users\patels13\Documents\Github\SDD-Preferate\src\main\java\restClasses\Group.java
+=======
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Application.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Recommender.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/RestServicesController.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Review.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/GroupRecommender.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Greeting.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/ReviewList.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/Group.java
+/home/ryan/Desktop/SDD-Preferate/src/main/java/restClasses/User.java
+>>>>>>> bb08a794467e40aac9284829edd6d7db9e6b6715
