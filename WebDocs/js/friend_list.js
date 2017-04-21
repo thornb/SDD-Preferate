@@ -1,4 +1,4 @@
-
+//Facebook api code
 function visitPage(id){
         window.location.assign("friend_profile.html?id=" + id);
     }

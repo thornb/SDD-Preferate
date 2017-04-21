@@ -14,6 +14,7 @@ public class Recommendation {
 		this.restaurant_id = restaurant_id;
 		this.rating = rating;
 		this.restaurant_name = "Restaurant " + restaurant_id;
+		//commented out but may be used later to integrate mahout code with database attriutes 
 		/*
 		//connect to DB to get restaurant name
 		//Parameters to log into database

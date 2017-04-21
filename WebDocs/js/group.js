@@ -1,12 +1,15 @@
+//Javascript for make/edit group
 $(document).ready(function(){
 
 	var count = 0;
 
+	//when the user clicks creat group
 	$("#CreateGroup").click(function(){
 		
 		if(count == 0){
 			count++;
 
+			//add the group
 			$("#oldGroup").append(`<div class="col-md-offset-2">
   				 			<h3>Moes Knows</h3>
                 <ul id="oldGroupMembers">
@@ -23,6 +26,8 @@ $(document).ready(function(){
 		}
 
 		else if(count == 1){
+
+			//add the new group
 			$("#newGroup").append($("#gname").val());
 
 			$("#newGroupMembers").append("<li>John Tusa</li>");
@@ -34,6 +39,7 @@ $(document).ready(function(){
 
 	});
 
+	//add the new user
 	$("#AddMembersModal").click(function(){
 		$("#oldGroupMembers").append("<li>John Tusa</li>");
 	});

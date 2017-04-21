@@ -3,6 +3,7 @@ package restClasses;
 import java.sql.*;
 import java.util.*;
 
+//Class to hold group information and to insert groups and add members
 public class Group {
 
     int owner; 

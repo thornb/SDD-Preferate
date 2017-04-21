@@ -3,6 +3,7 @@ package restClasses;
 import java.sql.*;
 import java.util.Properties;
 
+//Example class that tests logging into database
 public class Greeting {
 
     private final int id;
@@ -22,6 +23,7 @@ public class Greeting {
 
         this.id = 3;
 
+        //test logging in
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
 
@@ -29,6 +31,7 @@ public class Greeting {
 
             System.out.println("q1:" + q1);
 
+            //test inserting a user
             String query = "INSERT INTO `user` (`user_id`, `group_name`, `user_name`, `diet_type`, `user_allergy`, `gluten`, `kosher`, `lactose`, `meats`, `eating_environment`) VALUES (?, ?, 'test', 'test', 'test', 'tes', 'tes', 'tes', 'test', 'test');";
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.setInt(1, this.id);

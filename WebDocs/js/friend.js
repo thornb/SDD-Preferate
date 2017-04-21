@@ -1,3 +1,4 @@
+//Displays user info from db for friend profile page
 $(document).ready(function(){
 
 
@@ -18,7 +19,7 @@ $(document).ready(function(){
 	};
 
 
-	//get user info from servver
+	//get user info from server
  	$.ajax({
  		url: "http://localhost:8080/getUser?user_id="+ getUrlParameter("id")
  	}).then(function(data, status, jqxhr){

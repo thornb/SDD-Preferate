@@ -1,3 +1,4 @@
+//gets group recommendations from the back end and displays in revieCOntianer on group recommendation page
 $(document).ready(function(){
 
 
@@ -7,10 +8,13 @@ $(document).ready(function(){
 		console.log("Facebook user object");
 		console.log(fbUserObj);
 
+		//convert fb user id to id compatiple with mahout code
 		var user_id = fbUserObj.id % 1000 + 1;
 
+		//create array of the users to send to the backend 
 		var members = "[" + user_id + "-" + ((10203219280360494 % 1000) + 1) + "-" + ((100702180472712 % 1000) + 1) + "]"; 
 
+		//call the backend and send this array
 		$.ajax({
 			url: "http://localhost:8080/suggestions_pageGroup?members=" + members
 		}).then(function(data, status, jqxhr){

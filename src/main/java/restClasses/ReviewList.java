@@ -7,12 +7,9 @@ import java.util.*;
 import org.apache.mahout.cf.taste.model.JDBCDataModel;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 
-
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 
-// import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
-// import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 //Class to query the database for reviews and to hold a list of these reviews 
 public class ReviewList {

@@ -46,6 +46,7 @@ public class RestServicesController {
 		return new ReviewList();
 	}
 
+    //Adds a review to the database
 	@CrossOrigin
 	@RequestMapping(value = "/addreview")
     public @ResponseBody Review generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
@@ -97,7 +98,7 @@ public class RestServicesController {
 
     }
 
-
+    //edits a review in the database
 	@CrossOrigin
 	@RequestMapping(value = "/changereview")
     public @ResponseBody Review generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
@@ -153,7 +154,7 @@ public class RestServicesController {
 
 
 
-	//when user queries the url "/suggestions_page?user_id=<int>", it returns a list of strings
+	//when user queries the url "/suggestions_page?user_id=<int>", it returns a sorted list of Recommendation objects of restaurant class
 	String params[] = {"food","menu","service"};
 	@CrossOrigin
 	@RequestMapping("/suggestions_page")
@@ -167,7 +168,7 @@ public class RestServicesController {
 			return null;
 		}
 	}
-	//when user queries the url "/suggestions_pageGroup", it returns a list of strings
+	//when user queries the url "/suggestions_pageGroup", it returns a sorted list of Reccommendation objects
 	//url should look like http://localhost:8080/suggestions_pageGroup?members=[1-2-3-...]
 	@CrossOrigin
 	@RequestMapping("/suggestions_pageGroup")
@@ -192,7 +193,7 @@ public class RestServicesController {
 
     }
     
-    //When user queries the url "/addUser", it takes in the parameters from the url and 
+    //When user queries the url "/addUser", it takes in the parameters from the url and inserts or edits preference info
     @CrossOrigin
     @RequestMapping("/addOrEditUser")
     public void addDBUser( @RequestParam( value="user_id" ) String s_user_id, 
@@ -214,6 +215,7 @@ public class RestServicesController {
         u.insertOrEditUser();        
     }
 
+    //returns user object attributes with given user id. COnverted to json when returned from front-end automatically with jackson
     @CrossOrigin
     @RequestMapping("/getUser")
     public User getDBUser( @RequestParam( value="user_id" ) String s_user_id){

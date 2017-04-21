@@ -25,7 +25,7 @@ import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
-
+//Class that holds/creates recommendation objects 
 public class Recommender 
 {
 	//stores recommendations once a Recommender has been properly instantiated

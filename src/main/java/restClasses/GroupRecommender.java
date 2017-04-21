@@ -15,6 +15,7 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
+//Group recommendation class that uses apache mahout
 public class GroupRecommender extends Recommender{
 
 	public GroupRecommender(String[] params, long userID) throws Exception {

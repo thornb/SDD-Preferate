@@ -1,3 +1,5 @@
+//gets user recommendations from the backend and displays on the front-end
+
 $(document).ready(function(){
 
 
@@ -7,8 +9,10 @@ $(document).ready(function(){
 		console.log("Facebook user object");
 		console.log(fbUserObj);
 
+		//convert fb id to be compatible with mahout code
 		var user_id = fbUserObj.id % 1000 + 1;
 
+		//call the backend to get the recommendation data
 		$.ajax({
 			url: "http://localhost:8080/suggestions_page?user_id=" + user_id
 		}).then(function(data, status, jqxhr){
@@ -25,7 +29,7 @@ $(document).ready(function(){
 		});	
 	}
 
-
+	//wait a second for facebook code to load before running
 	setTimeout(getRecs, 1000);
 
 
