@@ -25,6 +25,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.sql.*;
 import java.util.*;
+import java.lang.Long;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -54,6 +55,24 @@ public class RestServicesController {
         long userID = Long.parseLong(user_id);
         //This constructor returns the reviews made by a particular user    
         return new ReviewList(userID);
+    }   
+
+
+    //when user queries the url "/createGroup", it returns a list of review objects made by that user in json 
+    @CrossOrigin
+    @RequestMapping("/createGroup")
+    public Group createGroup(@RequestParam(value="owner_id") String owner_id, @RequestParam(value="group_name") String group_name, @RequestParam(value="members") String members_str ){
+        
+        //parse the members string
+        String [] members_str_list = members_str.split("-");
+        ArrayList<Long> members = new ArrayList<Long>();
+
+        for(int i = 0; i < members_str_list.length; i++){
+            members.add(Long.parseLong(members_str_list[i]));
+        }
+
+        return new Group(Long.parseLong(owner_id), group_name, members);
+
     }    
 
 
