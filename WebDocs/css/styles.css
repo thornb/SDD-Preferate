@@ -12,6 +12,10 @@ body{
 	margin-bottom: 10px;
 }
 
+.margin-top{
+	margin-top: 10px;
+}
+
 .bottom-buffer{
 	background:#e2d5d7;
 	margin-bottom: 10px;
