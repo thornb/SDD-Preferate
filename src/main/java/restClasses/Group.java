@@ -6,71 +6,92 @@ import java.util.*;
 //Class to hold group information and to insert groups and add members
 public class Group {
 
-    // int owner; 
-    // private final int id;
-    // String name; 
-    // String members;
-    // // ArrayList<String> preferences; 
-    // // ArrayList<Integer> history; // restaurant ids
+    Long owner; 
+    int id;
+    String name; 
+    ArrayList<Long> members;
 
 
-    // //We need create group 
-    // // join group
-    // // return users in group
-    // // remove from group
-    // // create group object from database (contructor with just groupID)
 
-    // // public Group(long id, String content) {
-    // public Group(int owner, String g_name, ArrayList<Integer> members) {
+    //We need create group 
+    // join group
+    // return users in group
+    // remove from group
+    // create group object from database (contructor with just groupID)
+
+    // public Group(long id, String content) {
+    public Group(Long owner, String g_name, ArrayList<Long> members) {
         
 
-    //     //this.id = group_id;
-    //     this.owner = owner;
-    //     this.name = g_name; 
-    //     this.members = new ArrayList<Integer>(); 
-    //     this.preferences = new ArrayList<String>(); 
-    //     this.history = new ArrayList<Integer>();
-
-    //     members.add(owner); 
-
-    //     //add this group to the DB
-    //     String url = "jdbc:mysql://localhost:3306/preferate";
-    //     String username = Globals.dbuser;
-    //     //String password = "CrackerWindow654";
-    //     String password = Globals.pass;
-
-    //     System.out.println("Connecting database...");
+        //this.id = group_id;
+        this.owner = owner;
+        this.name = g_name; 
+        this.members = members; 
 
 
-    //     try (Connection connection = DriverManager.getConnection(url, username, password)) {
-    //         System.out.println("Database connected!");
 
-    //         // to add all members to the database
+        //add this group to the DB
+        String url = "jdbc:mysql://localhost:3306/preferate";
+        String username = Globals.dbuser;
+        String password = Globals.pass;
+
+        System.out.println("Connecting database...");
+
+
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!");
+
+            //Since we are creating a new group, we need to get the max group ID, and add 1 to it.
+            Statement maxStmt = connection.createStatement();
+            String maxQuery = "SELECT MAX(`group_id`) FROM `groups`";
+            PreparedStatement maxPerparedStmt = connection.prepareStatement(maxQuery);
+
+            ResultSet maxRS = maxPerparedStmt.executeQuery();
+            int maxGroupID = 1;
+            while(maxRS.next()){
+
+                try{
+                    maxGroupID = maxRS.getInt("MAX(`group_id`)");    
+                }
+                catch(Exception e){
+                    maxGroupID = 1;
+                    System.out.println(e);
+                }
+
+            }
+
+
+            //insert for each member
+            for(int i = 0; i < members.size(); i++){
+
+                Statement stmt = connection.createStatement();
+                String query = "INSERT INTO `groups` ( `group_id` ,`group_name`, `group_member`, `owner`) VALUES (?, ?, ?, ?);";
+                
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, maxGroupID + 1);
+                preparedStmt.setString(2, this.name);
+                preparedStmt.setLong(3, members.get(i));
+                preparedStmt.setLong(4, this.owner); 
+                preparedStmt.execute();
+
+            }
+
             
-
-    //         Statement stmt = connection.createStatement();
-    //         String query = "INSERT INTO `groups` (`group_name`, `group_member, 'owner') VALUES (?, ?, ?);";
             
-    //         PreparedStatement preparedStmt = connection.prepareStatement(query);
-    //         preparedStmt.setString(1, this.name);
-    //         preparedStmt.setInt(2, this.owner);
-    //         preparedStmt.setInt(3, this.owner); 
-    //         preparedStmt.execute();
-            
-    //         connection.close();
+            connection.close();
 
 
-    //     } catch (SQLException e) {
-    //         System.out.println(e);
-    //         throw new IllegalStateException("Cannot connect to the database!", e);
-    //     }
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new IllegalStateException("Cannot connect to the database!", e);
+        }
 
 
 
-    // }
+    }
 
-    // //  should be done after the group is created and all members are in 
-    // public void addMembers() {
+    //  should be done after the group is created and all members are in 
+    // public void addMembers(ArrayList<In>) {
 
     //     String url = "jdbc:mysql://localhost:3306/preferate";
     //     String username = Globals.dbuser;
@@ -111,17 +132,17 @@ public class Group {
 
 
 
-    // public int getId() {
-    //     return id;
-    // }
+    public int getId() {
+        return id;
+    }
 
-    // public String getName() {
-    //     return name; 
-    // }
+    public String getName() {
+        return name; 
+    }
 
-    // public ArrayList<Integer> getMembers() {
-    //     return members; 
-    // }
+    public ArrayList<Long> getMembers() {
+        return members; 
+    }
 
     // public ArrayList<String> getPreferences() {
     //     return preferences; 
@@ -131,22 +152,22 @@ public class Group {
     //     return history; 
     // }
 
-    // public 
-    // boolean addFriendToGroup(int userID, int friendID, int groupID) {
-    //     members.add(friendID); 
+    public 
+    boolean addFriendToGroup(Long userID, Long friendID, int groupID) {
+        members.add(friendID); 
 
-    //     return true; 
-    // }
+        return true; 
+    }
 
-    // boolean removeFriendFromGroup(int userID, int friendID, int groupID) {
-    //     members.remove(friendID); 
+    boolean removeFriendFromGroup(Long userID, Long friendID, int groupID) {
+        members.remove(friendID); 
 
-    //     return true; 
-    // } 
+        return true; 
+    } 
 
-    // void changeName( int groupID, String name ) {
-    //     this.name = name; 
-    // }
+    void changeName( int groupID, String name ) {
+        this.name = name; 
+    }
 
     // void addPreferences( String pref ) {
     //     preferences.add(pref); 

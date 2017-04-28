@@ -1,5 +1,14 @@
+<<<<<<< HEAD
+restClasses\User.class
+restClasses\Globals.class
+restClasses\Recommendation.class
+restClasses\Recommender.class
+restClasses\Group.class
+restClasses\GroupRecommender.class
+=======
 restClasses/Review.class
 restClasses/Recommendation.class
 restClasses/User.class
 restClasses/Globals.class
 restClasses/Greeting.class
+>>>>>>> 84e327eb281bd32b33e367260472585026179170

@@ -25,6 +25,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.sql.*;
 import java.util.*;
+import java.lang.Long;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -54,13 +55,31 @@ public class RestServicesController {
         long userID = Long.parseLong(user_id);
         //This constructor returns the reviews made by a particular user    
         return new ReviewList(userID);
+    }   
+
+
+    //when user queries the url "/createGroup", it returns a list of review objects made by that user in json 
+    @CrossOrigin
+    @RequestMapping("/createGroup")
+    public Group createGroup(@RequestParam(value="owner_id") String owner_id, @RequestParam(value="group_name") String group_name, @RequestParam(value="members") String members_str ){
+        
+        //parse the members string
+        String [] members_str_list = members_str.split("-");
+        ArrayList<Long> members = new ArrayList<Long>();
+
+        for(int i = 0; i < members_str_list.length; i++){
+            members.add(Long.parseLong(members_str_list[i]));
+        }
+
+        return new Group(Long.parseLong(owner_id), group_name, members);
+
     }    
 
 
     //Adds a review to the database
 	@CrossOrigin
 	@RequestMapping(value = "/addreview")
-    public @ResponseBody Review generateReport(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+    public @ResponseBody Review generateReport(@RequestParam int restaurant_review,@RequestParam String user_id, @RequestParam float food_rating, 
         @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
         @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
@@ -70,19 +89,20 @@ public class RestServicesController {
         System.out.println("Connecting database...");
 
         String rr=Integer.toString(restaurant_review);
-        String ui=Integer.toString(user_id);
+        //String ui=Integer.toString(user_id);
         String fr=Float.toString(food_rating);
         String mr=Float.toString(menu_rating);
         String sr=Float.toString(service_rating);
         String ri=Integer.toString(restaurant_id);
         String com=comments;
         String name=restaurant_name;
+        long temp_id=Long.parseLong(user_id);
         //Try to connect to the database
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!"); 
             Statement stmt = connection.createStatement();
             //(restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments)
-            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+ui+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"')");
+            stmt.executeUpdate("INSERT INTO restaurant_reviews (restaurant_review,user_id,food_rating,menu_rating,service_rating,restaurant_id,comments,restaurant_name) "+"VALUES ("+rr+","+temp_id+","+fr+","+mr+","+sr+","+ri+",'"+com+"','"+name+"')");
 
             //close connection
             connection.close();
@@ -95,7 +115,7 @@ public class RestServicesController {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
-        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        Review r=new Review(temp_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
         //ReviewList temp=new ReviewList();
         //ReviewList.addReview(r);
 
@@ -112,7 +132,7 @@ public class RestServicesController {
     //edits a review in the database
 	@CrossOrigin
 	@RequestMapping(value = "/changereview")
-    public @ResponseBody Review generateUpdate(@RequestParam int restaurant_review,@RequestParam int user_id, @RequestParam float food_rating, 
+    public @ResponseBody Review generateUpdate(@RequestParam int restaurant_review,@RequestParam String user_id, @RequestParam float food_rating, 
         @RequestParam float menu_rating, @RequestParam float service_rating, @RequestParam int restaurant_id, @RequestParam String comments,
         @RequestParam String restaurant_name){
         String url = "jdbc:mysql://localhost:3306/preferate";
@@ -122,13 +142,14 @@ public class RestServicesController {
         System.out.println("Connecting database...");
 
         String rr=Integer.toString(restaurant_review);
-        String ui=Integer.toString(user_id);
+        //String ui=Integer.toString(user_id);
         String fr=Float.toString(food_rating);
         String mr=Float.toString(menu_rating);
         String sr=Float.toString(service_rating);
         String ri=Integer.toString(restaurant_id);
         String com=comments;
         String name=restaurant_name;
+        long foo=Long.parseLong(user_id);
         //Try to connect to the database
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!"); 
@@ -147,7 +168,7 @@ public class RestServicesController {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
-        Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
+        Review r=new Review(foo,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments,restaurant_name);
         return r;
         // Review r=new Review(user_id,restaurant_id,restaurant_review,food_rating,menu_rating,service_rating,comments);
         // ReviewList temp=new ReviewList();

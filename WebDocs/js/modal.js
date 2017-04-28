@@ -73,7 +73,7 @@ function searchText(restaurant_review1,user_id1,food_rating1,menu_rating1,servic
 
     var search = {
     restaurant_review: Number(restaurant_review1),
-    user_id: 3,
+    user_id: user_id,
     food_rating: Number(food_rating1),
     menu_rating: Number(menu_rating1),
     service_rating: Number(service_rating1),
@@ -116,7 +116,7 @@ function UpdateReview(restaurant_review1,user_id1,food_rating1,menu_rating1,serv
     // });
   var search = {
     restaurant_review: Number(restaurant_review1),
-    user_id: 3,
+    user_id: user_id,
     food_rating: Number(food_rating1),
     menu_rating: Number(menu_rating1),
     service_rating: Number(service_rating1),
