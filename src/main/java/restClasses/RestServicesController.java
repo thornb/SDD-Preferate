@@ -46,6 +46,17 @@ public class RestServicesController {
 		return new ReviewList();
 	}
 
+
+    //when user queries the url "/userReviews", it returns a list of review objects made by that user in json 
+    @CrossOrigin
+    @RequestMapping("/userReviews")
+    public ReviewList ReviewList(@RequestParam( value="user_id" ) String user_id ){
+        long userID = Long.parseLong(user_id);
+        //This constructor returns the reviews made by a particular user    
+        return new ReviewList(userID);
+    }    
+
+
     //Adds a review to the database
 	@CrossOrigin
 	@RequestMapping(value = "/addreview")
