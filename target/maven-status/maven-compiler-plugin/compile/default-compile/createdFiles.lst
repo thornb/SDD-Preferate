@@ -1,3 +1,6 @@
+restClasses\User.class
 restClasses\Globals.class
 restClasses\Recommendation.class
+restClasses\Recommender.class
+restClasses\Group.class
 restClasses\GroupRecommender.class

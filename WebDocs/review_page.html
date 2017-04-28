@@ -15,7 +15,8 @@
 
           <!-- Code for fb api -->
           <script>
-           // This is called with the results from from FB.getLoginStatus().
+          var user_id="123";
+          // This is called with the results from from FB.getLoginStatus().
            function statusChangeCallback(response) {
              console.log('statusChangeCallback');
              console.log(response);
@@ -92,7 +93,7 @@
                console.log(response);
 
                 //set current user id
-                id = response.id;    
+                user_id = response.id;    
          
              });
 
