@@ -45,7 +45,7 @@ public class ReviewList {
             while (rs.next()) {
 
                 //create a Review object for each
-                Review r = new Review(rs.getInt("user_id"), rs.getInt("restaurant_id"), rs.getInt("restaurant_review"), 
+                Review r = new Review(rs.getLong("user_id"), rs.getInt("restaurant_id"), rs.getInt("restaurant_review"), 
                     rs.getFloat("food_rating"), rs.getFloat("menu_rating"), rs.getFloat("service_rating"), rs.getString("comments"),rs.getString("restaurant_name") );
 
                 //Add to the list

@@ -7,7 +7,7 @@ import java.util.*;
 public class Review {
 
     //member variables to store attributes from DB
-    private final int user_id;
+    private final long user_id;
     private final int restaurant_id;
     private final int restaurant_review;
 
@@ -19,7 +19,7 @@ public class Review {
     private final String restaurant_name;
 
     //constructor that sets all member values
-    public Review(int u_id, int r_id, int r_review, float f_rating, float m_rating, float s_rating,String c,String restaurant_name){
+    public Review(long u_id, int r_id, int r_review, float f_rating, float m_rating, float s_rating,String c,String restaurant_name){
         this.user_id = u_id;
         this.restaurant_id = r_id;
         this.restaurant_review = r_review;
@@ -31,7 +31,7 @@ public class Review {
     }
 
     //getter functions for each attribute needed for Jackson to convert to json for front-end
-    public int getUser_id(){
+    public long getUser_id(){
         return user_id;
     }
     public int getRestaurant_id(){
