@@ -1,3 +1,5 @@
-restClasses\Globals.class
-restClasses\Recommendation.class
-restClasses\GroupRecommender.class
+restClasses/Review.class
+restClasses/Recommendation.class
+restClasses/User.class
+restClasses/Globals.class
+restClasses/Greeting.class
