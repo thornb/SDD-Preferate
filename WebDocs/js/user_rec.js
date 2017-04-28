@@ -22,7 +22,18 @@ $(document).ready(function(){
 			//loop over the reviews and populate them in the html
 			for(var i = 0; i < data.length; i++ ){
 
-				$("#reviewContainer").append("<div class='row top-buffer' id='suggest_row'><div class='col-md-2 align-left'></div><div class ='restaurant_img'><img src=data[i].img_link class='img-responsive'></div><div class='col-md-9'><h1>Recommendation Details</h1> <p>"+ data[i].restaurant_name + "</p> <p>"+ data[i].rating +"</p> </div></div>");
+				var html_str = `<div class='row top-buffer margin-top' id='suggest_row'>
+									<div class='restaurant_img col-md-2 margin-top'>
+										<img src=` + data[i].img_Link + ` class='img-responsive'>
+									</div>
+									<div class='col-md-9'>
+										<h1>Recommendation Details</h1> 
+										<p>`+ data[i].restaurant_name + `</p>
+										<p>`+ data[i].rating +`</p>
+									</div>
+								</div>`;
+
+				$("#reviewContainer").append(html_str);
 			}
 
 		});	
