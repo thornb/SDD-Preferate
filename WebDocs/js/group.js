@@ -1,47 +1,44 @@
 //Javascript for make/edit group
 $(document).ready(function(){
 
-	var count = 0;
 
-	//when the user clicks creat group
+
+	//localhost;8080/createGroup?owner_id=_&group_name=Hello&members=1-2-3
+
+
+	//when the user clicks create group
 	$("#CreateGroup").click(function(){
 		
-		if(count == 0){
-			count++;
 
-			//add the group
-			$("#oldGroup").append(`<div class="col-md-offset-2">
-  				 			<h3>Moes Knows</h3>
-                <ul id="oldGroupMembers">
-                  <li>Ryan Sherman</li>
-                  <li>Shreya Patel</li>
-                </ul>
-                <!-- <button class="btn-default" id="addMem1">Add member</button> -->
-                <button type="button" class="btn btn-block" data-toggle="modal" id="addMem1" data-target="#myModal2" >Add Member</button>
-  				 		</div>
-  				 		<div class="col-md-9">
-  				 		
-  				 		</div>`);
+		var friends = [];
+            
+        $.each($("input[name='friend']:checked"), function(){            
+            friends.push($(this).val());
+        });
+        //alert("My friends are: " + friends.join(", "));
 
-		}
+        friend_str = friends.join("-");
 
-		else if(count == 1){
+        friend_str += "-" + user_id;
 
-			//add the new group
-			$("#newGroup").append($("#gname").val());
+   		//make API call
+   		var createURL = "http://localhost:8080/createGroup?owner_id=" + encodeURIComponent(user_id) +
+    	                                             "&group_name=" + encodeURIComponent($("#gname").val()) +
+    	                                             "&members=" + encodeURIComponent(friend_str);
 
-			$("#newGroupMembers").append("<li>John Tusa</li>");
-			$("#newGroupMembers").append("<li>Shreya Patel</li>");
+    	
 
-			$("#newRow").append(`<button type="button" class="btn btn-block" data-toggle="modal" id="addMem1" data-target="#myModal2" >Add Member</button>`);	
-		}
+    	$.ajax({
+    		url: createURL
+    	}).then(function(data, status, jqxhr){
+    		console.log(data);
+
+    		getGroups();
+
+    	});
 
 
-	});
-
-	//add the new user
-	$("#AddMembersModal").click(function(){
-		$("#oldGroupMembers").append("<li>John Tusa</li>");
+		
 	});
 
 

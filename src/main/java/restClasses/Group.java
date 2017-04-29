@@ -12,14 +12,22 @@ public class Group {
     ArrayList<Long> members;
 
 
+    //constructor to create group object when we have all its info
+    public Group(Long _owner, int _id, String _name, ArrayList<Long> _members){
+        this.owner = _owner;
+        this.id = _id;
+        this.name = _name;
+        this.members = _members;
+    }
+
 
     //We need create group 
     // join group
-    // return users in group
+    // return all groups user is in - DONEin GroupList
     // remove from group
     // create group object from database (contructor with just groupID)
 
-    // public Group(long id, String content) {
+    //constructor to create new group object when not in database yet
     public Group(Long owner, String g_name, ArrayList<Long> members) {
         
 
@@ -129,7 +137,6 @@ public class Group {
     //         throw new IllegalStateException("Cannot connect to the database!", e);
     //     }
     // }
-
 
 
     public int getId() {

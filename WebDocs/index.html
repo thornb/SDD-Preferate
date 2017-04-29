@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Bootstrap 3</title>
-		<meta name="viewport" content="width=device-width", initial-scale=1.0">
+		<meta name="viewport" content="width=device-width", initial-scale="1.0">
 		<link href ="css/bootstrap.min.css" rel ="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 	</head>
@@ -11,6 +11,80 @@
 
   <!-- Code for fb api -->
   <script>
+
+  var user_id = 0;
+  var fb_name = "";
+  var friendObjects = []; 
+
+  function getFriendName(friend_id) {
+    
+    for(var i = 0; i < friendObjects.data.length; i++){
+
+      if(friendObjects.data[i].id == friend_id){
+        return friendObjects.data[i].name;
+      }
+
+    }
+
+    return fb_name;
+
+  }
+
+
+   //get groups from server and display them
+  function getGroups() {
+    
+    console.log("calling for groups");
+
+    $("#insertGroups").html("");
+
+    //call api to get group call
+    var getGroupURL = "http://localhost:8080/getGroups?user_id=" + user_id;
+
+    $.ajax({
+        url: getGroupURL
+      }).then(function(data, status, jqxhr){
+        
+        console.log("printing groups");
+
+        console.log(data);
+
+        //loop over each group
+        for(var i = 0; i < data.group_list.length; i++){
+
+          console.log("in for loop");
+
+          var html_str = `<div class="row" style="background-color: white; margin-bottom: 4px;">
+                           <div name="newRow" class="col-md-offset-2">
+                             <h3 name="newGroup">` + data.group_list[i].name + `</h3>
+                             <ul class='list-group' name="newGroupMembers">`;
+
+            //loop over each member in the group
+
+            for(var j = 0; j < data.group_list[i].members. length; j++){
+
+              html_str +=  "<li class='list-group-item'>" + getFriendName(data.group_list[i].members[j]) + "</li>"; 
+
+
+            }
+
+            html_str += `</ul>
+                         </div>
+                         <div class="col-md-9">
+                         </div>
+                        </div>`;
+
+            console.log(html_str);
+            $("#insertGroups").append(html_str);
+
+        }
+
+
+      });
+
+
+  }
+
    // This is called with the results from from FB.getLoginStatus().
    function statusChangeCallback(response) {
      console.log('statusChangeCallback');
@@ -87,6 +161,9 @@
        console.log("response:");
        console.log(response);
 
+       user_id = response.id;
+       fb_name = response.name;
+
        $(document).ready(function(){
           $.ajax({
             url: "http://localhost:8080/getUser?user_id="+ response.id
@@ -95,7 +172,6 @@
             console.log(data);
 
             console.log(data.user_name);
-
 
             //populate values in html
             //$("#name").append(data.user_name);
@@ -130,6 +206,16 @@
                /* handle the result */
                console.log("Successful");
                console.log(response);
+
+               friendObjects = response;
+
+               getGroups();
+
+               for(var i = 0; i < friendObjects.data.length; i++){
+
+                  $("#friendDropdown").append(`<li><a href="#" class="small" data-value="option` + i + `" tabIndex="-1"><input name="friend" type="checkbox" value="`+ friendObjects.data[i].id +`" />&nbsp;` + friendObjects.data[i].name + `</a></li>`);  
+                }
+
              }
              if(response.error){
                console.log("Error");
@@ -253,11 +339,11 @@
                           
                           <div class="button-group">
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Pick Friends<span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                              <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Ryan Sherman</a></li>
-                              <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;John Tusa</a></li>
-                              <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Shreya Patel</a></li>
-                              <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Brandon Dev</a></li>
+                            <ul id="friendDropdown" class="dropdown-menu">
+                              <!-- <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input name="friend" type="checkbox" value="1" />&nbsp;Ryan Sherman</a></li>
+                              <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input name="friend" type="checkbox" value="2"/>&nbsp;John Tusa</a></li>
+                              <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input name="friend" type="checkbox" value="3"/>&nbsp;Shreya Patel</a></li>
+                              <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input name="friend" type="checkbox" value="4"/>&nbsp;Brandon Dev</a></li> -->
                               
                             </ul>
                               </div>
@@ -317,22 +403,24 @@
   				 		
   				 		</div>
   				    </div>
-  				    <div id="oldGroup" class="row" style="background-color: white; margin-bottom: 4px;">
+  				    <!-- <div id="oldGroup" class="row" style="background-color: white; margin-bottom: 4px;">
                 
-  				    </div>
-  				    <div class="row" style="background-color: white; margin-bottom: 4px;">
-                <div id="newRow" class="col-md-offset-2">
-                <h3 id="newGroup"></h3>
-  				 		  <ul id="newGroupMembers"></ul>
-  				 		</div>
-  				 		<div class="col-md-9">
-  				 		</div>
-  				    </div>
+  				    </div> -->
+              <div id="insertGroups">
+    				    <!-- <div id= class="row" style="background-color: white; margin-bottom: 4px;">
+                  <div name="newRow" class="col-md-offset-2">
+                    <h3 name="newGroup"></h3>
+    				 		    <ul name="newGroupMembers"></ul>
+    				 		  </div>
+    				 		  <div class="col-md-9">
+    				 		  </div>
+    				    </div> -->
+              </div>
   				    <div class="row">
   				    	<div class="col-md-3">
-  				 		</div>
-  				 		<div class="col-md-9">
-  				 		</div>
+  				 		  </div>
+  				 		  <div class="col-md-9">
+  				 		  </div>
   				    </div>
   				    </div>
   				    <a href="group_recommendations_page.html" class="btn btn-block btn-primary btn-default" id="button">Suggest Restaurants for Group!</a>

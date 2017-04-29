@@ -1,0 +1,12 @@
+restClasses\User.class
+restClasses\Globals.class
+restClasses\GroupList.class
+restClasses\Recommendation.class
+restClasses\Recommender.class
+restClasses\Application.class
+restClasses\Review.class
+restClasses\Group.class
+restClasses\ReviewList.class
+restClasses\Greeting.class
+restClasses\RestServicesController.class
+restClasses\GroupRecommender.class
