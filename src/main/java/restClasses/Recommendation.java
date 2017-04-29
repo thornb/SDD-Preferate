@@ -39,7 +39,7 @@ public class Recommendation {
 				{"Famous Lunch", "https://s3-media4.fl.yelpcdn.com/bphoto/Ft0UW-_3WBlZBhAi_fkzng/90s.jpg"},
 				{"Bespoki Bowl", "https://s3-media2.fl.yelpcdn.com/bphoto/6ITK6H8buAOpnhvMWUUDsQ/90s.jpg"},
 				{"O'Brien's Public House", "https://s3-media2.fl.yelpcdn.com/bphoto/Xns_XUqT7fXGn4eBLHSTDw/90s.jpg"},
-				{"The Greek Househttps://s3-media2.fl.yelpcdn.com/bphoto/NADS9LVgW-7BkNFZ-v2hAQ/90s.jpg", ""},
+				{"The Greek House", "https://s3-media2.fl.yelpcdn.com/bphoto/NADS9LVgW-7BkNFZ-v2hAQ/90s.jpg"},
 				{"Beirut Restaurant", "https://s3-media2.fl.yelpcdn.com/bphoto/Jx1nFGJdxLP6p4uTVf2avQ/90s.jpg"},
 				{"Amante Pizza", "https://s3-media1.fl.yelpcdn.com/bphoto/j5tlwoJcMn5zjwvGxMBTbQ/90s.jpg"},
 				{"Spill'n the Beans Coffeehouse & Bistro", "https://s3-media4.fl.yelpcdn.com/bphoto/77JyLmFDzsOn_QXNSjClNA/90s.jpg"},	//30
