@@ -1,22 +1,12 @@
-<<<<<<< HEAD
 restClasses\User.class
 restClasses\Globals.class
-restClasses\Recommendation.class
-restClasses\Review.class
-restClasses\Greeting.class
-=======
-<<<<<<< HEAD
-restClasses\User.class
-restClasses\Globals.class
+restClasses\GroupList.class
 restClasses\Recommendation.class
 restClasses\Recommender.class
+restClasses\Application.class
+restClasses\Review.class
 restClasses\Group.class
+restClasses\ReviewList.class
+restClasses\Greeting.class
+restClasses\RestServicesController.class
 restClasses\GroupRecommender.class
-=======
-restClasses/Review.class
-restClasses/Recommendation.class
-restClasses/User.class
-restClasses/Globals.class
-restClasses/Greeting.class
->>>>>>> 84e327eb281bd32b33e367260472585026179170
->>>>>>> 5d445d74b5c56774c8712040af11306b074a2df9

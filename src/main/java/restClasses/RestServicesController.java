@@ -58,7 +58,7 @@ public class RestServicesController {
     }   
 
 
-    //when user queries the url "/createGroup", it returns a list of review objects made by that user in json 
+    //when user queries the url "/createGroup", it creates the group in the database and returns the group object 
     @CrossOrigin
     @RequestMapping("/createGroup")
     public Group createGroup(@RequestParam(value="owner_id") String owner_id, @RequestParam(value="group_name") String group_name, @RequestParam(value="members") String members_str ){
@@ -72,6 +72,15 @@ public class RestServicesController {
         }
 
         return new Group(Long.parseLong(owner_id), group_name, members);
+
+    }
+
+    //when user queries the url "/getGroup", it returns a list of review objects made by that user in json 
+    @CrossOrigin
+    @RequestMapping("/getGroups")
+    public GroupList getGroups(@RequestParam(value="user_id") String str_user_id){
+        
+        return new GroupList(Long.parseLong(str_user_id));
 
     }    
 
