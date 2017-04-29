@@ -1,91 +1,44 @@
 //Javascript for make/edit group
 $(document).ready(function(){
 
-	var count = 0;
+
 
 	//localhost;8080/createGroup?owner_id=_&group_name=Hello&members=1-2-3
 
-	//when the user clicks creat group
 
-	// $("#CreateGroup").click(function)(){
-
-	// }
-
-	// for (var i=0;i<friend_objects;i++){
-		
-	// }
+	//when the user clicks create group
 	$("#CreateGroup").click(function(){
 		
-		// if(count == 0){
-		// 	count++;
+
 		var friends = [];
-		 $("button").click(function(){
             
-            $.each($("input[name='friend']:checked"), function(){            
-                friends.push($(this).val());
-            });
-            alert("My friends are: " + friends.join(", "));
+        $.each($("input[name='friend']:checked"), function(){            
+            friends.push($(this).val());
         });
-// if (document.getElementById('friend1').checked==0) {
-//             friends.push(document.getElementById('friend1').innerHTML);
-//         }
+        //alert("My friends are: " + friends.join(", "));
 
-             var x=document.getElementById("gname").value;
-			//add the group
-             var div = document.createElement('div');
-             div.className = 'col-md-offset-2';
-             div.innerHTML='<h3>'+x+'</h3>';
+        friend_str = friends.join("-");
 
-             var div2=document.createElement('div');
-             div2.id=count.toString();
-             div2.innerHTML='<h3>'+'working'+'</h3>';
+        friend_str += "-" + user_id;
 
-             for (var i = 0; i < friends.arrayLength; i++) {
-    				alert(friends[i]);
-    			    div2.innerHTML=div2.innerHTML+'<h3>'+friends[i]+'</h3>';
+   		//make API call
+   		var createURL = "http://localhost:8080/createGroup?owner_id=" + encodeURIComponent(user_id) +
+    	                                             "&group_name=" + encodeURIComponent($("#gname").val()) +
+    	                                             "&members=" + encodeURIComponent(friend_str);
 
-    						//Do something
-			}
-             //div.append(div2);
-             (document.getElementById('oldGroup').appendChild(div)).appendChild(div2);
-             
+    	
 
-		// 	if(count == 0){
-		// 	count++;
+    	$.ajax({
+    		url: createURL
+    	}).then(function(data, status, jqxhr){
+    		console.log(data);
 
-		// 	//add the group
-		// 	$("#oldGroup").append(`<div class="col-md-offset-2">
-  // 				 			<h3>Moes Knows</h3>
-  //               <ul id="oldGroupMembers">
-  //                 <li>Ryan Sherman</li>
-  //                 <li>Shreya Patel</li>
-  //               </ul>
-  //               <!-- <button class="btn-default" id="addMem1">Add member</button> -->
-  //               <button type="button" class="btn btn-block" data-toggle="modal" id="addMem1" data-target="#myModal2" >Add Member</button>
-  // 				 		</div>
-  // 				 		<div class="col-md-9">
-  				 		
-  // 				 		</div>`);
+    		getGroups();
 
-		// }
+    	});
 
-		// else if(count == 1){
 
-		// 	//add the new group
-		// 	$("#newGroup").append($("#gname").val());
-
-		// 	$("#newGroupMembers").append("<li>John Tusa</li>");
-		// 	$("#newGroupMembers").append("<li>Shreya Patel</li>");
-
-		// 	$("#newRow").append(`<button type="button" class="btn btn-block" data-toggle="modal" id="addMem1" data-target="#myModal2" >Add Member</button>`);	
-		// }
-
-			count++;
-	});
-
-	//add the new user
-	$("#AddMembersModal").click(function(){
-		$("#oldGroupMembers").append("<li>John Tusa</li>");
+		
 	});
 
 

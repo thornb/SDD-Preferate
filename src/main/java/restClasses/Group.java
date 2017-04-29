@@ -23,7 +23,7 @@ public class Group {
 
     //We need create group 
     // join group
-    // return all groups user is in
+    // return all groups user is in - DONEin GroupList
     // remove from group
     // create group object from database (contructor with just groupID)
 
