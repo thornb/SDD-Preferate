@@ -1,0 +1,43 @@
+In order to install and deploy the preferate web application, you must first have the following third party applications installed:
+
+Java Development Kit (JDK) 1.8 or later
+Maven 3.0 or later
+A separate instance of Apache server
+MySQL
+
+
+To install JDK 1.8+ please go to the following link and follow the instructions: https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html
+
+To install Maven 3.0+ please go to the following link and follow the instructions: https://maven.apache.org/install.html
+
+To install and run an apache server and MySQL, I would recommend using the easy to use application xampp and follow the instructions on that site: https://www.apachefriends.org/index.html
+This can be used on Windows, Linux, and OSX.
+
+You then will need to import the database into MySQL. You can do this by going into phpMyAdmin in the xampp application. Make sure that apache and MySQL are running by clicking start, 
+and then on the "admin" button next to MySQL. A webpage should open asking you to sign in with your MySQL credentials as you made during the xampp installation. Enter in the correct username
+and password to log into phpMyAdmin.  Then you can import the database by clicking on the "import" button near the top. You will then press the "Choose file" button and click on the 
+"preferate.sql" file in the SSD-Preferate folder and then press "Go" at the bottom of the page.
+
+Now, you must configure the username and password for your database in the preferate application by going into the file "SDD-Preferate\src\main\java\restClasses\Globas.java" and change the 
+username and password to the ones you made in your MySQL installation. 
+
+Next, you will need to copy the "Webdocs" folder into where xampp is will host the files in apache. This is in the "htdocs" folder in the xampp installation. The default location for this is:
+"C:\xampp\htdocs"
+
+
+The rest of the depenancies of the application will be installed automatically by maven as specified in the pom.xml file
+ 
+Now, open up a command prompt/terminal and navigate to the SDD-Preferate folder. You will now use maven to download the dependancies, and build the appliation. 
+
+The command to do this is "mvn spring-boot:run"
+
+Now, you should see the console printing out a bunch of dependancies it is downloading, then print out that spring is starting and serving the application on port 8080. 
+Then the application will run and print out an bunch of statements like "Adding Rec: Restaurant 5: -0.4091840659578641". This means that the appliation is running and the collaboritve filtering
+is working. Now make sure apache is running in xampp still, and then go to the following URL in your browser:  localhost/Webdocs/fb_login_page.html
+
+Now you will need to be registered as a developer in our facebook application to sign in, so please contact bthorne3@gmail.com so we can add you. Alternatively, we can give you access to
+a fake facebook account we made, but please still email us to get the credentials. 
+
+Now you should be able to access the appliation normally, and you can consult the user guide for further instructions. 
+
+
