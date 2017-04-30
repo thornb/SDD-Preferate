@@ -27,9 +27,9 @@ $(document).ready(function(){
 										<img src=` + data[i].img_Link + ` class='img-responsive'>
 									</div>
 									<div class='col-md-9'>
-										<h1>Recommendation Details</h1> 
-										<p>`+ data[i].restaurant_name + `</p>
+										<h1>`+ data[i].restaurant_name + `</h1> 
 										<p>`+ data[i].rating +`</p>
+										<br>
 									</div>
 								</div>`;
 

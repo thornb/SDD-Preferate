@@ -15,5 +15,7 @@ Since going to www.rpipreferate.com defaults to port 80, we will host the WebDoc
 
 So copy the files into the apache port 80 server after a git pull by using the command:
 cp -a /home/sdd/GitHub/SDD-Preferate/WebDocs/. /var/www/rpipreferate.com/public_html/
+in ubuntu:
+sudo cp -a ~/Desktop/SDD-Preferate/WebDocs/. /var/www/html
 
 then if you go to rpipreferate.com you should be able to view the web files
