@@ -38,6 +38,9 @@ is working. Now make sure apache is running in xampp still, and then go to the f
 Now you will need to be registered as a developer in our facebook application to sign in, so please contact bthorne3@gmail.com so we can add you. Alternatively, we can give you access to
 a fake facebook account we made, but please still email us to get the credentials. 
 
-Now you should be able to access the appliation normally, and you can consult the user guide for further instructions. 
+Now you should be able to access the appliation normally, and you can consult the user guide for further instructions.
+
+If you have any questions about the installation process, please contact bthorne3@gmail.com 
+
 
 

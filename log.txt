@@ -1,0 +1,1213 @@
+commit 05a605ec515365df9352b0732e56cc649fe331ca
+Merge: 7c64671 a487070
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 29 22:45:47 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 7c646716f2ba648c25e832179f1361642e0a6d9a
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 29 22:45:00 2017 -0400
+
+    added installation guide
+
+commit a4870702a6fbe7513cda5627e03ec64edab396ae
+Merge: 045ef95 260636a
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Sat Apr 29 19:30:05 2017 -0400
+
+    group rec shows images now
+
+commit 045ef951eb1c76c10ef99c935d9598828c65f450
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Sat Apr 29 19:24:31 2017 -0400
+
+    some changes to the recommendation pages
+
+commit 260636a6e232d8017a22ab323bee24455eb7fcce
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 29 03:03:30 2017 -0400
+
+    group functionality for front-end
+
+commit 220c543b974da3d35a10bc44329115199fd84482
+Merge: 891bea7 76ec0df
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 23:45:33 2017 -0400
+
+    merge
+
+commit 891bea7a600a2a4bb5fbc53b81b1dfc4f06d692b
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 23:43:54 2017 -0400
+
+    created return groups class
+
+commit 76ec0dfb456abcbe84ee80a19a2d1f7d2ea2dfe3
+Author: patels13 <shreyap@sdpsoftware.com>
+Date:   Fri Apr 28 19:22:51 2017 -0400
+
+    Update group.js
+
+commit 53e50c66f778a63c0d60c5fecad0f02343545a2a
+Merge: 2ffbf0c f597311
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 17:41:40 2017 -0400
+
+    pulling
+
+commit 2ffbf0cbc50d14d4c0a3e361fd851549e20c99bc
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 17:39:29 2017 -0400
+
+    pulling
+
+commit f59731102486b01d43fa928b3a317d9c035aed4d
+Merge: 207fd0e 5d445d7
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 17:22:11 2017 -0400
+
+    fix merge
+
+commit 207fd0efc7981427cad27d92b159c2906587caec
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 17:21:08 2017 -0400
+
+    fixed recommender page
+
+commit 5d445d74b5c56774c8712040af11306b074a2df9
+Merge: 2019fe9 d96b642
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 17:06:55 2017 -0400
+
+    added the rest of restaurant names
+
+commit 2019fe9a27b63200679f17e37eba6736ea4b489a
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 17:04:12 2017 -0400
+
+    added the rest of the restaurant names and links
+
+commit d96b642b78e19a015b6a2ec59193ed80954d6e48
+Merge: 26824ed 84e327e
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Fri Apr 28 17:02:54 2017 -0400
+
+    solved merge conflict
+
+commit 26824edb5506eae33c8f18b14b8d510ee38d8bfd
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Fri Apr 28 16:58:32 2017 -0400
+
+    added facebook user id to reviews
+
+commit 84e327eb281bd32b33e367260472585026179170
+Merge: 400475a 142efe8
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 16:48:03 2017 -0400
+
+    merging
+
+commit 400475a1ccb91151b8480d79f69286501640cc54
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 16:47:01 2017 -0400
+
+    create group functionality
+
+commit 142efe80b7289d02ff5785f1f1b0f00d0ddd972b
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 16:26:56 2017 -0400
+
+    adding static references
+
+commit dc12f0964afed5c283f8c66cd5ac0c2acad54456
+Merge: bc3c924 210ecbc
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 15:45:51 2017 -0400
+
+    bringing myself up to date
+
+commit bc3c924987b662ee04c11c582d00863e81e34ef5
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Fri Apr 28 15:42:43 2017 -0400
+
+    bringing myself up to date
+
+commit 210ecbc28d210678e223ace6f42a69103973b63a
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 15:24:07 2017 -0400
+
+    getting fb id from api for reviews
+
+commit d3b1f24cd73afb579fe64960e9dc3f6047198024
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 28 14:29:07 2017 -0400
+
+    added function to return a list of reviews with a given user ID, and included facebook api in the reviews page to set the current user ID
+
+commit d34d89a2b670cee0c3eae131d40b69869a01769a
+Merge: 904fa53 f811fa5
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 27 19:34:34 2017 -0400
+
+    Merge branch 'master' into develop
+
+commit f811fa588b814b90ec5478699c2506cb798639cd
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 27 19:33:57 2017 -0400
+
+    removed unecessary file that was causing problems with git
+
+commit 904fa53218066d245c57af73d9264915994be378
+Merge: 6ec14f7 1afd108
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 20:09:07 2017 -0400
+
+    Merge branch 'master' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 6ec14f7f28e5ecc48e5e5f2c5350939dc494f45f
+Merge: 2b43ac6 b678e43
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 20:08:57 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 2b43ac6883c648e5909366bbaa40394998be76d2
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 20:07:37 2017 -0400
+
+    cleaning up files and added comments across many files
+
+commit 1afd10822176c2538d59c28527140c0ae9648e9b
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 19:30:49 2017 -0400
+
+    Create license.md
+
+commit 18addf5cb5b32faff8b584006616b15b211f36e1
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 15:41:35 2017 -0400
+
+    Stakeholder 2 Demo final commit
+
+commit b678e43812d273118d1fbe499f2dcfeeac28a090
+Merge: d7e8aee fd9b7c3
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 14:28:39 2017 -0400
+
+    merge
+
+commit d7e8aee3bc411b04e0977155ecddbd951122b133
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 14:26:28 2017 -0400
+
+    updating readme
+
+commit fd9b7c385320d657299e64a30c13e2e4163c8d8b
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 14:04:37 2017 -0400
+
+    various fixes and improvments
+
+commit 13666abe202b0bfeffd17bfe5665a5f6f1ce3949
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 12:56:44 2017 -0400
+
+    fixed merge conflicts
+
+commit a450e252f13d8569c2ac662ea268468128497731
+Merge: 6919f2b 386802c
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Thu Apr 20 12:51:55 2017 -0400
+
+    merge
+
+commit 6919f2bd43408a4d850a944caa789981fac189b1
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Thu Apr 20 12:49:52 2017 -0400
+
+    friends list
+
+commit 386802cb07895e491e639ab85e328b06eb2cbd36
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 12:48:22 2017 -0400
+
+    reduced friends page
+
+commit ee6f74589cfe9eb5e87c18456247fe2367217fa3
+Merge: 54eb81c b87eb16
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 12:22:01 2017 -0400
+
+    tiny merge
+
+commit 54eb81c27e9578349ec8c8541bf420b9d01cf7c8
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 12:19:44 2017 -0400
+
+    updating to pull
+
+commit b87eb16d6d79abd56a5894ae9cff00655e720359
+Merge: bcafbee 4108be8
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 12:17:56 2017 -0400
+
+    merged code
+
+commit bcafbeeab679afcc9bc3187503f9c46bdf7eabdc
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 12:09:35 2017 -0400
+
+    Display friend profile, only missing reviews
+
+commit 4108be86e6c18d390ae712c1038831497a3e42c9
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Thu Apr 20 12:09:15 2017 -0400
+
+    fixed /u000 error
+
+commit ee826f57ef54aba04436dc15263e780951e60914
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Thu Apr 20 02:37:23 2017 -0400
+
+    tested code
+
+commit fb35759955b8d6b7ab77b328a2737fab61e5fad3
+Merge: 0ee95af 9c4c443
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 01:50:43 2017 -0400
+
+    ignore binary
+
+commit 0ee95af6a7da4fffeec352ffe02aa87e0ab42162
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 01:50:11 2017 -0400
+
+    front-end for recomender
+
+commit 9c4c443c2f95c24f1c9971c338c2cabd25a340ca
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 01:42:58 2017 -0400
+
+    more math tweaks
+
+commit ec77c513cfd8e2f9ee0cfb174baf64a3f51e7422
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 01:20:06 2017 -0400
+
+    Added global password to make things easier
+
+commit 9392cad0428c40c5398bb3dd28a04595cc86bafb
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 01:16:50 2017 -0400
+
+    fixed a small math error
+
+commit 0a3a576412a10003fb1000c5b3bf4abaebb53299
+Merge: a4eeb57 7607fb1
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 01:11:24 2017 -0400
+
+    attempting merge
+
+commit a4eeb575b368f06623f3c9dc87e03568e3d9933f
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 01:10:08 2017 -0400
+
+    pre merge. Added global password
+
+commit 7607fb18e105c4448b37dadea6294f051f705a74
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 01:08:25 2017 -0400
+
+    integrated recommendation class
+
+commit 6f76be49982c1b78dc83de7474d66ff100487038
+Merge: 64a8406 ff145c9
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 00:53:08 2017 -0400
+
+    merging...
+
+commit 64a840631e86544d95e12dc8e06072d6f37e1a51
+Merge: ffb06de ea48078
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 00:51:26 2017 -0400
+
+    merged
+
+commit ff145c9a3edc985e0327f89e18271884e1613ac6
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 00:50:07 2017 -0400
+
+    database call for restaurant name
+
+commit ffb06de5f40a7febc43913c2cdf34b612f0b98ee
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Thu Apr 20 00:45:17 2017 -0400
+
+    refactoring to recommendation class
+
+commit ea480780d8cbc0510fe0a8821c341733b9fe8a9b
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 00:41:40 2017 -0400
+
+    Added Recommendation class
+
+commit ab0e22272c506eee7f0aa9e6458162373c189cfd
+Merge: 2669c50 a739131
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 00:27:26 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 2669c508db0127d4c775f36a910fa195185f4112
+Merge: 41e70c5 f74f7c8
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 00:26:44 2017 -0400
+
+    merging with develop branch
+
+commit a7391312357382039672876eb5adda6e1af8b2bf
+Author: yomj18 <yomj@rpi.edu>
+Date:   Thu Apr 20 00:20:06 2017 -0400
+
+    for ask suggestions
+
+commit 41e70c5cb3058f9b09abdaf1bc07e90dba2cd7fe
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 20 00:13:18 2017 -0400
+
+    User preferences use cases complete
+
+commit f74f7c8623378957f28867a277dc73c1067f4942
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 23:56:41 2017 -0400
+
+    changed group rec to hyphen rather than comma
+
+commit 9376d05fa33426678c18f959a5798a4e539924d9
+Merge: 0b1ac7b bb08a79
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 23:06:07 2017 -0400
+
+    merging temp into develop
+    
+    velop
+    
+    # Please enter a commit message to explain why this merge is necessary,
+    # especially if it merges an updated upstream into a topic branch.
+    #
+    # Lines starting with '#' will be ignored, and an empty message aborts
+    # the commit.
+
+commit bb08a794467e40aac9284829edd6d7db9e6b6715
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 23:04:31 2017 -0400
+
+    resolving conflicts
+
+commit 920a45fe1a43acd569f1a94ea99c8d255b83fa28
+Merge: fe00318 0b1ac7b
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 23:00:39 2017 -0400
+
+    resolving conflicts
+
+commit 0b1ac7be4a55ba6194c69da3604e72bfecfaaeae
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 22:43:05 2017 -0400
+
+    update toward displaying recommendations
+
+commit 92787694ef57dc2c7a3415678d59927f1050517d
+Author: yomj18 <yomj@rpi.edu>
+Date:   Wed Apr 19 21:34:48 2017 -0400
+
+    updated index.html
+
+commit 9d4c139718809389064a02ce64e7f3dcdfc2d1e6
+Merge: 4e77c08 2c476eb
+Author: yomj18 <yomj@rpi.edu>
+Date:   Wed Apr 19 21:02:39 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 4e77c088d0164b7bc9520362c816ab2fdcb848bb
+Author: yomj18 <yomj@rpi.edu>
+Date:   Wed Apr 19 21:02:14 2017 -0400
+
+    changes to index.html
+
+commit 220a554f92d7bcd979940a7915f6c4b91923ca56
+Merge: 2c476eb 064bd29
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Apr 19 20:58:54 2017 -0400
+
+    Merge remote-tracking branch 'origin/friends' into develop
+
+commit 42a007db18171172f1017158a6a37119e51193d4
+Author: yomj18 <yomj@rpi.edu>
+Date:   Wed Apr 19 20:57:23 2017 -0400
+
+    updates to '+ make a new group' in index.html
+
+commit 2c476ebe8792bb97ae0b67e319a1db322c37c052
+Merge: 3e22691 cb2d0f3
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Apr 19 20:55:54 2017 -0400
+
+    solve merge conflict
+
+commit 3e22691c7c4fd4bbd9b7e121ab0f97c5533460a8
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Apr 19 20:47:40 2017 -0400
+
+    before merge with john
+
+commit fe0031809b38741d55d65baac666d8531b353ed9
+Merge: f9db5fe e783040
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 20:38:03 2017 -0400
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit f9db5fe74eed0c62b3a24d0b93af8c03b40aea89
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 20:32:09 2017 -0400
+
+    ModifyMakeReviewCase
+
+commit 064bd29a5f6d4ed55da02489f070904efccf0072
+Author: John Tusa <johntusa2@gmail.com>
+Date:   Wed Apr 19 19:36:12 2017 -0400
+
+    added friend docs
+
+commit cb2d0f3f06f5f1b326447266a94594c834812c87
+Merge: c42c70d 862bdb9
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 19:16:39 2017 -0400
+
+    integrating recommenders
+
+commit c42c70d85d173cbc776201204a43938b2156d937
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 19:12:50 2017 -0400
+
+    integrating recommenders
+
+commit 862bdb9f233a910f1f3d8412a685d973860bf993
+Author: yomj18 <yomj@rpi.edu>
+Date:   Wed Apr 19 17:55:18 2017 -0400
+
+    edited index.html to include '+ make a new group' button
+
+commit e783040b7d1c811fdb94e2359b950415519bba09
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 19:06:16 2017 +0000
+
+    encoding
+
+commit f25f3aeb0cb94e5bd2e0d68ed5143c00cd6ec4b6
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 14:40:06 2017 -0400
+
+    encoding
+
+commit 202fe820ad915a49ffa53fd41232d819be25ee70
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 14:37:03 2017 -0400
+
+    character encoding
+
+commit 1988e857876470a39602ed34464712d24d7489c4
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Wed Apr 19 14:36:34 2017 -0400
+
+    added group recommednation and sorted output
+
+commit 35fc469f0248753f8dabab1238ba5813d143f330
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 14:23:19 2017 -0400
+
+    comments are looking wrong
+
+commit aa68d5d7176060293562f711406944656767d80e
+Merge: fa40e86 ad873ea
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 14:07:19 2017 -0400
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit fa40e8691624ff57d4a308217ce5fbd7ea456a6b
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 14:06:02 2017 -0400
+
+    user preferences
+
+commit ad873ea6b3c246a3dd3a5109d2002f818eabf4b9
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 18:04:15 2017 +0000
+
+    server
+
+commit df5dfb68c5b13ffe865582b198c4c667ae94e994
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 10:43:01 2017 -0400
+
+    controller test
+
+commit 83961b8cb6b623ade0030fab175bd326331bf7f8
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 10:15:19 2017 -0400
+
+    updated modal page
+
+commit f8f13f142ede12aebb7cd74d9fe6c672a930a50b
+Merge: 687b274 27362dd
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 10:07:42 2017 -0400
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit 687b274267b55ca49767930131fe327040baa29c
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 10:06:36 2017 -0400
+
+    fixed modal.js button
+
+commit 27362dda66a0a913889c2e1c9119904c733cb17d
+Merge: f479628 d4fb30c
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 13:55:46 2017 +0000
+
+    rest files
+
+commit f479628e8b345e35fb5117df8ceeefddbd78b47e
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 13:50:30 2017 +0000
+
+    update review
+
+commit d4fb30c6775a076885e22950b10d12c9a56bdd5a
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 09:48:42 2017 -0400
+
+    update review test
+
+commit 15e60ed74f4a5e8fd41b3e54ebe5b9e050fc7da6
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 09:20:05 2017 -0400
+
+    SQL fix
+
+commit 63108e329ceb56fd393ea37ed5742e4d8322e467
+Merge: 9d3fa68 e1e0b5e
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 03:07:06 2017 -0400
+
+    SQL
+
+commit 9d3fa682b8346e98cd5dd09ee2bc1b662b65b8e8
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 03:06:17 2017 -0400
+
+    SQL
+
+commit e1e0b5e7a01c19e855be200720999163149bbca5
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 07:03:35 2017 +0000
+
+    SQL query
+
+commit 4c355731cadfd5b8459d52ba617c534e3fab23e3
+Merge: 578f94c 992f856
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 02:48:27 2017 -0400
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+    
+    sdf
+
+commit 578f94c7be600cff3ce7327cfff7f76184e37758
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 02:47:29 2017 -0400
+
+    SQL syntax error fix
+
+commit 992f856205e2d1ba5536db0da35bce6404ce5eb3
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 06:46:29 2017 +0000
+
+    ls files
+
+commit cb4ced7794058e661b2db6f06e5187a362050c23
+Merge: 599e489 400ee3a
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 06:38:55 2017 +0000
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit 400ee3ab270cdda4974b0e93a10a2fe3aef62fcf
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 02:32:32 2017 -0400
+
+    add function
+
+commit 599e489d8a38183daef1ec0c34b8e3c975429965
+Merge: 41b3f59 55c4bc9
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 05:22:44 2017 +0000
+
+    adfj
+
+commit 41b3f59d303a0ed04905dd095e0c8494c507b925
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 05:18:42 2017 +0000
+
+    ls files
+
+commit 55c4bc908ebbd590779fd8fd3113d58037f3a2d2
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 01:17:23 2017 -0400
+
+    test spliced json values
+
+commit 043e05ffda5333af207d3b7af7b38d4039903404
+Merge: caefdaf 63ec612
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 01:00:14 2017 -0400
+
+    lst
+
+commit caefdaf0799daba8daac85c31ddedd9ea5328324
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 00:59:24 2017 -0400
+
+    new function
+
+commit 63ec6129ec91ebf2436a3d7ca031e0a9430d75cb
+Merge: 9e1a5bb 196510c
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 04:22:15 2017 +0000
+
+    lst
+
+commit 9e1a5bbb4ba3a4e60261587a7f5cdfe7d0cb9894
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 04:19:50 2017 +0000
+
+    lst files
+
+commit 196510cc9d33451adcd458b73230d0ed91a4d01a
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Apr 19 00:17:31 2017 -0400
+
+    requestmethods
+
+commit cc820e3b4a190a41e85f58c328a16aaa79e3132c
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 23:37:43 2017 -0400
+
+    commented out recommendation code
+
+commit e9828671149309c4ebb07fce888ba0ffc0d53c0b
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 23:30:10 2017 -0400
+
+    controller function
+
+commit 245afc460b2ba6d379f2209b9b141f6d0f3d4353
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 23:25:47 2017 -0400
+
+    fixes
+
+commit 01acea09daa2bdfede8a130f4c7c8b3a26f7b919
+Merge: 1e21cb9 65a42c3
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 22:30:38 2017 -0400
+
+    rge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+    
+    merge webdocs
+
+commit 1e21cb9888320e4a54f8c5229cf6ea5fd6b47252
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 22:30:06 2017 -0400
+
+    error fixes
+
+commit 65a42c39b0da3f743000d3a7bada13f8167b9b2c
+Merge: 1ac44de d8fa1f3
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 02:15:13 2017 +0000
+
+    modifyfrontend
+
+commit 1ac44de8fd3c8f4a4257f17decdac1d362658b78
+Author: patels13 <patels13@rpi.edu>
+Date:   Wed Apr 19 02:11:09 2017 +0000
+
+    testing
+
+commit d8fa1f36989a02dfba31d7928f5c2c5e4c3267f5
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 22:07:32 2017 -0400
+
+    testing
+
+commit 648ea5aa1247373e5632b1e7f35dba79110934a0
+Author: thornb <bthorne3@gmail.com>
+Date:   Tue Apr 18 21:26:29 2017 -0400
+
+    Another spelling error
+
+commit 80eb63d19490d4fd25dded02e533341f0ee743d5
+Author: thornb <bthorne3@gmail.com>
+Date:   Tue Apr 18 21:08:05 2017 -0400
+
+    Another spelling error
+
+commit 2a4ef2a443ad20fedea4675ee6eae3a5059ee31b
+Author: thornb <bthorne3@gmail.com>
+Date:   Tue Apr 18 20:55:53 2017 -0400
+
+    Fixed build errors in Group class and more spelling errors in User class
+
+commit bb36c93796f55c95a11983376d7e2557d035db92
+Merge: fb712c2 4840f17
+Author: thornb <bthorne3@gmail.com>
+Date:   Tue Apr 18 20:31:31 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit fb712c2be63cd525a5766da618f171becb31d375
+Author: thornb <bthorne3@gmail.com>
+Date:   Tue Apr 18 20:30:21 2017 -0400
+
+    fixed spelling error
+
+commit fe7d6e6c07b4cd98930d2c0b3351d83cda397988
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:39:18 2017 -0400
+
+    testing
+
+commit 5844dbd6b88003c5f08393a973c8dadf6ebce0cb
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:32:51 2017 -0400
+
+    testing
+
+commit b30da72c31f78f770efafd41be3530f4402a4387
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:30:44 2017 -0400
+
+    testing
+
+commit b7a1a824f5f7f78b96a7b71da14d97bd3dd6f629
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:16:19 2017 -0400
+
+    testing
+
+commit a501c638131e64db72d21b2eb32fac4b7dbec300
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:14:37 2017 -0400
+
+    testing
+
+commit b8bbfb64b292e65ab7e3b57efe92bcd0df01c2df
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:13:01 2017 -0400
+
+    testing
+
+commit f541c07a7f857d94e5d804320157120d6dd635d1
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:10:06 2017 -0400
+
+    testing
+
+commit da1c7697aa089ca84efd48a22e3f6486a5e1050c
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 17:02:54 2017 -0400
+
+    testing
+
+commit 4840f17542b03c1d1be49c96ae498a530a262ec2
+Author: yomj18 <yomj@rpi.edu>
+Date:   Tue Apr 18 16:36:55 2017 -0400
+
+    updated Group Class
+
+commit af47476c58fc956d258bd207163660a0c79311d7
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Tue Apr 18 16:17:24 2017 -0400
+
+    json parsing
+
+commit 2fb50c68170d37477ea0102f64e1a8b9c337274c
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Tue Apr 18 07:42:25 2017 -0400
+
+    fixed dependency issues with mysql datamodel
+
+commit 2605677c9593cf9816a4ab5cb4e3ef30aed9376b
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Mon Apr 17 23:19:54 2017 -0400
+
+    added readies
+
+commit 4e8257ec3dd3a153f2e6d8ec224e1fecee2f6c50
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Mon Apr 17 22:32:10 2017 -0400
+
+    moved code to modal.js
+
+commit 737d4e12749599e452e35a18447219e9da0a6233
+Merge: ea944d2 8ea2fd4
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Mon Apr 17 21:50:29 2017 -0400
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+    
+    UTF encod
+
+commit ea944d29a5944cf05df91af33a64dbca61b742d1
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Mon Apr 17 21:50:00 2017 -0400
+
+    UTF encoding
+
+commit 8ea2fd4cab63d06896d3b63a8aee5148cf16d9d4
+Merge: f128215 e5b657c
+Author: patels13 <patels13@rpi.edu>
+Date:   Tue Apr 18 01:22:18 2017 +0000
+
+    Merge branch 'Temp' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit f128215cd12de544de79d57c829efac06099c7fb
+Author: patels13 <patels13@rpi.edu>
+Date:   Tue Apr 18 01:21:17 2017 +0000
+
+    CRUD
+
+commit ba49541017ce043a5c6b15ca37909f62b873ad06
+Author: patels13 <patels13@rpi.edu>
+Date:   Tue Apr 18 01:13:02 2017 +0000
+
+    CRUD frontend
+
+commit e5b657cea23cb111964973db84d1fcbbe8889b40
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Mon Apr 17 21:03:29 2017 -0400
+
+    Front end design for CRUD
+
+commit f47a2d3cf5fef9c5c4bda5b635acafa71f80597c
+Author: thornb <bthorne3@gmail.com>
+Date:   Mon Apr 17 19:29:49 2017 -0400
+
+    fixed bug with user url mapping
+
+commit 54dbbfcbe76a89c6f0f63ba7f770f81f71bf7780
+Merge: 79ac022 7587544
+Author: root <root@ubuntu-512mb-nyc3-01-ITWS-group6.localdomain>
+Date:   Mon Apr 17 23:08:54 2017 +0000
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into Temp
+
+commit 7587544dde3b93216c562c63f8dda211db7ff6a2
+Merge: e47253d c73601c
+Author: thornb <bthorne3@gmail.com>
+Date:   Mon Apr 17 19:01:19 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit e47253db54ff3204adbc8e569cf81c034f097b67
+Author: thornb <bthorne3@gmail.com>
+Date:   Mon Apr 17 19:00:42 2017 -0400
+
+    User class and functions - Untested
+
+commit 79ac0222c3ace7f0ed2c7de56534a325408588da
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Sun Apr 16 18:47:04 2017 -0400
+
+    javascript JSON reads
+
+commit c73601c469f3b80cedb54dc2e883cb256b6ab72b
+Merge: 0daee23 27dfc64
+Author: patels13 <patels13@rpi.edu>
+Date:   Sun Apr 16 22:26:10 2017 +0000
+
+    inputFile
+
+commit 0daee2337bdc22dbd2459bb7298d666f7e11b5a0
+Author: root <root@ubuntu-512mb-nyc3-01-ITWS-group6.localdomain>
+Date:   Sun Apr 16 22:17:24 2017 +0000
+
+    greeting
+
+commit 27dfc64ee5cedab9f7b6d801023e3a7c3041967d
+Author: patels13 <shreyap@sdpsoftware.com>
+Date:   Sun Apr 16 18:01:43 2017 -0400
+
+    Update review_page.html
+
+commit e0ec84b80854dec6d2ddebc9d485e420053d28c9
+Merge: 2801cc5 ab5aea9
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Sun Apr 16 08:45:33 2017 -0400
+
+    Merge pull request #5 from thornb/recMerge
+    
+    Recommender calling within the application
+
+commit ab5aea9ffe9c474554120d2a9b1ff7aac6d8c98d
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Sun Apr 16 08:22:24 2017 -0400
+
+    resolved issue with running outside of eclipse
+
+commit 2a1261fc53b3c4972d567cafe4e7142c0620c157
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Sat Apr 15 16:36:18 2017 -0400
+
+    integrated the recommender, need to clean up files and eclipse garbage
+
+commit 2801cc5e550921388b5b665ce62b885a3c04277e
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 14 02:29:36 2017 -0400
+
+    set password of database back to normal. I forgot to switch back before pushing
+
+commit d71bf4d9fd78540822f8062416171001b64e8f2e
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 14 02:00:17 2017 -0400
+
+    Mereged and commented out mahout dependancy because led to build failure
+
+commit 5297204e87dc0edeaa299e09ef7b32911ebeb70c
+Merge: 103afae b2c745b
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 14 01:57:46 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit 103afaeb0394a9dee282c8cb33af916c892bb4a0
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 14 01:56:51 2017 -0400
+
+    renamed java files to more appropriate names
+
+commit 60636adee12e2d454d8fd88e9b77fd602543d4bf
+Author: thornb <bthorne3@gmail.com>
+Date:   Fri Apr 14 01:36:20 2017 -0400
+
+    Added functionality to return list of all reviews. Good example for other classes
+
+commit b2c745b94e247498a2f30c2b45811ae79726cbb3
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Thu Apr 13 19:16:22 2017 -0400
+
+    Added mahout dependencies to pom.xml
+
+commit c5c19bff1f44ce8ac4f8a8f93bb1fff346e75585
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Apr 13 18:25:38 2017 -0400
+
+    fixed database password and profile picture
+
+commit 598804c77324ab91af6006c1c10f2e560b80ecbd
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Sat Apr 8 12:13:35 2017 -0400
+
+    Update App.java
+
+commit a3f474449f47fcb820cb56b252f135c2b9f2ba1e
+Merge: dbee765 39010ec
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Mon Apr 3 13:44:14 2017 -0400
+
+    Merge pull request #4 from thornb/master
+    
+    Bringing Develop up to date
+
+commit 39010ec910d1b6346d289bd3c7b19826fdb1826e
+Merge: 4d7df68 dbee765
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Mon Apr 3 13:42:42 2017 -0400
+
+    Merge pull request #3 from thornb/develop
+    
+    Bringing Develop back up to date
+
+commit dbee7654571bd5e8caa187fa2070e8162fc19414
+Author: Ryan Sherman <shermr@rpi.edu>
+Date:   Mon Apr 3 13:37:23 2017 -0400
+
+    recommender elcipse project added
+
+commit b0583b6fa5ee0ed3caffd034744e01dcb7de49c7
+Merge: 0cb1fd8 a9dff3d
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Sat Apr 1 13:56:23 2017 -0400
+
+    cleaned up files
+
+commit 4d7df68e09eb9fa004b7bde1866ee867ab8b375b
+Merge: 98298a4 a9dff3d
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 1 13:56:15 2017 -0400
+
+    Merge pull request #2 from thornb/develop
+    
+    Develop
+
+commit 0cb1fd8b753732eb5d94e6d7f3d0a0b1ea3e7a0c
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Sat Apr 1 13:55:16 2017 -0400
+
+    cleaned up files in WebDocs
+
+commit a9dff3dade9eeaf84fb9bd266ad740a96ff271e3
+Merge: 3b37368 be84104
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 1 13:54:38 2017 -0400
+
+    Merge branch 'develop' of https://github.com/thornb/SDD-Preferate into develop
+
+commit be841041e680cab8c8a283351da68b1afd4c7860
+Merge: ee02e1c 98298a4
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Sat Apr 1 13:47:03 2017 -0400
+
+    Merge pull request #1 from thornb/master
+    
+    just bringing develop up to date
+
+commit 3b37368ae3520803a806ccf5e5f56da7b73744d8
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Apr 1 13:42:04 2017 -0400
+
+    Added readme with instructions on how to start server, and deleted public folder
+
+commit 98298a44627755e0457efab3e48fc49b7948c1e6
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Sat Apr 1 13:35:17 2017 -0400
+
+    got rid of unneccesary functions
+
+commit c503eeb545eb3bb176d2ec13265cf06f0be3f2d2
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Sat Apr 1 13:34:08 2017 -0400
+
+    js fix
+
+commit ee02e1c290e3dc359d87503187ab33e5dc99bbf2
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Mar 30 16:21:51 2017 -0400
+
+    Inserting to database test
+
+commit 1f2766bcce88d00f1eb79a5a47eac87e8a9581a0
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Mar 29 21:07:32 2017 -0400
+
+    still fixing compile bugs
+
+commit c545398baba10360d2afff94c91050eeda491f23
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Mar 29 20:56:45 2017 -0400
+
+    fixed compile issue
+
+commit cd1a4d9b0d2400c1a8775a44ff538919fb4bd92d
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Mar 29 20:53:32 2017 -0400
+
+    Test conecting to database
+
+commit e3baef59cf90d135a2467cfd8b82232b9a9f425b
+Merge: 01716cf 2d7bd2f
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Mar 29 18:53:29 2017 -0400
+
+    Merge branch 'master' of https://github.com/thornb/SDD-Preferate
+
+commit 01716cfb8ad42e921f88ad298b7f9ed97b195c9f
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Mar 29 18:53:10 2017 -0400
+
+    Serve html and js files on server
+
+commit 2d7bd2f480c34464a20da98d54b21b7f95ae1d19
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Mar 29 13:44:22 2017 -0400
+
+    added suggestions page with modal
+
+commit fe67edd7d7b5ce909f84f0f9db6d45afb78bcac3
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Wed Mar 29 10:20:37 2017 -0400
+
+    added to preferences survey
+
+commit fcc60f2cdbffb9c570ee3b9751fa60c474a35f84
+Author: thornb <bthorne3@gmail.com>
+Date:   Mon Mar 27 09:33:57 2017 -0400
+
+    Integrated Facebook login with login and homepage
+
+commit 6a7207b4a9432ae746bb4fdb9f66c0f92d750cec
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Fri Mar 24 19:42:41 2017 -0400
+
+    Updated webpages....
+
+commit 37f94b33fe6a7e65dd1c86ca7c3bd1a40fa5c0dd
+Author: Shreya <shreyap@sdpsoftware.com>
+Date:   Thu Mar 23 18:03:10 2017 -0400
+
+    Web development pages
+
+commit 9b6b7fe6967d840fee8f1e913835a135289ce31b
+Merge: 97217c6 d97ecc3
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Mar 23 17:40:29 2017 -0400
+
+    Merge branch 'master' of https://github.com/thornb/SDD-Preferate
+
+commit 97217c6b029684c29100d2eabed81db315f8e717
+Author: thornb <bthorne3@gmail.com>
+Date:   Thu Mar 23 17:40:08 2017 -0400
+
+    Facebook Login and getting friends who use app
+
+commit d97ecc31db24858d22c69d14e953ea7c4009d208
+Author: ryan-sherman <shermr@rpi.edu>
+Date:   Sun Mar 19 21:16:06 2017 -0400
+
+    Added R automated sample data generator and output
+
+commit 9ec70c735fe084ae0e243fd11b74a1c656ddfa66
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Feb 18 12:28:17 2017 -0500
+
+    Added 'WebDocs' folder to hold the web documents
+
+commit 6574d12a1f87490b5a5f8248fff020859d3fd4d3
+Author: thornb <bthorne3@gmail.com>
+Date:   Sat Feb 18 12:26:06 2017 -0500
+
+    RESTful 'Hello World' Service. Will serve as the basis for the services on our web server
+
+commit 26973aeb5cac448fa4f90af0b76fbc4cb12d039e
+Author: thornb <bthorne3@gmail.com>
+Date:   Wed Feb 1 16:22:34 2017 -0500
+
+    Initial commit
