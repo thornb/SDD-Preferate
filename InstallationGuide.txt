@@ -18,7 +18,7 @@ and then on the "admin" button next to MySQL. A webpage should open asking you t
 and password to log into phpMyAdmin.  Then you can import the database by clicking on the "import" button near the top. You will then press the "Choose file" button and click on the 
 "preferate.sql" file in the SSD-Preferate folder and then press "Go" at the bottom of the page.
 
-Now, you must configure the username and password for your database in the preferate application by going into the file "SDD-Preferate\src\main\java\restClasses\Globas.java" and change the 
+Now, you must configure the username and password for your database in the preferate application by going into the file "SDD-Preferate\src\main\java\restClasses\Globals.java" and change the 
 username and password to the ones you made in your MySQL installation. 
 
 Next, you will need to copy the "Webdocs" folder into where xampp is will host the files in apache. This is in the "htdocs" folder in the xampp installation. The default location for this is:

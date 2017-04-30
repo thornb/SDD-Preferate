@@ -1,6 +1,21 @@
 //gets group recommendations from the back end and displays in revieCOntianer on group recommendation page
 $(document).ready(function(){
 
+	//function to get parameter from url
+	var getUrlParameter = function getUrlParameter(sParam) {
+	    var sPageURL = window.location.search.substring(1),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
+
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : sParameterName[1];
+	        }
+	    }
+	};
 
 	//get the recommendations from the back end
 	function getRecs(){
@@ -12,11 +27,12 @@ $(document).ready(function(){
 		var user_id = fbUserObj.id % 1000 + 1;
 
 		//create array of the users to send to the backend 
-		var members = "[" + user_id + "-" + ((10203219280360494 % 1000) + 1) + "-" + ((100702180472712 % 1000) + 1) + "]"; 
+		//var members = "[" + user_id + "-" + ((10203219280360494 % 1000) + 1) + "-" + ((100702180472712 % 1000) + 1) + "]"; 
 
 		//call the backend and send this array
+		console.log(getUrlParameter("members"));
 		$.ajax({
-			url: "http://localhost:8080/suggestions_pageGroup?members=" + members
+			url: "http://localhost:8080/suggestions_pageGroup?members=" + getUrlParameter("members")
 		}).then(function(data, status, jqxhr){
 
 			console.log(data);

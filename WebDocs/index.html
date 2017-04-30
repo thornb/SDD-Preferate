@@ -54,6 +54,9 @@
 
           console.log("in for loop");
 
+
+         
+
           var html_str = `<div class="row" style="background-color: white; margin-bottom: 4px;">
                            <div name="newRow" class="col-md-offset-2">
                              <h3 name="newGroup">` + data.group_list[i].name + `</h3>
@@ -61,14 +64,32 @@
 
             //loop over each member in the group
 
-            for(var j = 0; j < data.group_list[i].members. length; j++){
+             var members_str = "[";
+
+            for(var j = 0; j < data.group_list[i].members.length; j++){
+
+
 
               html_str +=  "<li class='list-group-item'>" + getFriendName(data.group_list[i].members[j]) + "</li>"; 
 
+              if( j == data.group_list[i].members.length - 1 ){
+                members_str += parseInt( data.group_list[i].members[j] ) % 1000 + 1; 
+              }
+              else{
+                members_str += parseInt( data.group_list[i].members[j] ) % 1000 + 1 + "-";  
+              }
+              
 
             }
 
+            members_str += "]";
+
+            console.log(members_str);
+
             html_str += `</ul>
+                        <a href="group_recommendations_page.html?members=`+ members_str +`">
+                        <button type="button" class="btn-default">Get Group Recommendation</button>
+                        </a>
                          </div>
                          <div class="col-md-9">
                          </div>

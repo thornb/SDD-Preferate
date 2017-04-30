@@ -30,6 +30,12 @@ import java.lang.Long;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 
+// BEST PRACTICE: Facade 
+// Here, the front-end user is abstracted away from making any class objects for any database calls.
+// The user simply calls a specific url and it runs the correct function.
+// This class serves as a facade and simply creates a new objects to perform the logic and returns the correct information to the clien.
+// All the database calls and logic is abstracted away from the client  
+
 //This is the controller that runs the REST services on the site. It maps URLs to our other classes, that will ultimatly be converted to JSON objects by jackson and sent to the front-end
 @RestController
 public class RestServicesController {
@@ -49,6 +55,13 @@ public class RestServicesController {
 
 
     //when user queries the url "/userReviews", it returns a list of review objects made by that user in json 
+
+    // BEST PRACTICE: Facade 
+    // Here, the front-end user is abstracted away from making any class objects for any database calls.
+    // The user simply calls the url "/userReviews?user_id='valid_user_id'" and it runs this function.
+    // This function uses facade and simply creates a new ReviewList object and returns it.
+    // All the database calls and logic is abstracted away from the client  
+
     @CrossOrigin
     @RequestMapping("/userReviews")
     public ReviewList ReviewList(@RequestParam( value="user_id" ) String user_id ){
