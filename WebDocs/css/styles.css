@@ -45,12 +45,12 @@ h1{
 }*/
 .col-6{
 	background: #e2d5d7;
-	height:400;
+	/*height:500px;*/
 }
 #scroller{
 	overflow-x: hidden;
 	overflow-y: scroll;
-	max-height: 186px;
+	max-height: 500px;
 }
 #groupheader{
 	background:#000000;
