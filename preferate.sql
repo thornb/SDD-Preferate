@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2017 at 04:03 AM
+-- Generation Time: May 02, 2017 at 02:44 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -76,7 +76,9 @@ INSERT INTO `groups` (`relation_id`, `group_id`, `group_name`, `group_member`, `
 (8, 2, 'Pizza Team', 1454948344518241, 1454948344518241),
 (9, 3, 'Moes Knows', 10208861183747429, 1454948344518241),
 (10, 3, 'Moes Knows', 10203219280360494, 1454948344518241),
-(11, 3, 'Moes Knows', 1454948344518241, 1454948344518241);
+(11, 3, 'Moes Knows', 1454948344518241, 1454948344518241),
+(22, 4, 'Dinner Date', 103638233541076, 103785466859638),
+(23, 4, 'Dinner Date', 103785466859638, 103785466859638);
 
 -- --------------------------------------------------------
 
@@ -121,10 +123,10 @@ INSERT INTO `restaurant_reviews` (`restaurant_review`, `user_id`, `food_rating`,
 (1, 1, 0.4, 0.6, 0.7, ' tasty food ', 1, ' Moes'),
 (2, 3, 0.3, 0.5, 0.4, 'Not a fan of this location', 6, ' Cusatos'),
 (3, 3, 0.8, 0.5, 0.4, 'Good pasta', 11, 'Testos'),
-(4, 3, 0.5, 0.3, 0.4, ' Okay junk food', 11, ' McDonalds'),
-(5, 3, 0.8, 0.3, 0.6, ' Best pizza', 11, ' Pizza Bella'),
+(4, 103785466859638, 0.2, -0.6, 0.4, ' Come here at night', 11, ' McDonalds'),
 (6, 3, 0.6, 0.4, 0.8, 'Very fast service', 11, 'Burger King'),
 (7, 3, 0.8, 0.7, 0.1, ' Very good pizza', 8, ' Pizza Hut'),
+(8, 103785466859638, 0.5, 0.2, 0.7, 'Good Pizza', 11, 'Big Apple Pizza'),
 (12, 12, 0.7, 0.1, 0.1, '  Very bad!', 70, '  Applebees');
 
 -- --------------------------------------------------------
@@ -164,6 +166,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `diet_type`, `user_allergy`, `gluten`, `kosher`, `lactose`, `meats`, `eating_environment`) VALUES
 (33, '\0B\0r\0a\0n', '\0t\0e\0s\0t\02', '\0t\0e\0s\0t', '\0n', '\0n', '\0n', '\0t\0e\0s\0t\02', '\0t\0e\0s\0t'),
+(103638233541076, 'Amy Wong', 'Non-Vegetarian', 'Peanuts-', 'No', 'NA', 'Yes', 'None', 'Silent'),
+(103785466859638, 'Miguel Fernando', 'Non-Vegetarian', 'None', 'No', 'NA', 'Yes', 'None', 'Lively'),
 (1454948344518241, 'Brandon Thorne', 'Non-Vegetarian', 'None', 'No', 'No', 'Yes', 'None', 'Silent'),
 (10208861183747429, 'Ryan Sherman', 'Non-Vegetarian', 'None', 'No', 'NA', 'Yes', 'None', 'Lively');
 
@@ -222,7 +226,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `relation_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `relation_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `restaurant_reviews`
 --
